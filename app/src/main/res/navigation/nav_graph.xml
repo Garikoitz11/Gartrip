@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentPrincipal">
+
+    <fragment
+        android:id="@+id/fragmentPrincipal"
+        android:name="com.example.proyecto2.Fragments.FragmentPrincipal"
+        android:label="FragmentPrincipal" >
+        <action
+            android:id="@+id/action_fragmentPrincipal_to_fragmentProducto"
+            app:destination="@id/fragmentProducto" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPerfil"
+        android:name="com.example.proyecto2.Fragments.FragmentPerfil"
+        android:label="FragmentPerfil" >
+        <action
+            android:id="@+id/action_fragmentPerfil_to_fragmentEditarPerfil"
+            app:destination="@id/fragmentEditarPerfil" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProducto"
+        android:name="com.example.proyecto2.Fragments.FragmentProducto"
+        android:label="FragmentProducto" >
+        <argument
+            android:name="codigoProducto"
+            app:argType="string" />
+        <argument
+            android:name="tipoProducto"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPreferencias"
+        android:name="com.example.proyecto2.Fragments.FragmentPreferencias"
+        android:label="FragmentPreferencias" />
+    <fragment
+        android:id="@+id/fragmentEditarPerfil"
+        android:name="com.example.proyecto2.Fragments.FragmentEditarPerfil"
+        android:label="FragmentEditarPerfil" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="nombre"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="apellidos"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_fragmentEditarPerfil_to_fragmentPerfil"
+            app:destination="@id/fragmentPerfil" />
+    </fragment>
+</navigation>

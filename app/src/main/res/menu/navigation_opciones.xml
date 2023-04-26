@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="@string/tienda" />
+    <item
+        android:id="@+id/movil"
+        android:icon="@drawable/telefono"
+        android:title="@string/telefonos" />
+    <item
+        android:id="@+id/ordenador"
+        android:icon="@drawable/ord"
+        android:title="@string/ordenadores" />
+    <item
+        android:id="@+id/consola"
+        android:icon="@drawable/home"
+        android:title="@string/consolas" />
+    <item
+        android:id="@+id/otros"
+        android:icon="@drawable/otros"
+        android:title="@string/otros" />
+    <item android:title="@string/ajustes">
+        <menu>
+            <item
+                android:id="@+id/perfil"
+                android:icon="@drawable/profile"
+                android:title="@string/perfil" />
+            <item
+                android:id="@+id/idioma"
+                android:icon="@drawable/language"
+                android:title="@string/idioma" />
+            <item
+                android:id="@+id/preferencias"
+                android:icon="@drawable/ajustes"
+                android:title="@string/preferencias" />
+        </menu>
+    </item>
+
+</menu>
