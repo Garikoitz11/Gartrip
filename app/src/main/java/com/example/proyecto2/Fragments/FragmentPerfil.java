@@ -53,6 +53,7 @@ public class FragmentPerfil extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            //Obtiene el email que es el identificador del usuario
             email = getArguments().getString("email");
         }
     }
@@ -86,6 +87,7 @@ public class FragmentPerfil extends Fragment {
                                 String imagenUbicacion = workInfo.getOutputData().getString("imagen");
 
                                 if (imagenUbicacion != null) {
+                                    //Obtenemos la imagen y borramos el fichero intermedio
                                     imagen = BitmapFactory.decodeFile(imagenUbicacion);
 
                                     ImageView imageView = view.findViewById(R.id.imagenPerfil);
@@ -95,11 +97,11 @@ public class FragmentPerfil extends Fragment {
                                     file.delete();
                                 }
 
-                                TextView textoEmail = (TextView) view.findViewById(R.id.emailPerfil);
+                                TextView textoEmail = view.findViewById(R.id.emailPerfil);
                                 textoEmail.setText(email);
-                                TextView textoNombre = (TextView) view.findViewById(R.id.nombrePerfil);
+                                TextView textoNombre = view.findViewById(R.id.nombrePerfil);
                                 textoNombre.setText(nombre);
-                                TextView textoApellidos = (TextView) view.findViewById(R.id.apellidosPerfil);
+                                TextView textoApellidos = view.findViewById(R.id.apellidosPerfil);
                                 textoApellidos.setText(apellidos);
                             }
                             else {
@@ -113,15 +115,18 @@ public class FragmentPerfil extends Fragment {
                 });
         WorkManager.getInstance(getContext()).enqueue(otwr);
 
-        Button botonEditarPerfil = (Button) view.findViewById(R.id.botonEditarPerfil);
+        Button botonEditarPerfil = view.findViewById(R.id.botonEditarPerfil);
 
         botonEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Convertimos el bitmap a un array de bytes para poder enviarlo por el bundle
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                byte[] imagenBytes = stream.toByteArray();
+                byte[] imagenBytes = null;
+                if (imagen != null) {
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    imagenBytes = stream.toByteArray();
+                }
 
                 //Pasamos los datos a editar perfil
                 Bundle bundle = new Bundle();

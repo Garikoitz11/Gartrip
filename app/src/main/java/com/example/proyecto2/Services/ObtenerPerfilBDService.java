@@ -40,7 +40,8 @@ public class ObtenerPerfilBDService extends Worker {
     @Override
     public ListenableWorker.Result doWork() {
         //Declaramos la variable para devolver el resultado de la consulta
-        Data resultados = null;
+        Data resultados = new Data.Builder()
+                .build();;
 
         //Obtenemos los datos enviados desde la actividad
         String email = getInputData().getString("email");
@@ -73,7 +74,6 @@ public class ObtenerPerfilBDService extends Worker {
             int statusCode = urlConnection.getResponseCode();
 
             //Si la respuesta es correcta lee el resultado y lo almacena en la variable de tipo data para devolverlo a la actividad
-            //y poder comprobar si ha sido exitoso el login
             if (statusCode == 200) {
                 BufferedInputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
@@ -93,9 +93,11 @@ public class ObtenerPerfilBDService extends Worker {
                 String ubicacionImagen = null;
 
                 if (foto != null) {
+                    //Si la imagen no es nula la decodica y obtiene el bitmap
                     byte[] fotoDecodificada = Base64.decode(foto, Base64.DEFAULT);
                     Bitmap fotoBitmap = BitmapFactory.decodeByteArray(fotoDecodificada, 0, fotoDecodificada.length);
 
+                    //Guarda la imagen en un directorio privado que hara de intermediario ya que el objeto data no puede pasar mas de 10KB al worker
                     File eldirectorio = context.getFilesDir();
                     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
                     String nombrefichero = "IMG_" + timeStamp + "_";
@@ -109,6 +111,7 @@ public class ObtenerPerfilBDService extends Worker {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    //Guarda la ubicacion para pasarselo al data
                     ubicacionImagen = imagenFich.getAbsolutePath();
 
                 }

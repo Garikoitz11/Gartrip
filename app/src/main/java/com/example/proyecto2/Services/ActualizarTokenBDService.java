@@ -21,9 +21,6 @@ public class ActualizarTokenBDService extends Worker {
     @NonNull
     @Override
     public ListenableWorker.Result doWork() {
-        //Declaramos la variable para devolver el resultado de la consulta
-        Data resultados = null;
-
         //Obtenemos los datos enviados desde la actividad
         String email = getInputData().getString("email");
         String token = getInputData().getString("token");
@@ -57,6 +54,7 @@ public class ActualizarTokenBDService extends Worker {
             int statusCode = urlConnection.getResponseCode();
 
             if (statusCode == 200) {
+                //No hacemos nada
             }
         }
         catch (Exception e) {

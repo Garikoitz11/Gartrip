@@ -9,8 +9,6 @@ import java.io.IOException;
 
 public class ServicioFirebase extends FirebaseMessagingService {
 
-    private String tokenUsuario;
-
     public ServicioFirebase() {
     }
 
@@ -19,6 +17,7 @@ public class ServicioFirebase extends FirebaseMessagingService {
         super.onNewToken(s);
 
         try {
+            //Guarda el token en un fichero para que este se pueda recuperar al hacer login
             File file = new File(getFilesDir(), "token.txt");
             FileWriter writer = new FileWriter(file);
             writer.write(s);

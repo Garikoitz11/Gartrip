@@ -19,15 +19,19 @@ import androidx.work.WorkManager;
 import android.Manifest;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -45,6 +49,13 @@ import java.util.Locale;
 public class Login extends AppCompatActivity implements InterfaceIdioma {
 
     String idiomaApp;
+    String textoEmail;
+    String textoContraseña;
+    EditText email;
+    EditText contraseña;
+    AlarmManager gestor;
+    PendingIntent i2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +66,8 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
         //Miramos los datos guardados cuando hay rotacion de pantalla
         if (savedInstanceState!= null) {
             idiomaApp = savedInstanceState.getString("idioma");
+            textoEmail = savedInstanceState.getString("email");
+            textoContraseña = savedInstanceState.getString("textoContraseña");
         }
         //Miramos los datos guardados cuando se cambia el idioma y se hace finish (No pasa por onSaveInstance)
         else if (extras != null) {
@@ -76,23 +89,6 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
         getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
 
         setContentView(R.layout.activity_login);
-
-        //Creamos la alarma
-//        Calendar calendario= Calendar.getInstance();
-//        calendario.set(Calendar.HOUR_OF_DAY,12);
-//        calendario.set(Calendar.MINUTE,0);
-//        calendario.set(Calendar.SECOND,0);
-//
-//        Intent i= new Intent(getIntent());
-//        Intent intentBC = new Intent(this, ElReceiver.class);
-//        intentBC.setAction("enviarNotificacionRetorno");
-//
-//        PendingIntent i2= PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
-//        AlarmManager gestor= (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-//
-//        AlarmManager.AlarmClockInfo ac = new AlarmManager
-//                .AlarmClockInfo(calendario.getTimeInMillis(), i2);
-//        gestor.setAlarmClock(ac, i2);
 
         //Solicita permisos de poner notificaciones
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)!=
@@ -125,14 +121,30 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
             }
         }
 
+        //Añadimos el filtro al broadcast para que maneje la alarma
+        IntentFilter filter = new IntentFilter("enviarRetorno");
+        ElReceiver receiver = new ElReceiver();
+        registerReceiver(receiver, filter);
+
+        //Creamos el intent para abrir el broadcast
+        Intent intentBC = new Intent(Login.this, ElReceiver.class);
+        intentBC.setAction("enviarRetorno");
+
+        //Lo añadimos como pending para que se active en función de la alarma
+        i2= PendingIntent.getBroadcast(Login.this,0,intentBC,PendingIntent.FLAG_IMMUTABLE);
+        gestor= (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        //Envia la alarma cada 1h
+        gestor.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3600*1000, i2);
+
         //Obtenemos elementos del layout
-        Button iniciarSesion = (Button) findViewById(R.id.iniciarSesionLogin);
-        Button registro = (Button) findViewById(R.id.RegistroLogin);
-        ImageButton twitter = (ImageButton) findViewById(R.id.twitter);
-        EditText email = (EditText) findViewById(R.id.emailLogin);
-        EditText contraseña = (EditText) findViewById(R.id.contraseñaLogin);
-        ImageButton apagar = (ImageButton) findViewById(R.id.apagar);
-        ImageButton idioma = (ImageButton) findViewById(R.id.idioma);
+        Button iniciarSesion = findViewById(R.id.iniciarSesionLogin);
+        Button registro = findViewById(R.id.RegistroLogin);
+        ImageButton twitter = findViewById(R.id.twitter);
+        email = findViewById(R.id.emailLogin);
+        contraseña = findViewById(R.id.contraseñaLogin);
+        ImageButton apagar = findViewById(R.id.apagar);
+        ImageButton idioma = findViewById(R.id.idioma);
 
         apagar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,7 +213,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                                     boolean inicioCorrecto = workInfo.getOutputData().getBoolean("inicioCorrecto", false);
                                     if (inicioCorrecto) {
                                         //Si es correcto llevamos a la app al usuario y quitamos de la pila el login
-                                        //para que si le da a volver atras no le vaya aqui y salga de la app
+                                        //para que si le da a volver atras no vaya aqui y salga de la app
                                         Intent i = new Intent (Login.this, ActividadPrincipal.class);
                                         i.putExtra("email", email.getText().toString());
                                         startActivity(i);
@@ -261,8 +273,16 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
-        //guarda el idioma si hay rotacion de pantalla, cambio a modo oscuro, etc
+        //Guarda el idioma, email y contraseña si hay rotacion de pantalla, cambio a modo oscuro, etc
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putString("idioma", idiomaApp);
+        savedInstanceState.putString("email", email.getText().toString());
+        savedInstanceState.putString("contraseña", contraseña.getText().toString());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        gestor.cancel(i2);
     }
 }

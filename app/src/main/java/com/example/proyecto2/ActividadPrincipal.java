@@ -1,11 +1,19 @@
 package com.example.proyecto2;
 
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -19,11 +27,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
+import com.example.proyecto2.Broadcasts.ElReceiver;
 import com.example.proyecto2.Dialogs.Idioma;
 import com.example.proyecto2.Services.ActualizarTokenBDService;
 import com.example.proyecto2.Services.ObtenerPerfilBDService;
@@ -36,10 +46,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class ActividadPrincipal extends AppCompatActivity implements InterfaceIdioma{
 
+    private static ActividadPrincipal instancia;
     DrawerLayout elmenudesplegable;
     String email;
     String idiomaApp;
@@ -47,6 +59,9 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Guardamos la instancia de la actividad para poder utilizarla desde fragments, etc
+        instancia = this;
 
         //Obtenemos los parametros que recibe del login o del idioma
         Bundle extras = getIntent().getExtras();
@@ -57,8 +72,10 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
 
         String token = null;
         try {
+            //Leemos el token del fichero guardado del servicio de firebase
             File file = new File(getFilesDir(), "token.txt");
             if (file.exists()) {
+                //Si existe significa que al lanzar la app ha habido nuevo token y actualizamos el perfil del usuario
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 token = reader.readLine();
                 reader.close();
@@ -79,16 +96,17 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                     .setInputData(datos)
                     .build();
 
-            //Le añadimos un observable para que actue una vez reciba de vuelta algo
+            //Le añadimos un observable para que actue una vez reciba una respuesta
             WorkManager.getInstance(this).getWorkInfoByIdLiveData(otwr.getId())
                     .observe(this, new Observer<WorkInfo>() {
                         @Override
                         public void onChanged(WorkInfo workInfo) {
                             if(workInfo != null && workInfo.getState().isFinished()){
-
+                            //No vamos a interactuar con el usuario, es algo que se hace sin que este se entere
                             }
                         }
                     });
+            //Encolamos el worker
             WorkManager.getInstance(this).enqueue(otwr);
         }
 
@@ -224,5 +242,10 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
     public String obtenerUsuario() {
         return email;
     }
+
+    public static ActividadPrincipal getInstance() {
+        return instancia;
+    }
+
 
 }

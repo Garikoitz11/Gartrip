@@ -7,12 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +20,9 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 import androidx.work.Data;
@@ -37,12 +30,9 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
-import com.example.proyecto2.ActividadPrincipal;
 import com.example.proyecto2.R;
 import com.example.proyecto2.Services.ActualizarPerfilBDService;
-import com.example.proyecto2.Services.ObtenerPerfilBDService;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -52,7 +42,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.apache.commons.codec.binary.Hex;
 
 public class FragmentEditarPerfil extends Fragment {
 
@@ -88,7 +77,12 @@ public class FragmentEditarPerfil extends Fragment {
         View view = inflater.inflate(R.layout.fragment_editar_perfil, container, false);
 
         //Obtenemos de nuevo la imagen en modo bitmap para mostrarla
-        Bitmap imagenBitmap = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
+        Bitmap imagenBitmap;
+        if (imagenBytes != null) {
+            imagenBitmap  = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
+            imagen =  view.findViewById(R.id.imagenEditarPerfil);
+            imagen.setImageBitmap(imagenBitmap);
+        }
 
         textoEmail = view.findViewById(R.id.textoEmail);
         textoEmail.setText(email);
@@ -97,8 +91,6 @@ public class FragmentEditarPerfil extends Fragment {
         textoNombre.setText(nombre);
         textoApellidos = view.findViewById(R.id.editTextApellidos);
         textoApellidos.setText(apellidos);
-        imagen =  view.findViewById(R.id.imagenEditarPerfil);
-        imagen.setImageBitmap(imagenBitmap);
 
         pickMedia  = registerForActivityResult(new
                         ActivityResultContracts.PickVisualMedia(), uri -> {
@@ -157,11 +149,11 @@ public class FragmentEditarPerfil extends Fragment {
                         aviso.show();                    }
                 });
 
-        Button botonEditarPerfil = (Button) view.findViewById(R.id.botonSeleccionarFoto);
+        Button botonEditarPerfil = view.findViewById(R.id.botonSeleccionarFoto);
         botonEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //abrimos la galeria para seleccionar nuestra foto
+                //Abrimos la galeria para seleccionar nuestra foto
                 pickMedia.launch(new PickVisualMediaRequest.Builder()
                         .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
                         .build());
@@ -184,7 +176,7 @@ public class FragmentEditarPerfil extends Fragment {
             }
         });
 
-        Button botonGuardarPerfil = (Button) view.findViewById(R.id.botonGuardarPerfil);
+        Button botonGuardarPerfil = view.findViewById(R.id.botonGuardarPerfil);
         botonGuardarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

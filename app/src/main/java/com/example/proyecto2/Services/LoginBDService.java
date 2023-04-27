@@ -27,9 +27,10 @@ public class LoginBDService extends Worker{
     @NonNull
     @Override
     public Result doWork() {
-        //Declaramos la variable para devolver el resultado de la consulta
-
-        Data resultados = null;
+        //Declaramos la variable para devolver el resultado de la consulta. No la inicializamos a null porque si el servidor da error
+        //se nos crashea la app por null pointer exception
+        Data resultados = new Data.Builder()
+                .build();
         //Obtenemos los datos enviados desde la actividad
         String email = getInputData().getString("email");
         String contrasena = getInputData().getString("contrasena");

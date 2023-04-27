@@ -27,11 +27,14 @@
         android:id="@+id/fragmentProducto"
         android:name="com.example.proyecto2.Fragments.FragmentProducto"
         android:label="FragmentProducto" >
+        <action
+            android:id="@+id/action_fragmentProducto_to_fragmentMapa"
+            app:destination="@id/fragmentMapa" />
         <argument
-            android:name="codigoProducto"
+            android:name="codigo"
             app:argType="string" />
         <argument
-            android:name="tipoProducto"
+            android:name="tipo"
             app:argType="string" />
     </fragment>
     <fragment
@@ -56,5 +59,36 @@
         <action
             android:id="@+id/action_fragmentEditarPerfil_to_fragmentPerfil"
             app:destination="@id/fragmentPerfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMapa"
+        android:name="com.example.proyecto2.Fragments.FragmentMapa"
+        android:label="FragmentMapa" >
+        <action
+            android:id="@+id/action_fragmentMapa_to_fragmentFactura"
+            app:destination="@id/fragmentFactura" />
+        <argument
+            android:name="nombreProducto"
+            app:argType="string" />
+        <argument
+            android:name="precioProducto"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFactura"
+        android:name="com.example.proyecto2.Fragments.FragmentFactura"
+        android:label="FragmentFactura" >
+        <action
+            android:id="@+id/action_fragmentFactura_to_fragmentPrincipal"
+            app:destination="@id/fragmentPrincipal" />
+        <argument
+            android:name="nombreProducto"
+            app:argType="string" />
+        <argument
+            android:name="precioProducto"
+            app:argType="string" />
+        <argument
+            android:name="lugar"
+            app:argType="string" />
     </fragment>
 </navigation>

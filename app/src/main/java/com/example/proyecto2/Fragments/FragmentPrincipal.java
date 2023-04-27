@@ -85,6 +85,7 @@ public class FragmentPrincipal extends Fragment {
                     j++;
                 }
             }
+            //Los datos filtrados por el filtro del getArguments
             mostrarData(nuevoArrayImagenes, nuevoArrayNombres, nuevoArrayPrecios);
 
         }
@@ -94,8 +95,10 @@ public class FragmentPrincipal extends Fragment {
 
     public void mostrarData(int[] productosImagenes, String[] productosNombres, String[] productosPrecios) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        //En funcion de las preferencias del usuario
         Boolean mostrarPrecio = prefs.getBoolean("mostrarPrecio", false);
 
+        //Crea el recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         productosAdaptador = new ProductosAdaptador(productosNombres, productosImagenes, productosPrecios, categoria, mostrarPrecio);
         recyclerView.setAdapter(productosAdaptador);

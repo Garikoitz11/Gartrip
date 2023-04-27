@@ -36,7 +36,8 @@ public class ActualizarPerfilBDService extends Worker {
     @Override
     public ListenableWorker.Result doWork() {
         //Declaramos la variable para devolver el resultado de la consulta
-        Data resultados = null;
+        Data resultados = new Data.Builder()
+                .build();
 
         //Obtenemos los datos enviados desde la actividad
         String email = getInputData().getString("email");
@@ -48,16 +49,17 @@ public class ActualizarPerfilBDService extends Worker {
         String fotoen64 = null;
 
         if (foto != null) {
-            // Crear un objeto File con la ubicación de la imagen
+            //Crea un objeto File con la ubicación de la imagen
             File imagenFich = new File(foto);
 
-            // Crear un objeto FileInputStream para leer la imagen
+            //Crear un objeto FileInputStream para leer la imagen
             FileInputStream fis = null;
             try {
                 fis = new FileInputStream(imagenFich);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+            //Obtiene la foto en bitmap a partir del fichero y la codifica en base 64 para enviarla al servidor
             Bitmap fotoBitmap = BitmapFactory.decodeStream(fis);
 
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -95,11 +97,10 @@ public class ActualizarPerfilBDService extends Worker {
             out.print(parametros);
             out.close();
 
-            //Espera a la respues del servidor
+            //Espera a la respuesta del servidor
             int statusCode = urlConnection.getResponseCode();
 
             //Si la respuesta es correcta lee el resultado y lo almacena en la variable de tipo data para devolverlo a la actividad
-            //y poder comprobar si ha sido exitoso el login
             if (statusCode == 200) {
                 BufferedInputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));

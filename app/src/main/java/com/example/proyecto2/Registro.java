@@ -91,13 +91,14 @@ public class Registro extends AppCompatActivity {
                     imm.hideSoftInputFromWindow(focus.getWindowToken(), 0);
                 }
 
-                EditText contraseña = (EditText) findViewById(R.id.contraseñaRegistro);
-                EditText repetirContraseña = (EditText) findViewById(R.id.repetirContraseñaRegistro);
+                EditText contraseña = findViewById(R.id.contraseñaRegistro);
+                EditText repetirContraseña = findViewById(R.id.repetirContraseñaRegistro);
                 contraseñaIntroducida = contraseña.getText().toString();
                 String contraseñaRepetidaIntroducida = repetirContraseña.getText().toString();
 
+                //Comprobamos que coincidan las contraseñas
                 if(contraseñaIntroducida.equals(contraseñaRepetidaIntroducida)) {
-                    EditText email = (EditText) findViewById(R.id.emailRegistro);
+                    EditText email = findViewById(R.id.emailRegistro);
                     emailIntroducido = email.getText().toString();
 
                     Data datos = new Data.Builder()
@@ -163,11 +164,12 @@ public class Registro extends AppCompatActivity {
     //Guardamos los datos de interes antes de destruir la actividad por la rotacion de pantalla
     @Override
     protected void onSaveInstanceState (Bundle savedInstanceState) {
-        //Guarda lo deseado al hacer rotacion etc
         super.onSaveInstanceState(savedInstanceState);
-        EditText email = (EditText) findViewById(R.id.emailRegistro);
+
+        //Guarda lo deseado al hacer rotacion, etc
+        EditText email = findViewById(R.id.emailRegistro);
         savedInstanceState.putString("emailIntroducido",  email.getText().toString());
-        EditText contraseña = (EditText) findViewById(R.id.contraseñaRegistro);
+        EditText contraseña = findViewById(R.id.contraseñaRegistro);
         savedInstanceState.putString("contraseñaIntroducida",  contraseña.getText().toString());
         savedInstanceState.putString("idioma",  idiomaApp);
     }

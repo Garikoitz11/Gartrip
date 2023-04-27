@@ -28,7 +28,8 @@ public class RegistroBDService extends Worker{
     @Override
     public Result doWork() {
         //Declaramos la variable para devolver el resultado de la consulta
-        Data resultados = null;
+        Data resultados = new Data.Builder()
+                .build();
 
         //Obtenemos los datos enviados desde la actividad
         String email = getInputData().getString("email");
@@ -61,11 +62,10 @@ public class RegistroBDService extends Worker{
             out.print(parametros);
             out.close();
 
-            //Espera a la respues del servidor
+            //Espera la respuesta del servidor
             int statusCode = urlConnection.getResponseCode();
 
             //Si la respuesta es correcta lee el resultado y lo almacena en la variable de tipo data para devolverlo a la actividad
-            //y poder comprobar si ha sido exitoso el login
             if (statusCode == 200) {
                 BufferedInputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
