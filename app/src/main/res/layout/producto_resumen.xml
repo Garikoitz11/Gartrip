@@ -11,39 +11,80 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="275dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/foto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/texto"
-            android:layout_width="wrap_content"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/foto"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="0dp"
-            android:gravity="center" />
+            android:layout_marginStart="111dp"
+            android:layout_marginTop="-108dp"
+            android:layout_marginEnd="2dp"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/precio"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/direccion"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="283dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="2dp"
+            android:gravity="center"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/texto"
-            android:layout_alignParentStart="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@+id/foto"
+            card_view:srcCompat="@drawable/direccion" />
+
+        <TextView
+            android:id="@+id/direccion"
+            android:layout_width="251dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/texto"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="0dp"
-            android:gravity="center" />
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/foto" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/direccion"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="-27dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="86dp"
+            android:layout_toEndOf="@+id/foto"
+            android:backgroundTint="#FFCC01"
+            android:numStars="5"
+            android:progressTint="#FFCC01"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:secondaryProgressTint="@android:color/transparent" />
 
     </RelativeLayout>
 
