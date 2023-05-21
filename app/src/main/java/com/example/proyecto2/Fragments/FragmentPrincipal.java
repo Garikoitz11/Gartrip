@@ -13,22 +13,51 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.proyecto2.Adapters.ProductosAdaptador;
+import com.example.proyecto2.Adapters.HotelesAdaptador;
 import com.example.proyecto2.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 
 public class FragmentPrincipal extends Fragment {
 
-    ProductosAdaptador productosAdaptador;
+    HotelesAdaptador hotelesAdaptador;
     RecyclerView recyclerView;
     String categoria;
     String email;
+    List<String[]> rows = new ArrayList<>();
 
+    EditText editTextLupa;
+    List<String> hotelesNombres = new ArrayList<>();
+    List<String> hotelesPrecios = new ArrayList<>();
+    List<String> hotelesDireccion = new ArrayList<>();
+    ArrayList<Integer> hotelesImagenes = new ArrayList<>();
+    ArrayList<Float> hotelesEstrella = new ArrayList<>();
+    ArrayList<String> filteredListNombre = new ArrayList<>();
+    ArrayList<String> filteredListPrecio = new ArrayList<>();
+    ArrayList<Integer> filteredListImagen = new ArrayList<>();
+    List<String> filteredListDireccion = new ArrayList<>();
+    ArrayList<Float> filteredListEstrella = new ArrayList<>();
+
+    SeekBar barraPrecio;
+    TextView precioSeekBar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,23 +74,37 @@ public class FragmentPrincipal extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_principal, container, false);
         recyclerView = view.findViewById(R.id.recycler);
+        barraPrecio = view.findViewById(R.id.barraPrecio);
+        precioSeekBar=view.findViewById(R.id.id_textView_PrecioCambiante);
 
-        //Los arrays de los productos
-        int[] productosImagenes= {R.drawable.iphone14, R.drawable.ps5, R.drawable.auriculares, R.drawable.fifa23,
-                R.drawable.gow, R.drawable.macbookpro13, R.drawable.nothingphone, R.drawable.ordenador, R.drawable.ordenador2,
-                R.drawable.pocox4, R.drawable.ratonlogitech, R.drawable.victus16, R.drawable.xiaomiredmia1, R.drawable.cod};
-        String[] productosNombres= {"Iphone 14","Play Station 5", "Auriculares inalámbricos", "FIFA 23", "God of War Ragnarok",
-                "Macbook Pro 13", "Nothing Phone 1", "PC Racing Gaming AMD", "PC Racing Intel", "Poco X4", "Ratón Logitech",
-                "Victus 16", "Xiaomi Redmi A1", "COD Cold War"};
-        String[] productosPrecios= {"1459€","549€", "126,26€", "54,99€", "66,99€",
-                "1410€", "499€", "950,99€", "610,99€", "394,72€", "31,99€",
-                "1199€", "99,99€", "23,99€"};
+
+
+        Log.i("num elementos", String.valueOf(hotelesNombres.size()));
+        if(hotelesNombres.size()==0){
+            recogerInfo();
+            for (int i = 0; i < rows.size(); i++) {
+                Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i, rows.get(i)[1], rows.get(i)[2],rows.get(i)[3],rows.get(i)[5],rows.get(i)[4]));
+                hotelesNombres.add(rows.get(i)[1]);
+                hotelesPrecios.add(rows.get(i)[2]);
+                hotelesDireccion.add(rows.get(i)[3]);
+                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[4], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
+                hotelesEstrella.add(Float.valueOf(rows.get(i)[5]));
+            }
+            String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
+            String[] filteredListPrecioArray = hotelesPrecios.toArray(new String[hotelesPrecios.size()]);
+            String[] filteredListDireccionArray = hotelesDireccion.toArray(new String[hotelesDireccion.size()]);
+            mostrarData(convertIntegers(hotelesImagenes), filteredListNombreArray, filteredListPrecioArray, filteredListDireccionArray, convertFloat(hotelesEstrella));
+
+        }
+
+/*
         String[] productosCategoria= {"movil","consola", "otros", "consola", "consola",
                 "ordenador", "movil", "ordenador", "ordenador", "movil", "otros",
                 "ordenador", "movil", "consola"};
 
         if (categoria.equals("todos")) {
-            mostrarData(productosImagenes, productosNombres, productosPrecios);
+
+            mostrarData(convertIntegers(hotelesImagenes), filteredListNombreArray, filteredListPrecioArray, filteredListDireccionArray, convertFloat(hotelesEstrella));
         }
         else {
             ArrayList<Integer> index = new ArrayList<Integer>();
@@ -75,36 +118,216 @@ public class FragmentPrincipal extends Fragment {
             String [] nuevoArrayNombres = new String[index.size()];
             int [] nuevoArrayImagenes = new int[index.size()];
             String [] nuevoArrayPrecios = new String[index.size()];
+            String [] nuevoArrayDirecciones = new String[index.size()];
+            float [] nuevoArrayPuntuaciones = new float[index.size()];
 
             int j = 0;
-            for (int h = 0; h < productosNombres.length; h++) {
+            for (int h = 0; h < rows.size(); h++) {
                 if(index.contains(h)) {
-                    nuevoArrayNombres[j] = productosNombres[h];
-                    nuevoArrayImagenes[j] = productosImagenes[h];
-                    nuevoArrayPrecios[j] = productosPrecios[h];
+                    nuevoArrayNombres[j] = hotelesNombres.get(h);
+                    nuevoArrayImagenes[j] = hotelesImagenes.get(h);
+                    nuevoArrayPrecios[j] = hotelesPrecios.get(h);
+                    nuevoArrayDirecciones[j] = hotelesDireccion.get(h);
+                    nuevoArrayPuntuaciones[j] = hotelesEstrella.get(h);
                     j++;
                 }
             }
             //Los datos filtrados por el filtro del getArguments
-            mostrarData(nuevoArrayImagenes, nuevoArrayNombres, nuevoArrayPrecios);
-
+            mostrarData(nuevoArrayImagenes, nuevoArrayNombres, nuevoArrayPrecios, nuevoArrayDirecciones, nuevoArrayPuntuaciones);
         }
+
+*/
+
+        //Comenzamos el filtrado segun el texto introducido(hotel o ciudad/país)
+        editTextLupa = view.findViewById(R.id.id_editTextBuscador);
+        editTextLupa.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                //Cada vez que cambiamos el texto comprobamos el precio máximo establecido
+                String precio = precioSeekBar.getText().toString();
+                String[] r = precio.split("€"); //quitamos el simbolo del euro para tener el int
+                int p = Integer.parseInt(r[0]);
+                filter(charSequence.toString(),p);
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        //Configuramos el seekBar
+        barraPrecio.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+                precioSeekBar.setVisibility(View.VISIBLE);
+                precioSeekBar.setText(String.valueOf(i) + "€");//muestra el progreso
+                filtrarPrecio(i);//llamamos a filtrar precio
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+
 
         return view;
     }
 
-    public void mostrarData(int[] productosImagenes, String[] productosNombres, String[] productosPrecios) {
+    private void filtrarPrecio(int precioMax) {
+
+        //establecemos el precio maximo y llamamos al filtrado de nombre
+        filter(editTextLupa.getText().toString(),precioMax);
+    }
+
+    private void filter(String texto, int precioMax) {
+
+        //id para encontrar la pos del nombre y luego buscar en los demas [] y obtener todos los datos
+        Log.i("buscador actual: ", texto);
+
+        int idNombre = 0;
+        int idDireccion = 0;
+
+        //Vaciamos las listas con los resultados anteriores
+        filteredListNombre.clear();
+        filteredListImagen.clear();
+        filteredListPrecio.clear();
+        filteredListDireccion.clear();
+        filteredListEstrella.clear();
+        Log.i("Llega","si");
+
+
+        //Filtramos por nombre de hotel(comparamos cada precio del hotel)
+        for (String nombre : hotelesNombres) {
+            if (!filteredListNombre.contains(nombre)) {
+                if (nombre.toLowerCase().contains(texto.toLowerCase() )) {
+                    String precio = hotelesPrecios.get(idNombre);
+                    String[] result = precio.split("€");
+                    int precioHotel = Integer.parseInt(result[0]);
+                    if(precioHotel<=precioMax){
+                        filteredListNombre.add(nombre);
+                        filteredListPrecio.add(hotelesPrecios.get(idNombre));
+                        filteredListImagen.add(hotelesImagenes.get(idNombre));
+                        filteredListDireccion.add(hotelesDireccion.get(idNombre));
+                        filteredListEstrella.add(hotelesEstrella.get(idNombre));
+                    }
+                }
+            }
+
+            idNombre += 1;
+        }
+
+        //Filtramos por direccion (comparamos cada precio del hotel)
+        for (String direccion : hotelesDireccion) {
+            if(!filteredListNombre.contains(hotelesNombres.get(idDireccion))){
+                if (direccion.toLowerCase().contains(texto.toLowerCase())) {
+                    String precio = hotelesPrecios.get(idDireccion);
+                    String[] result = precio.split("€");
+                    int precioHotel = Integer.parseInt(result[0]);
+                    if(precioHotel<=precioMax) {
+                        filteredListNombre.add(hotelesNombres.get(idDireccion));
+                        filteredListPrecio.add(hotelesPrecios.get(idDireccion));
+                        filteredListImagen.add(hotelesImagenes.get(idDireccion));
+                        filteredListDireccion.add(hotelesDireccion.get(idDireccion));
+                        filteredListEstrella.add(hotelesEstrella.get(idDireccion));
+                    }
+                }
+            }
+            idDireccion += 1;
+        }
+
+
+        if(filteredListNombre.size()==0){
+            Log.i("entraaaa", "siii");
+            Toast.makeText(getContext(),"No se ha encontrado ningun resultado", Toast.LENGTH_SHORT);//No se por que no lo hace no pilla el contexto¿?
+        }
+
+        //Pasamos de arrayList a array para adaptarse al formato del mostrarData()
+        String[] filtroBuscadorListNombreArray = filteredListNombre.toArray(new String[filteredListNombre.size()]);
+        String[] filtroBuscadorListPrecioArray = filteredListPrecio.toArray(new String[filteredListPrecio.size()]);
+        int[] filtroBuscadorListImagenArray = convertIntegers(filteredListImagen);
+        String[] filtroBuscadorListDireccionArray = filteredListDireccion.toArray(new String[filteredListDireccion.size()]);
+        Log.i("nº productos", String.valueOf(filtroBuscadorListNombreArray.length));
+
+
+        mostrarData(filtroBuscadorListImagenArray, filtroBuscadorListNombreArray, filtroBuscadorListPrecioArray, filtroBuscadorListDireccionArray, convertFloat(filteredListEstrella));
+
+
+
+
+
+    }
+
+
+
+    public void mostrarData(int[] hotelesImagenes, String[] hotelesNombres, String[] hotelesPrecios, String[] hotelesDireccion, float[] estrellasHoteles) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         //En funcion de las preferencias del usuario
-        Boolean mostrarPrecio = prefs.getBoolean("mostrarPrecio", false);
+        Boolean mostrarPrecio = prefs.getBoolean("mostrarPrecio", true);
 
         //Crea el recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        productosAdaptador = new ProductosAdaptador(productosNombres, productosImagenes, productosPrecios, categoria, mostrarPrecio);
-        recyclerView.setAdapter(productosAdaptador);
+        hotelesAdaptador = new HotelesAdaptador(hotelesNombres, hotelesImagenes, hotelesPrecios, hotelesDireccion, estrellasHoteles, categoria, mostrarPrecio);
+        recyclerView.setAdapter(hotelesAdaptador);
 
-        GridLayoutManager rejilla= new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
+        GridLayoutManager rejilla= new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(rejilla);
+    }
+
+    public static int[] convertIntegers(ArrayList<Integer> integers)
+    {
+        int[] ret = new int[integers.size()];
+        Iterator<Integer> iterator = integers.iterator();
+        for (int i = 0; i < ret.length; i++)
+        {
+            ret[i] = iterator.next().intValue();
+        }
+        return ret;
+    }
+
+    public static float[] convertFloat(ArrayList<Float> integers)
+    {
+        float[] ret = new float[integers.size()];
+        Iterator<Float> iterator = integers.iterator();
+        for (int i = 0; i < ret.length; i++)
+        {
+            ret[i] = iterator.next().intValue();
+        }
+        return ret;
+    }
+
+    //Metodo de recoleccion del archivo de texto
+    private void recogerInfo(){
+        //Se obtiene el archivo
+        InputStream fich = getResources().openRawResource(R.raw.hoteles);
+        BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
+        String splitby = ";";
+        String linea;
+
+        //Por cada linea de texto
+        try {
+            //Recogida
+            buff.readLine();
+            //Recogida de cada columna
+            while ((linea=buff.readLine())!=null){
+                String[] row = linea.split(splitby);
+                rows.add(row);
+            }
+            //Cierre
+            fich.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
