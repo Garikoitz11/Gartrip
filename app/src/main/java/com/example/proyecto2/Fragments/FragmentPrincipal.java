@@ -243,7 +243,6 @@ public class FragmentPrincipal extends Fragment {
                     }
                 }
             }
-
             idDireccion += 1;
         }
 
