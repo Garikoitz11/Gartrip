@@ -93,7 +93,7 @@ public class FragmentPrincipal extends Fragment {
             String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
             String[] filteredListPrecioArray = hotelesPrecios.toArray(new String[hotelesPrecios.size()]);
             String[] filteredListDireccionArray = hotelesDireccion.toArray(new String[hotelesDireccion.size()]);
-          //  mostrarData(convertIntegers(hotelesImagenes), filteredListNombreArray, filteredListPrecioArray, filteredListDireccionArray, convertFloat(hotelesEstrella));
+            mostrarData(convertIntegers(hotelesImagenes), filteredListNombreArray, filteredListPrecioArray, filteredListDireccionArray, convertFloat(hotelesEstrella));
 
         }
 
