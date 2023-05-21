@@ -77,20 +77,27 @@ public class FragmentPrincipal extends Fragment {
         barraPrecio = view.findViewById(R.id.barraPrecio);
         precioSeekBar=view.findViewById(R.id.id_textView_PrecioCambiante);
 
-        recogerInfo();
 
-        for (int i = 0; i < rows.size(); i++) {
-            Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i, rows.get(i)[0], rows.get(i)[1],rows.get(i)[2],rows.get(i)[4],rows.get(i)[3]));
-            hotelesNombres.add(rows.get(i)[0]);
-            hotelesPrecios.add(rows.get(i)[1]);
-            hotelesDireccion.add(rows.get(i)[2]);
-            hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[3], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
-            hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
+
+        Log.i("num elementos", String.valueOf(hotelesNombres.size()));
+        if(hotelesNombres.size()==0){
+            recogerInfo();
+            for (int i = 0; i < rows.size(); i++) {
+                Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i, rows.get(i)[0], rows.get(i)[1],rows.get(i)[2],rows.get(i)[4],rows.get(i)[3]));
+                hotelesNombres.add(rows.get(i)[0]);
+                hotelesPrecios.add(rows.get(i)[1]);
+                hotelesDireccion.add(rows.get(i)[2]);
+                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[3], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
+                hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
+            }
+            String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
+            String[] filteredListPrecioArray = hotelesPrecios.toArray(new String[hotelesPrecios.size()]);
+            String[] filteredListDireccionArray = hotelesDireccion.toArray(new String[hotelesDireccion.size()]);
+            mostrarData(convertIntegers(hotelesImagenes), filteredListNombreArray, filteredListPrecioArray, filteredListDireccionArray, convertFloat(hotelesEstrella));
+
         }
-        String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
-        String[] filteredListPrecioArray = hotelesPrecios.toArray(new String[hotelesPrecios.size()]);
-        String[] filteredListDireccionArray = hotelesDireccion.toArray(new String[hotelesDireccion.size()]);
 
+/*
         String[] productosCategoria= {"movil","consola", "otros", "consola", "consola",
                 "ordenador", "movil", "ordenador", "ordenador", "movil", "otros",
                 "ordenador", "movil", "consola"};
@@ -128,6 +135,8 @@ public class FragmentPrincipal extends Fragment {
             //Los datos filtrados por el filtro del getArguments
             mostrarData(nuevoArrayImagenes, nuevoArrayNombres, nuevoArrayPrecios, nuevoArrayDirecciones, nuevoArrayPuntuaciones);
         }
+
+*/
 
         //Comenzamos el filtrado segun el texto introducido(hotel o ciudad/país)
         editTextLupa = view.findViewById(R.id.id_editTextBuscador);
@@ -195,38 +204,43 @@ public class FragmentPrincipal extends Fragment {
         filteredListPrecio.clear();
         filteredListDireccion.clear();
         filteredListEstrella.clear();
+        Log.i("Llega","si");
 
 
         //Filtramos por nombre de hotel(comparamos cada precio del hotel)
         for (String nombre : hotelesNombres) {
-            if (nombre.toLowerCase().contains(texto.toLowerCase())) {
-                String precio = hotelesPrecios.get(idNombre);
-                String[] result = precio.split("€");
-                int precioHotel = Integer.parseInt(result[0]);
-                if(precioHotel<=precioMax){
-                    filteredListNombre.add(nombre);
-                    filteredListPrecio.add(hotelesPrecios.get(idNombre));
-                    filteredListImagen.add(hotelesImagenes.get(idNombre));
-                    filteredListDireccion.add(hotelesDireccion.get(idNombre));
-                    filteredListEstrella.add(hotelesEstrella.get(idNombre));
+            if (!filteredListNombre.contains(nombre)) {
+                if (nombre.toLowerCase().contains(texto.toLowerCase() )) {
+                    String precio = hotelesPrecios.get(idNombre);
+                    String[] result = precio.split("€");
+                    int precioHotel = Integer.parseInt(result[0]);
+                    if(precioHotel<=precioMax){
+                        filteredListNombre.add(nombre);
+                        filteredListPrecio.add(hotelesPrecios.get(idNombre));
+                        filteredListImagen.add(hotelesImagenes.get(idNombre));
+                        filteredListDireccion.add(hotelesDireccion.get(idNombre));
+                        filteredListEstrella.add(hotelesEstrella.get(idNombre));
+                    }
                 }
-
             }
+
             idNombre += 1;
         }
 
         //Filtramos por direccion (comparamos cada precio del hotel)
-        for (String nombre : hotelesDireccion) {
-            if (nombre.toLowerCase().contains(texto.toLowerCase())) {
-                String precio = hotelesPrecios.get(idDireccion);
-                String[] result = precio.split("€");
-                int precioHotel = Integer.parseInt(result[0]);
-                if(precioHotel<=precioMax) {
-                    filteredListNombre.add(hotelesNombres.get(idDireccion));
-                    filteredListPrecio.add(hotelesPrecios.get(idDireccion));
-                    filteredListImagen.add(hotelesImagenes.get(idDireccion));
-                    filteredListDireccion.add(hotelesDireccion.get(idDireccion));
-                    filteredListEstrella.add(hotelesEstrella.get(idDireccion));
+        for (String direccion : hotelesDireccion) {
+            if(!filteredListNombre.contains(hotelesNombres.get(idDireccion))){
+                if (direccion.toLowerCase().contains(texto.toLowerCase())) {
+                    String precio = hotelesPrecios.get(idDireccion);
+                    String[] result = precio.split("€");
+                    int precioHotel = Integer.parseInt(result[0]);
+                    if(precioHotel<=precioMax) {
+                        filteredListNombre.add(hotelesNombres.get(idDireccion));
+                        filteredListPrecio.add(hotelesPrecios.get(idDireccion));
+                        filteredListImagen.add(hotelesImagenes.get(idDireccion));
+                        filteredListDireccion.add(hotelesDireccion.get(idDireccion));
+                        filteredListEstrella.add(hotelesEstrella.get(idDireccion));
+                    }
                 }
             }
             idDireccion += 1;

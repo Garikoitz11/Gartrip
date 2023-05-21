@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,6 +98,7 @@ public class FragmentProducto extends Fragment {
         pagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i("ENTRA QUI", "siii");
                 //Si decide comprar
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 Boolean esMayorEdad = prefs.getBoolean("mayorEdad", false);
