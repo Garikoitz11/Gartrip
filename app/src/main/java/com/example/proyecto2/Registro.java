@@ -32,6 +32,8 @@ import java.util.Locale;
 
 public class Registro extends AppCompatActivity {
 
+    String nombreIntroducido;
+    String apellidoIntroducido;
     String emailIntroducido;
     String contraseñaIntroducida;
     String idiomaApp;
@@ -45,6 +47,8 @@ public class Registro extends AppCompatActivity {
 
         //Obtiene datos guardados onSave
         if (savedInstanceState!= null) {
+            nombreIntroducido = savedInstanceState.getString("nombreIntroducido");
+            apellidoIntroducido = savedInstanceState.getString("apellidoIntroducido");
             emailIntroducido = savedInstanceState.getString("emailIntroducido");
             contraseñaIntroducida = savedInstanceState.getString("contraseñaIntroducida");
             idiomaApp = savedInstanceState.getString("idioma");
@@ -98,10 +102,16 @@ public class Registro extends AppCompatActivity {
 
                 //Comprobamos que coincidan las contraseñas
                 if(contraseñaIntroducida.equals(contraseñaRepetidaIntroducida)) {
+                    EditText nombre = findViewById(R.id.nombreRegistro);
+                    nombreIntroducido = nombre.getText().toString();
+                    EditText apellidos = findViewById(R.id.apellidoRegistro);
+                    apellidoIntroducido = apellidos.getText().toString();
                     EditText email = findViewById(R.id.emailRegistro);
                     emailIntroducido = email.getText().toString();
 
                     Data datos = new Data.Builder()
+                            .putString("nombre", nombreIntroducido)
+                            .putString("apellidos", apellidoIntroducido)
                             .putString("email", emailIntroducido)
                             .putString("contrasena", contraseñaIntroducida)
                             .putString("token", token)
@@ -138,6 +148,16 @@ public class Registro extends AppCompatActivity {
                                 }
                             });
                     WorkManager.getInstance(Registro.this).enqueue(otwr);
+                }// Validar campos vacíos
+                else if (nombreIntroducido.isEmpty() || apellidoIntroducido.isEmpty() || emailIntroducido.isEmpty() || contraseñaIntroducida.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validar restricción de dominio
+                else if (!emailIntroducido.endsWith("gmail.com")) {
+                    Toast.makeText(getApplicationContext(), "El email debe ser de Gmail", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 else{
                     //Aviso error contras
@@ -153,6 +173,8 @@ public class Registro extends AppCompatActivity {
             public void onClick(View view) {
                 //Volver sin datos
                 Intent intent=new Intent();
+                intent.putExtra("nombre", "");
+                intent.putExtra("apellidos", "");
                 intent.putExtra("email", "");
                 intent.putExtra("contraseña", "");
                 setResult(RESULT_OK, intent);
@@ -167,6 +189,10 @@ public class Registro extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
 
         //Guarda lo deseado al hacer rotacion, etc
+        EditText nombre = findViewById(R.id.nombreRegistro);
+        savedInstanceState.putString("nombeIntroducido",  nombre.getText().toString());
+        EditText apellidos = findViewById(R.id.apellidoRegistro);
+        savedInstanceState.putString("apellidoIntroducido",  apellidos.getText().toString());
         EditText email = findViewById(R.id.emailRegistro);
         savedInstanceState.putString("emailIntroducido",  email.getText().toString());
         EditText contraseña = findViewById(R.id.contraseñaRegistro);
