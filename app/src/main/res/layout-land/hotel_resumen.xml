@@ -28,56 +28,57 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="111dp"
-            android:layout_marginTop="-108dp"
+            android:layout_marginTop="-109dp"
             android:layout_marginEnd="2dp"
             android:gravity="center"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/precio"
-            android:layout_width="103dp"
+            android:layout_width="269dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/direccion"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="283dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginStart="412dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="27dp"
             android:gravity="center"
-            android:textSize="13sp" />
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/texto"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="13dp"
             android:layout_toEndOf="@+id/foto"
             card_view:srcCompat="@drawable/direccion" />
 
         <TextView
             android:id="@+id/direccion"
-            android:layout_width="251dp"
-            android:layout_height="37dp"
+            android:layout_width="538dp"
+            android:layout_height="34dp"
             android:layout_below="@+id/texto"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="34dp"
             android:layout_marginTop="11dp"
-            android:layout_marginEnd="5dp"
-            android:layout_toEndOf="@+id/foto" />
+            android:layout_marginEnd="28dp"
+            android:layout_toEndOf="@+id/foto"
+            android:textSize="16sp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
             style="?android:attr/ratingBarStyleIndicator"
-            android:layout_width="225dp"
+            android:layout_width="159dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/direccion"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="-27dp"
-            android:layout_marginTop="-1dp"
-            android:layout_marginEnd="86dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="421dp"
             android:layout_toEndOf="@+id/foto"
             android:backgroundTint="#FFCC01"
             android:numStars="5"

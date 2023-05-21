@@ -1,15 +1,15 @@
-NOMBRE;PRECIO;DIRECCION;IMAGEN;ESTRELLAS
-Iphone 14;1459€/noche;movil;iphone14;1
-Play Station 5;549€/noche;consola;ps5;2
-Auriculares inalámbricos;126€/noche;otros;auriculares;3
-FIFA 23;54€/noche;consola;fifa23;4
-God of War Ragnarok;99€/noche;consola;gow;5
-Macbook Pro 13;1410€/noche;ordenador;macbookpro13;1
-Nothing Phone 1;499€/noche;movil;nothingphone;2
-PC Racing Gaming AMD;950€/noche;ordenador;ordenador;3
-PC Racing Intel;610€/noche;ordenador;ordenador2;4
-Poco X4;394€/noche;movil;pocox4;5
-Ratón Logitech;31€/noche;otros;ratonlogitech;1
-Victus 16;1199€/noche;ordenador;victus16;2
-Xiaomi Redmi A1;99€/noche;movil;xiaomiredmia1;3
-COD Cold War;23€/noche;consola;cod;4
+CODIGO;NOMBRE;PRECIO;DIRECCION;IMAGEN;ESTRELLAS
+0;Iphone 14;1459€/noche;movil;iphone14;1
+1;Play Station 5;549€/noche;consola;ps5;2
+2;Auriculares inalámbricos;126€/noche;otros;auriculares;3
+3;FIFA 23;54€/noche;consola;fifa23;4
+4;God of War Ragnarok;99€/noche;consola;gow;5
+5;Macbook Pro 13;1410€/noche;ordenador;macbookpro13;1
+6;Nothing Phone 1;499€/noche;movil;nothingphone;2
+7;PC Racing Gaming AMD;950€/noche;ordenador;ordenador;3
+8;PC Racing Intel;610€/noche;ordenador;ordenador2;4
+9;Poco X4;394€/noche;movil;pocox4;5
+10;Ratón Logitech;31€/noche;otros;ratonlogitech;1
+11;Victus 16;1199€/noche;ordenador;victus16;2
+12;Xiaomi Redmi A1;99€/noche;movil;xiaomiredmia1;3
+13;COD Cold War;23€/noche;consola;cod;4

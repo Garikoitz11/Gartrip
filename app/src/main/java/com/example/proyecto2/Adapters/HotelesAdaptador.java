@@ -38,7 +38,7 @@ public class HotelesAdaptador extends RecyclerView.Adapter<HotelesAdaptador.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View elLayoutDeCadaItem= LayoutInflater.from(parent.getContext()).inflate(R.layout.producto_resumen,null);
+        View elLayoutDeCadaItem= LayoutInflater.from(parent.getContext()).inflate(R.layout.hotel_resumen,null);
         ViewHolder vh = new ViewHolder(elLayoutDeCadaItem, tipo);
         return vh;
     }

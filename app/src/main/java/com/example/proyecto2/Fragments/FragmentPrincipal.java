@@ -83,12 +83,12 @@ public class FragmentPrincipal extends Fragment {
         if(hotelesNombres.size()==0){
             recogerInfo();
             for (int i = 0; i < rows.size(); i++) {
-                Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i, rows.get(i)[0], rows.get(i)[1],rows.get(i)[2],rows.get(i)[4],rows.get(i)[3]));
-                hotelesNombres.add(rows.get(i)[0]);
-                hotelesPrecios.add(rows.get(i)[1]);
-                hotelesDireccion.add(rows.get(i)[2]);
-                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[3], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
-                hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
+                Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i, rows.get(i)[1], rows.get(i)[2],rows.get(i)[3],rows.get(i)[5],rows.get(i)[4]));
+                hotelesNombres.add(rows.get(i)[1]);
+                hotelesPrecios.add(rows.get(i)[2]);
+                hotelesDireccion.add(rows.get(i)[3]);
+                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[4], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
+                hotelesEstrella.add(Float.valueOf(rows.get(i)[5]));
             }
             String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
             String[] filteredListPrecioArray = hotelesPrecios.toArray(new String[hotelesPrecios.size()]);
