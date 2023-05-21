@@ -229,12 +229,12 @@ public class FragmentPrincipal extends Fragment {
 
         //Filtramos por direccion (comparamos cada precio del hotel)
         for (String direccion : hotelesDireccion) {
-            if (!filteredListDireccion.contains(direccion)) {
+            if(!filteredListNombre.contains(hotelesNombres.get(idDireccion))){
                 if (direccion.toLowerCase().contains(texto.toLowerCase())) {
                     String precio = hotelesPrecios.get(idDireccion);
                     String[] result = precio.split("€");
                     int precioHotel = Integer.parseInt(result[0]);
-                    if (precioHotel <= precioMax) {
+                    if(precioHotel<=precioMax) {
                         filteredListNombre.add(hotelesNombres.get(idDireccion));
                         filteredListPrecio.add(hotelesPrecios.get(idDireccion));
                         filteredListImagen.add(hotelesImagenes.get(idDireccion));
@@ -243,6 +243,7 @@ public class FragmentPrincipal extends Fragment {
                     }
                 }
             }
+
             idDireccion += 1;
         }
 
