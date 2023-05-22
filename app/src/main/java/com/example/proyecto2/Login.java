@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
     String textoContraseña;
     EditText email;
     EditText contraseña;
-    AlarmManager gestor;
+  //  AlarmManager gestor;
     PendingIntent i2;
 
 
@@ -120,7 +120,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                 aviso.show();
             }
         }
-
+/*
         //Añadimos el filtro al broadcast para que maneje la alarma
         IntentFilter filter = new IntentFilter("enviarRetorno");
         ElReceiver receiver = new ElReceiver();
@@ -136,7 +136,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
 
         //Envia la alarma cada 1h
         gestor.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3600*1000, i2);
-
+*/
         //Obtenemos elementos del layout
         Button iniciarSesion = findViewById(R.id.iniciarSesionLogin);
         Button registro = findViewById(R.id.RegistroLogin);
@@ -283,6 +283,6 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        gestor.cancel(i2);
+    //    gestor.cancel(i2);
     }
 }

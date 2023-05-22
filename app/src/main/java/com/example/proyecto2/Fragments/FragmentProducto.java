@@ -24,13 +24,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class FragmentProducto extends Fragment {
 
-    String nombreProducto;
+    List<String[]> rows = new ArrayList<>();
+
+    static String nombreProducto;
     String precioProducto;
     String descripcionProducto;
-    String fotoProducto;
+    static String fotoProducto;
+    Float estrellas;
 
     @Nullable
     @Override
@@ -38,55 +44,34 @@ public class FragmentProducto extends Fragment {
         View view = inflater.inflate(R.layout.fragment_producto, container, false);
 
         Bundle extras = getArguments();
-        String codigoProducto = extras.getString("codigo");
-        String tipoProducto = extras.getString("tipo");
+        String id_hotel = extras.getString("id_hotel");
 
         InputStream fich;
         BufferedReader buff;
 
-        //Lee el fichero segun el filtro para la muestra de los detalles del producto
-        if (tipoProducto.equals("otros")) {
-            fich = getResources().openRawResource(R.raw.otros);
-            buff = new BufferedReader(new InputStreamReader(fich));
-        }
-        else if (tipoProducto.equals("movil")) {
-            fich = getResources().openRawResource(R.raw.moviles);
-            buff = new BufferedReader(new InputStreamReader(fich));
-        }
-        else if (tipoProducto.equals("ordenador")) {
-            fich = getResources().openRawResource(R.raw.ordenadores);
-            buff = new BufferedReader(new InputStreamReader(fich));
-        }
-        else if (tipoProducto.equals("consola")) {
-            fich = getResources().openRawResource(R.raw.consolas);
-            buff = new BufferedReader(new InputStreamReader(fich));
-        }
-        else {
-            fich = getResources().openRawResource(R.raw.productos);
-            buff = new BufferedReader(new InputStreamReader(fich));
-        }
 
-        try {
-            //Lee el fichero
-            String linea = buff.readLine();
-            while(linea != null){
-                if(linea.equals(codigoProducto))
-                {
-                    linea = buff.readLine();
-                    nombreProducto = linea;
-                    linea = buff.readLine();
-                    precioProducto = linea;
-                    linea = buff.readLine();
-                    descripcionProducto = linea;
-                    linea = buff.readLine();
-                    fotoProducto = linea;
-                }
-                linea = buff.readLine();
+        //cogemos la info del fichero para mostrar los datos
+        recogerInfo();
+        boolean enc = false;
+        int i =0;
+
+        while (enc==false && i< rows.size() ){
+            Log.i("linea",rows.get(i)[0]);
+            if(id_hotel.equals(rows.get(i)[0])){
+                nombreProducto=rows.get(i)[1];
+                precioProducto = rows.get(i)[2];
+                descripcionProducto=rows.get(i)[3];
+                fotoProducto = rows.get(i)[4];
+                estrellas=Float.valueOf(rows.get(i)[5]);
+                enc =true;
             }
-            fich.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            i+=1;
+
         }
+        Log.i("HOTeL", nombreProducto);
+
+        TextView idHotel = view.findViewById(R.id.idHotel);
+        idHotel.setText(id_hotel);
         TextView textoNombre = view.findViewById(R.id.tituloProducto);
         textoNombre.setText(nombreProducto);
         TextView textoPrecio = view.findViewById(R.id.precioProducto);
@@ -126,6 +111,29 @@ public class FragmentProducto extends Fragment {
         foto.setImageResource(drawableResourceId);
 
         return view;
+    }
+
+    private void recogerInfo(){
+        //Se obtiene el archivo
+        InputStream fich = getResources().openRawResource(R.raw.hoteles);
+        BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
+        String splitby = ";";
+        String linea;
+
+        //Por cada linea de texto
+        try {
+            //Recogida
+            buff.readLine();
+            //Recogida de cada columna
+            while ((linea=buff.readLine())!=null){
+                String[] row = linea.split(splitby);
+                rows.add(row);
+            }
+            //Cierre
+            fich.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
