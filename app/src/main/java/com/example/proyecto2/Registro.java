@@ -148,15 +148,14 @@ public class Registro extends AppCompatActivity {
                                 }
                             });
                     WorkManager.getInstance(Registro.this).enqueue(otwr);
-                }// Validar campos vacíos
-                else if (nombreIntroducido.isEmpty() || apellidoIntroducido.isEmpty() || emailIntroducido.isEmpty() || contraseñaIntroducida.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+                }if (nombreIntroducido.isEmpty() || apellidoIntroducido.isEmpty() || emailIntroducido.isEmpty() || contraseñaIntroducida.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Todos los campos son obligatorios!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 // Validar restricción de dominio
-                else if (!emailIntroducido.endsWith("gmail.com")) {
-                    Toast.makeText(getApplicationContext(), "El email debe ser de Gmail", Toast.LENGTH_SHORT).show();
+                if (!emailIntroducido.endsWith("gmail.com")) {
+                    Toast.makeText(getApplicationContext(), "El gmail introducido no tiene la estuctura correcta!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else{
