@@ -1,0 +1,101 @@
+ID;PROVINCIA;NOMBRE;PRECIO;ESTRELLAS
+0;Alava;Apartahotel Jardines de Aristi;55€;2
+1;Alava;Hotel Arts;80€;2
+2;Albacete;B&B HOTEL Albacete;62€;2
+3;Albacete;Hotel Castilla;38€;2
+4;Alicante;Wayteko Boutique Hotel;88€;2
+5;Alicante;Hotel Alamo;65€;2
+6;Almeria;AC Hotel Almería by Marriott;56€;4
+7;Almeria;Torreluz Centro;48€;3
+8;Asturias;Hotel Vaqueros;27€;1
+9;Asturias;Silken Monumental Naranco;82€;4
+10;Avila;Hotel II Castillas Ávila;57€;4
+11;Avila;Hotel Las Moradas;80€;3
+12;Badajoz;Sercotel Gran Hotel Zurbarán;85€;4
+13;Badajoz;Condedu;27€;2
+14;Barcelona;Hotel Medicis;86€;2
+15;Barcelona;Melia Barcelona Sarriá;200€;5
+16;Bizkaia;Radisson Collection Bilbao;200€;5
+17;Bizkaia;Hotel Balneario Orduña Plaza;65€;4
+18;Burgos;Hotel Cordón;61€;3
+19;Burgos;Hotel Maria Luisa;70€;3
+20;Caceres;Extremadura Hotel;77€;4
+21;Caceres;Hotel Iberia Plaza Mayor;70€;1
+22;Cadiz;Plazuela del Carbón Suites;150€;4
+23;Cadiz;Apodaca Rooms;33€;1
+24;Cantabria;Hotel Spa Villa Pasiega;93€;4
+25;Cantabria;Hotel Arha Potes & Spa;53€;2
+26;Castellon;Doña Lola;45€;3
+27;Castellon;Hotel El Rullo;40€;1
+28;Ciudad Real;Hotel Vila-real Palace;85€;4
+29;Ciudad Real;Hotel Duc de Vendôme;75€;2
+30;Cordoba;Hotel Mezquita;47€;2
+31;Cordoba;Crisol Jardines de Córdoba;83€;4
+32;Cuenca;Exe Cuenca;115€;4
+33;Cuenca;Hotel Plaza;82€;2
+34;Gerona;Erba by Pillow;83€;3
+35;Gerona;Peninsular;170€;4
+36;Gipuzkoa;Hotel Urdanibia Park;73€;3
+37;Gipuzkoa;Hotel Restaurante Zelaa;52€;1
+38;Granada;La Casa de la Trinidad;60€;4
+39;Granada;Hotel Reina Cristina;40€;3
+40;Guadalajara;Hotel España;40€;2
+41;Guadalajara;Hotel Pax Guadalajara;78€;4
+42;Huelva;Hotel La Barca;59€;2
+43;Huelva;Senator Huelva;86€;3
+44;Huesca;Hostal Un Punto Chic-Joaquin Costa;57€;2
+45;Huesca;Hotel Pedro I De Aragon;83€;4
+46;Islas Baleares;Hotel Costa Mediterraneo;70€;2
+47;Islas Baleares;Bellavista Hotel & Spa;76€;3
+48;Jaen;Infanta Cristina;98€;4
+49;Jaen;HO Ciudad de Jaén;62€;4
+50;La Coruña;Hotel Lois;58€;2
+51;La Coruña;Hotel Brisa;40€;1
+52;La Rioja;4US RIOJA WINE HOTEL;84€;4
+53;La Rioja;Hotel Palacios;72€;3
+54;Las Palmas;Sercotel Puerto de la Luz;52€;3
+55;Las Palmas;Sercotel Hotel Parque;60€;3
+56;Leon;Occidental León Alfonso V;95€;4
+57;Leon;ARVA Abad San Antonio;70€;4
+58;Lerida;Zenit Lleida;63€;4
+59;Lerida; Ibis Budget Lleida;48€;2
+60;Lugo;Hotel Metropol by Carris;48€;1
+61;Lugo;Hotel España;36€;1
+62;Madrid;Globales Acis y Galatea;66€;3
+63;Madrid; Ayre Gran Hotel Colón;116€;4
+64;Malaga;Campanile Málaga Airport;76€;3
+65;Malaga;Zenit Málaga;100€;3
+66;Murcia;Hotel Spa Amaltea by Executive Sport;66€;4
+67;Murcia;Executive Sport;56€;3
+68;Navarra;Hotel Andia;76€;4
+69;Navarra;San Pedroko Bidea;45€;3
+70;Ourense;Hotel Condado Ourense;56€;3
+71;Ourense;Exe Auriense;72€;4
+72;Palencia;OK Estudios Plata;67€;3
+73;Palencia;Hotel Camino Real;65€;3
+74;Pontevedra;Hotel Virgen del Camino Pontevedra;90€;3
+75;Pontevedra;Galicia Palace;115€;4
+76;Salamanca;Gran Hotel Corona Sol;85€;4
+77;Salamanca;Hotel San Polo;67€;3
+78;Santa Cruz de Tenerife;Hotel Blue Sea Lagos de Cesar;150€;4
+79;Santa Cruz de Tenerife;Hotel Panoramica Garden;39€;3
+80;Segovia;Hotel Avenida del Sotillo;69€;2
+81;Segovia;Los Arcos;103€;4
+82;Sevilla;Hotel Don Paco;90€;3
+83;Sevilla;AACR Hotel Monteolivos;65€;3
+84;Soria;Hotel Leonor Miron;57€;4
+85;Soria;Rincon de Gala;26€;2
+86;Tarragona;Hotel Canada;65€;3
+87;Tarragona;Hotel Cosmos Tarragona;40€;1
+88;Teruel;Hotel Isabel de Segura;72€;3
+89;Teruel;Hotel Civera;65€;3
+90;Toledo;Hotel Godofredo;86€;2
+91;Toledo;Toledo Imperial;124€;3
+92;Valencia;Hotel Turia;93€;4
+93;Valencia;Hi Valencia Canovas;65€;1
+94;Valladolid;Hotel Imperial;100€;4
+95;Valladolid;San Cristobal;45€;2
+96;Zamora;Hotel Trefacio;42€;1
+97;Zamora;Hotel Doña Urraca;52€;3
+98;Zaragoza;Hotel Cogullada;50€;1
+99;Zaragoza;NH Sport;71€;3
