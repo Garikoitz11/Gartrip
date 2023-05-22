@@ -86,6 +86,12 @@
             android:scaleY="0.75"
             android:secondaryProgressTint="@android:color/transparent" />
 
+        <TextView
+            android:id="@+id/idHotel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
