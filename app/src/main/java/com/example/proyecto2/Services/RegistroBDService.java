@@ -32,12 +32,14 @@ public class RegistroBDService extends Worker{
                 .build();
 
         //Obtenemos los datos enviados desde la actividad
+        String nombre = getInputData().getString("nombre");
+        String apellidos = getInputData().getString("apellidos");
         String email = getInputData().getString("email");
         String contrasena = getInputData().getString("contrasena");
         String token = getInputData().getString("token");
 
         //Realizamos la conexion con el servidor (con el php a ejecutar)
-        String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/registro.php";
+        String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/gartrip/registro.php";
         HttpURLConnection urlConnection = null;
         URL destino = null;
         try {
@@ -47,6 +49,8 @@ public class RegistroBDService extends Worker{
 
             //Le añadimos los parametros a la llamada al servidor
             Uri.Builder builder = new Uri.Builder()
+                    .appendQueryParameter("nombre", nombre)
+                    .appendQueryParameter("apellidos", apellidos)
                     .appendQueryParameter("email", email)
                     .appendQueryParameter("contrasena", contrasena)
                     .appendQueryParameter("token", token);

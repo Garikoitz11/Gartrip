@@ -169,7 +169,7 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                         Bundle bundlePerfil = new Bundle();
                         bundlePerfil.putString("email", email);
 
-                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPerfil, bundlePerfil);
+                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPerfilPricipal, bundlePerfil);
                         break;
                     case R.id.idioma:
                         DialogFragment newFragment = new Idioma();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/fragmentPrincipal">
 
@@ -21,6 +22,12 @@
             app:destination="@id/fragmentEditarPerfil" />
         <argument
             android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <argument
+            android:name="apellidos"
             app:argType="string" />
     </fragment>
     <fragment
@@ -91,4 +98,30 @@
             android:name="lugar"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentPerfilPricipal"
+        android:name="com.example.proyecto2.Fragments.FragmentPerfilPricipal"
+        android:label="FragmentPerfilPricipal" >
+        <action
+            android:id="@+id/action_fragmentPerfilPricipal_to_fragmentPerfil"
+            app:destination="@id/fragmentPerfil" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fragmentPerfilPricipal_to_fragmentAtencionCliente"
+            app:destination="@id/fragmentAtencionCliente" />
+        <action
+            android:id="@+id/action_fragmentPerfilPricipal_to_fragmentSobreNosotros"
+            app:destination="@id/fragmentSobreNosotros" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAtencionCliente"
+        android:name="com.example.proyecto2.Fragments.FragmentAtencionCliente"
+        android:label="FragmentAtencionCliente" />
+    <fragment
+        android:id="@+id/fragmentSobreNosotros"
+        android:name="com.example.proyecto2.Fragments.FragmentSobreNosotros"
+        android:label="fragment_sobre_nosotros"
+        tools:layout="@layout/fragment_sobre_nosotros" />
 </navigation>

@@ -15,7 +15,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textoDatosPersonales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/botonFactura" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textoMiPeerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -53,8 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textoMiPeerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil" />
 
     <TextView
         android:id="@+id/producto"
@@ -79,8 +79,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/textoDatosPersonales"
+        app:layout_constraintTop_toBottomOf="@+id/textoDatosPersonales" />
 
     <TextView
         android:id="@+id/textView8"
@@ -120,7 +120,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/boton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"

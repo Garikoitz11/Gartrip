@@ -46,4 +46,5 @@
     <string name="salir">Irten</string>
     <string name="usuarioContraseña">Erabiltzaile edo pasahitza okerra</string>
     <string name="registroCorrecto">Erabiltzaile erregistratua</string>
+    <string name="apellido">Abizena</string>
 </resources>
