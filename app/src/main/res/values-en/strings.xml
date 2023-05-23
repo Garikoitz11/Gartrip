@@ -47,5 +47,6 @@
     <string name="usuarioContraseña">Incorrect username or password</string>
     <string name="registroCorrecto">Registered user</string>
     <string name="apellido">Last name</string>
+    <string name="completarReserva">Complete Reservation</string>
     <string name="hoteles">Hotels</string>
 </resources>
