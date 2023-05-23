@@ -42,6 +42,8 @@ public class RegistroBDService extends Worker{
         String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/gartrip/registro.php";
         HttpURLConnection urlConnection = null;
         URL destino = null;
+        boolean emailExistente = false;
+
         try {
             destino = new URL(direccion);
             urlConnection = (HttpURLConnection) destino.openConnection();
@@ -82,8 +84,11 @@ public class RegistroBDService extends Worker{
                 JSONObject json = (JSONObject) parser.parse(result);
                 boolean resultado = (boolean) json.get("result");
 
+                emailExistente = resultado;
+
                 resultados = new Data.Builder()
                         .putBoolean("resultados", resultado)
+                        .putBoolean("email_existente", emailExistente)
                         .build();
                 inputStream.close();
             }

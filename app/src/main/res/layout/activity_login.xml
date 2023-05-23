@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenLogin"
         android:hint="@string/email"
-        android:backgroundTint="@color/rojoPrincipal"/>
+        android:backgroundTint="@color/naranjaPrincipal"/>
 
     <EditText
         android:id="@+id/contraseñaLogin"
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLogin"
         android:hint="@string/contraseña"
-        android:backgroundTint="@color/rojoPrincipal"/>
+        android:backgroundTint="@color/naranjaPrincipal"/>
 
     <Button
         android:id="@+id/iniciarSesionLogin"

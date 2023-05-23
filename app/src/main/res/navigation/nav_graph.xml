@@ -23,12 +23,6 @@
         <argument
             android:name="email"
             app:argType="string" />
-        <argument
-            android:name="nombre"
-            app:argType="string" />
-        <argument
-            android:name="apellidos"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentProducto"

@@ -47,7 +47,7 @@ public class ObtenerPerfilBDService extends Worker {
         String email = getInputData().getString("email");
 
         //Realizamos la conexion con el servidor (con el php a ejecutar)
-        String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/obtenerPerfil.php";
+        String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/gartrip/obtenerPerfil.php";
         HttpURLConnection urlConnection = null;
         URL destino = null;
         try {

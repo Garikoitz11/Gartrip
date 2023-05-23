@@ -97,10 +97,7 @@ public class FragmentPerfilPricipal extends Fragment {
             public void onClick(View v) {
                 Bundle bundlePerfil = new Bundle();
                 bundlePerfil.putString("email", email);
-                bundlePerfil.putString("nombre", nombre);
-                bundlePerfil.putString("apellidos", apellidos);
-                bundlePerfil.putByteArray("imagen", imagenBytes);
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentPerfil, bundlePerfil);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentPerfil);
             }
         });
 

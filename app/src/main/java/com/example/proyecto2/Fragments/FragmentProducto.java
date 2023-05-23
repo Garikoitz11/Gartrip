@@ -51,12 +51,12 @@ public class FragmentProducto extends Fragment {
         while (enc == false && i < rows.size() ){
             Log.i("linea",rows.get(i)[0]);
             if(id_hotel.equals(rows.get(i)[0])){
-                nombreHotel = rows.get(i)[1];
-                precioHotel = rows.get(i)[2];
-                provincia = rows.get(i)[3];
-                imgHotel = rows.get(i)[4];
-                estrellas=Float.valueOf(rows.get(i)[5]);
-                enc = true;
+                descripcionProducto=rows.get(i)[1];
+                nombreProducto=rows.get(i)[2];
+                precioProducto = rows.get(i)[3];
+                estrellas=Float.valueOf(rows.get(i)[4]);
+                fotoProducto = rows.get(i)[5];
+                enc =true;
             }
             i+=1;
         }
@@ -105,7 +105,7 @@ public class FragmentProducto extends Fragment {
 
     private void recogerInfo(){
         //Se obtiene el archivo
-        InputStream fich = getResources().openRawResource(R.raw.hoteles);
+        InputStream fich = getResources().openRawResource(R.raw.hotelinfo);
         BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
         String splitby = ";";
         String linea;
