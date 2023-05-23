@@ -255,6 +255,7 @@ public class FragmentPrincipal extends Fragment {
         {
             ret[i] = iterator.next().intValue();
         }
+
         return ret;
     }
 
