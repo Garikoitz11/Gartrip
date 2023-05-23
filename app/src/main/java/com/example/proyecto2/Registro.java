@@ -100,6 +100,7 @@ public class Registro extends AppCompatActivity {
                 contraseñaIntroducida = contraseña.getText().toString();
                 String contraseñaRepetidaIntroducida = repetirContraseña.getText().toString();
 
+
                 //Comprobamos que coincidan las contraseñas
                 if(contraseñaIntroducida.equals(contraseñaRepetidaIntroducida)) {
                     EditText nombre = findViewById(R.id.nombreRegistro);
@@ -108,7 +109,16 @@ public class Registro extends AppCompatActivity {
                     apellidoIntroducido = apellidos.getText().toString();
                     EditText email = findViewById(R.id.emailRegistro);
                     emailIntroducido = email.getText().toString();
+                    if (nombreIntroducido.isEmpty() || apellidoIntroducido.isEmpty() || emailIntroducido.isEmpty() || contraseñaIntroducida.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Todos los campos son obligatorios!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
+                    // Validar restricción de dominio
+                    if (!emailIntroducido.endsWith("gmail.com")) {
+                        Toast.makeText(getApplicationContext(), "El gmail introducido no tiene la estuctura correcta!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     Data datos = new Data.Builder()
                             .putString("nombre", nombreIntroducido)
                             .putString("apellidos", apellidoIntroducido)
@@ -126,6 +136,7 @@ public class Registro extends AppCompatActivity {
                                 public void onChanged(WorkInfo workInfo) {
                                     if(workInfo != null && workInfo.getState().isFinished()){
                                         boolean resultado = workInfo.getOutputData().getBoolean("resultados", false);
+                                        boolean emailExistente = workInfo.getOutputData().getBoolean("email_existente", false);
                                         if (resultado) {
                                             int tiempo= Toast.LENGTH_SHORT;
                                             Toast aviso = Toast.makeText(getApplicationContext(), getResources().getString(R.string.registroCorrecto), tiempo);
@@ -139,26 +150,24 @@ public class Registro extends AppCompatActivity {
                                             finish();
                                         }
                                         else {
-                                            //Aviso de error
-                                            int tiempo= Toast.LENGTH_SHORT;
-                                            Toast aviso = Toast.makeText(getApplicationContext(), "¡Error!", tiempo);
-                                            aviso.show();
+                                            // Aviso de error
+                                            if (emailExistente) {
+                                                int tiempo = Toast.LENGTH_SHORT;
+                                                Toast aviso = Toast.makeText(getApplicationContext(), "El correo ya existe en esta aplicación", tiempo);
+                                                aviso.show();
+                                            } else {
+                                                int tiempo = Toast.LENGTH_SHORT;
+                                                Toast aviso = Toast.makeText(getApplicationContext(), "¡El correo ya existe en esta aplicación!", tiempo);
+                                                aviso.show();
+                                            }
                                         }
                                     }
                                 }
                             });
                     WorkManager.getInstance(Registro.this).enqueue(otwr);
-                }if (nombreIntroducido.isEmpty() || apellidoIntroducido.isEmpty() || emailIntroducido.isEmpty() || contraseñaIntroducida.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Todos los campos son obligatorios!", Toast.LENGTH_SHORT).show();
-                    return;
                 }
 
-                // Validar restricción de dominio
-                if (!emailIntroducido.endsWith("gmail.com")) {
-                    Toast.makeText(getApplicationContext(), "El gmail introducido no tiene la estuctura correcta!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                else{
+                else {
                     //Aviso error contras
                     int tiempo= Toast.LENGTH_SHORT;
                     Toast aviso = Toast.makeText(getApplicationContext(), "¡CUIDADO! Las contraseñas no coinciden", tiempo);

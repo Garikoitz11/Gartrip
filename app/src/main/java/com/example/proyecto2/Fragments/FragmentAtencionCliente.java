@@ -14,11 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import com.example.proyecto2.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentAtencionCliente#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class FragmentAtencionCliente extends Fragment {
 
     TextView fab;
