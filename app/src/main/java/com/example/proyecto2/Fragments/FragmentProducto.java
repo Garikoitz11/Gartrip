@@ -96,10 +96,10 @@ public class FragmentProducto extends Fragment {
         });
 
         //Añadimos la foto del producto
-       // ImageView foto = view.findViewById(R.id.imagenProducto);
-       // int drawableResourceId = this.getResources().getIdentifier(fotoProducto, "drawable", getContext().getPackageName());
+     //   ImageView foto = view.findViewById(R.id.imgHotel1);
+      //  int drawableResourceId = this.getResources().getIdentifier(imgHotel, "drawable", getContext().getPackageName());
         
-        //foto.setImageResource(drawableResourceId);
+      //  foto.setImageResource(drawableResourceId);
 
         return view;
     }
