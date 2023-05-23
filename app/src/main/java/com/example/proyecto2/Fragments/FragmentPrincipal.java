@@ -83,14 +83,15 @@ public class FragmentPrincipal extends Fragment {
         if(hotelesNombres.size()==0){
             recogerInfo();
             for (int i = 0; i < rows.size(); i++) {
-                Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i,rows.get(i)[0], rows.get(i)[1], rows.get(i)[2],rows.get(i)[3],rows.get(i)[5],rows.get(i)[4]));
+                Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i,rows.get(i)[0], rows.get(i)[1], rows.get(i)[2],rows.get(i)[3],rows.get(i)[4],rows.get(i)[5]));
                 idHoteles.add(rows.get(i)[0]);
                 hotelesDireccion.add(rows.get(i)[1]);
                 hotelesNombres.add(rows.get(i)[2]);
                 hotelesPrecios.add(rows.get(i)[3]);
                 hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
                 hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[5], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
-
+                Log.i("NombreHotel",hotelesNombres.get(i));
+                Log.i("imagenhotel",Integer.toString(hotelesImagenes.get(i)));
             }
             Log.i("lista", idHoteles.toString());
             String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
@@ -242,8 +243,8 @@ public class FragmentPrincipal extends Fragment {
         hotelesAdaptador = new HotelesAdaptador(hotelesNombres, hotelesImagenes, hotelesPrecios, hotelesDireccion, estrellasHoteles, categoria, mostrarPrecio, idHoteles);
         recyclerView.setAdapter(hotelesAdaptador);
 
-        GridLayoutManager rejilla= new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
-        recyclerView.setLayoutManager(rejilla);
+       // GridLayoutManager rejilla= new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
+      //  recyclerView.setLayoutManager(rejilla);
     }
 
     public static int[] convertIntegers(ArrayList<Integer> integers)

@@ -46,10 +46,6 @@ public class FragmentProducto extends Fragment {
         Bundle extras = getArguments();
         String id_hotel = extras.getString("id_hotel");
 
-        InputStream fich;
-        BufferedReader buff;
-
-
         //cogemos la info del fichero para mostrar los datos
         recogerInfo();
         boolean enc = false;
@@ -108,6 +104,7 @@ public class FragmentProducto extends Fragment {
         //Añadimos la foto del producto
         ImageView foto = view.findViewById(R.id.imagenProducto);
         int drawableResourceId = this.getResources().getIdentifier(fotoProducto, "drawable", getContext().getPackageName());
+        Log.i("IMAGEN",fotoProducto);
         foto.setImageResource(drawableResourceId);
 
         return view;
