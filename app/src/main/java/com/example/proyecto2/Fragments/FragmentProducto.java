@@ -18,6 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.proyecto2.R;
 
 import java.io.BufferedReader;
@@ -51,23 +54,23 @@ public class FragmentProducto extends Fragment {
         while (enc == false && i < rows.size() ){
             Log.i("linea",rows.get(i)[0]);
             if(id_hotel.equals(rows.get(i)[0])){
-                descripcionProducto=rows.get(i)[1];
-                nombreProducto=rows.get(i)[2];
-                precioProducto = rows.get(i)[3];
-                estrellas=Float.valueOf(rows.get(i)[4]);
-                fotoProducto = rows.get(i)[5];
+                provincia = rows.get(i)[1];
+                nombreHotel = rows.get(i)[2];
+                precioHotel = rows.get(i)[3];
+                estrellas = Float.valueOf(rows.get(i)[4]);
+                imgHotel = rows.get(i)[5];
                 enc =true;
             }
             i+=1;
         }
         Log.i("HOTeL", nombreHotel);
 
-        TextView textoNombre = view.findViewById(R.id.nombreHotel);
+        /*TextView textoNombre = view.findViewById(R.id.nombreHotel);
         textoNombre.setText(nombreHotel);
         TextView textoPrecio = view.findViewById(R.id.precioHotel);
         textoPrecio.setText(precioHotel);
         TextView textoDescripcion = view.findViewById(R.id.provincia);
-        textoDescripcion.setText(provincia);
+        textoDescripcion.setText(provincia);*/
         Button completarReserva = view.findViewById(R.id.btnCompletarReserva);
 
         completarReserva.setOnClickListener(new View.OnClickListener() {
@@ -95,12 +98,29 @@ public class FragmentProducto extends Fragment {
             }
         });
 
-        //Añadimos la foto del producto
+        // IMAGENES AÑADIDAS AL SLIDER
+        ImageSlider imageSlider = view.findViewById(R.id.imageSlider);
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
+        /*
+        slideModels.add(new SlideModel(R.drawable.acisgalatea1, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.acisgalatea2, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.acisgalatea3, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.acisgalatea4, ScaleTypes.FIT));
+        */
+        for (int indexph = 1; i <= 5; i++) {
+            String imageName = imgHotel + indexph;
+            int resourceId = getResources().getIdentifier(imageName,"drawable",getActivity().getPackageName());
+            slideModels.add(new SlideModel(resourceId, ScaleTypes.FIT));
+        }
+
+        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
+
+        /*//Añadimos la foto del producto
         ImageView foto = view.findViewById(R.id.imagenProducto);
         int drawableResourceId = this.getResources().getIdentifier(fotoProducto, "drawable", getContext().getPackageName());
         
         foto.setImageResource(drawableResourceId);
-
+        */
         return view;
     }
 
