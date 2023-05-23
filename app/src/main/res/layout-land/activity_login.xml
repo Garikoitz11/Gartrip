@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_gartxon" />
+        app:srcCompat="@drawable/gartrip" />
 
     <EditText
         android:id="@+id/emailLogin"

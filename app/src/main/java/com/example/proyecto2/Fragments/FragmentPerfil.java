@@ -136,6 +136,7 @@ public class FragmentPerfil extends Fragment {
                 bundle.putByteArray("imagen", imagenBytes);
 
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentPerfil_to_fragmentEditarPerfil, bundle);
+                //Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentEditarPerfil, bundle);
             }
         });
 
