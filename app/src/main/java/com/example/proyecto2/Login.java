@@ -18,7 +18,6 @@ import androidx.work.WorkManager;
 
 import android.Manifest;
 import android.app.ActivityManager;
-import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -53,9 +52,6 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
     String textoContraseña;
     EditText email;
     EditText contraseña;
-  //  AlarmManager gestor;
-    PendingIntent i2;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,23 +116,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                 aviso.show();
             }
         }
-/*
-        //Añadimos el filtro al broadcast para que maneje la alarma
-        IntentFilter filter = new IntentFilter("enviarRetorno");
-        ElReceiver receiver = new ElReceiver();
-        registerReceiver(receiver, filter);
 
-        //Creamos el intent para abrir el broadcast
-        Intent intentBC = new Intent(Login.this, ElReceiver.class);
-        intentBC.setAction("enviarRetorno");
-
-        //Lo añadimos como pending para que se active en función de la alarma
-        i2= PendingIntent.getBroadcast(Login.this,0,intentBC,PendingIntent.FLAG_IMMUTABLE);
-        gestor= (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        //Envia la alarma cada 1h
-        gestor.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3600*1000, i2);
-*/
         //Obtenemos elementos del layout
         Button iniciarSesion = findViewById(R.id.iniciarSesionLogin);
         Button registro = findViewById(R.id.RegistroLogin);
@@ -283,6 +263,5 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    //    gestor.cancel(i2);
     }
 }
