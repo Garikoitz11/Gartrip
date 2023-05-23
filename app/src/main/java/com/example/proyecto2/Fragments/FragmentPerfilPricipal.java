@@ -34,19 +34,15 @@ public class FragmentPerfilPricipal extends Fragment {
     private String email;
     private String nombre;
     private String apellidos;
-    byte[] imagenBytes;
-    Bitmap foto;
+    private Bitmap imagen;
 
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        foto = null;
-        //Obtenemos los parametros que recibe del login o del idioma
         if (getArguments() != null) {
+            //Obtiene el email que es el identificador del usuario
             email = getArguments().getString("email");
-            //nombre = getArguments().getString("nombre");
-
         }
     }
     @Override
@@ -77,6 +73,7 @@ public class FragmentPerfilPricipal extends Fragment {
 
                                 TextView textoNombre = view.findViewById(R.id.nombrePerfil);
                                 textoNombre.setText(nombre);
+
                             }else {
                                 int tiempo= Toast.LENGTH_SHORT;
                                 Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
@@ -97,22 +94,24 @@ public class FragmentPerfilPricipal extends Fragment {
             public void onClick(View v) {
                 Bundle bundlePerfil = new Bundle();
                 bundlePerfil.putString("email", email);
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentPerfil);
+                bundlePerfil.putString("nombre", nombre);
+                bundlePerfil.putString("apellidos", apellidos);
+
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentPerfil, bundlePerfil);
             }
         });
 
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundleTarjeta = new Bundle();
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentSobreNosotros, bundleTarjeta);
+
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentSobreNosotros);
             }
         });
         boton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundleAtencion = new Bundle();
-                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentAtencionCliente, bundleAtencion);
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentAtencionCliente);
             }
         });
         return view;
