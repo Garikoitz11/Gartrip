@@ -23,9 +23,9 @@
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="200dp"
                 android:id="@+id/imageSlider"
-                app:iss_auto_cycle="false"/>
+                app:iss_auto_cycle="false" />
         </androidx.cardview.widget.CardView>
 
         <TextView

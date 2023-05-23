@@ -10,24 +10,24 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="174dp">
+        android:layout_height="143dp">
 
         <ImageView
             android:id="@+id/foto"
-            android:layout_width="200dp"
+            android:layout_width="167dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/texto"
-            android:layout_width="187dp"
-            android:layout_height="46dp"
+            android:layout_width="219dp"
+            android:layout_height="39dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="14dp"
             android:layout_marginTop="6dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="11dp"
             android:layout_toEndOf="@+id/foto"
             android:gravity="center"
             android:text="bvfi"
@@ -38,8 +38,8 @@
 
         <TextView
             android:id="@+id/precio"
-            android:layout_width="94dp"
-            android:layout_height="28dp"
+            android:layout_width="74dp"
+            android:layout_height="31dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="-2dp"
@@ -52,8 +52,8 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="84dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="65dp"
             android:layout_toEndOf="@+id/foto"
             card_view:srcCompat="@drawable/direccion" />
 
@@ -63,19 +63,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/texto"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="5dp" />
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="19dp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
             style="?android:attr/ratingBarStyleIndicator"
-            android:layout_width="192dp"
+            android:layout_width="196dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/direccion"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="-187dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="206dp"
+            android:layout_marginStart="-14dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="62dp"
             android:layout_toEndOf="@+id/foto"
             android:backgroundTint="#FFCC01"
             android:numStars="5"
