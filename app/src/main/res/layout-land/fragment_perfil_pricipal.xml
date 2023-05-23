@@ -9,10 +9,12 @@
         android:id="@+id/textoMiPeerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:text="MI PERFIL"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,79 +22,107 @@
         android:id="@+id/imagenPerfilPrincipal"
         android:layout_width="236dp"
         android:layout_height="226dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/iconomobile" />
+
+    <TextView
+        android:id="@+id/nombrePerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="292dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textoDatosPersonales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="30dp"
         android:text="Mis datos Personales"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/boton1"
+        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenPerfilPrincipal" />
-
-    <ImageButton
-        android:id="@+id/boton1"
-        android:layout_width="28dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="-50dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textoDatosPersonales"
-        app:layout_constraintTop_toBottomOf="@+id/imagenPerfilPrincipal"
-        app:srcCompat="@android:drawable/ic_menu_send" />
-
-    <ImageButton
-        android:id="@+id/boton2"
-        android:layout_width="28dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton1"
-        app:srcCompat="@android:drawable/ic_menu_send" />
-
-    <ImageButton
-        android:id="@+id/boton3"
-        android:layout_width="28dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton2"
-        app:srcCompat="@android:drawable/ic_menu_send" />
+        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil" />
 
     <TextView
         android:id="@+id/textoTarjetas"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="60dp"
         android:text="Sobre nosotros"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/boton2"
-        app:layout_constraintHorizontal_bias="0.332"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoDatosPersonales" />
 
     <TextView
         android:id="@+id/sobre_nosotros"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="288dp"
-        android:text="Contactar con atención al cliente"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="156dp"
+        android:text="Ayuda"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/boton3"
-        app:layout_constraintHorizontal_bias="0.965"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoTarjetas"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/boton1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="48dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="boton1"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <ImageButton
+        android:id="@+id/boton2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="48dp"
+        android:background="#00FFFFFF"
+        app:srcCompat="@drawable/ic_action_name"
+        android:contentDescription="boton2"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton1"/>
+
+    <ImageButton
+        android:id="@+id/boton3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="48dp"
+        android:background="#00FFFFFF"
+        app:srcCompat="@drawable/ic_action_name"
+        android:contentDescription="boton3"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
