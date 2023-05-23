@@ -12,12 +12,4 @@
         layout="@layout/contenido"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/elnavigationview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/navigation_cabecera"
-        app:menu="@menu/navigation_opciones" />
 </androidx.drawerlayout.widget.DrawerLayout>

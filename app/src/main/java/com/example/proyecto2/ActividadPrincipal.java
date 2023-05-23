@@ -38,6 +38,7 @@ import com.example.proyecto2.Dialogs.Idioma;
 import com.example.proyecto2.Services.ActualizarTokenBDService;
 import com.example.proyecto2.Services.ObtenerPerfilBDService;
 import com.example.proyecto2.Services.ServicioFirebase;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -128,9 +129,9 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
 
         elmenudesplegable = findViewById(R.id.drawer_layout);
 
-        //Obtenemos el navigation view y le decimos que hacer en funcion del item seleccionado
-        NavigationView elnavigation = findViewById(R.id.elnavigationview);
-        elnavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        //Obtenemos el navigation bottom y le decimos que hacer en funcion del item seleccionado
+        BottomNavigationView elnavigation = findViewById(R.id.elnavigationview);
+        elnavigation.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
@@ -140,30 +141,6 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                         bundle.putString("tipo", "todos");
 
                         Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundle);
-                        break;
-                    case R.id.movil:
-                        Bundle bundleMovil = new Bundle();
-                        bundleMovil.putString("tipo", "movil");
-
-                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundleMovil);
-                        break;
-                    case R.id.ordenador:
-                        Bundle bundleOrdenador = new Bundle();
-                        bundleOrdenador.putString("tipo", "ordenador");
-
-                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundleOrdenador);
-                        break;
-                    case R.id.consola:
-                        Bundle bundleConsola = new Bundle();
-                        bundleConsola.putString("tipo", "consola");
-
-                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundleConsola);
-                        break;
-                    case R.id.otros:
-                        Bundle bundleOtros = new Bundle();
-                        bundleOtros.putString("tipo", "otros");
-
-                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundleOtros);
                         break;
                     case R.id.perfil:
                         Bundle bundlePerfil = new Bundle();
@@ -175,18 +152,10 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                         DialogFragment newFragment = new Idioma();
                         newFragment.show(getSupportFragmentManager(), "SeleccionContenidoPrincipal");
                         break;
-                    case R.id.preferencias:
-                        Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPreferencias);
-                        break;
                 }
-                elmenudesplegable.closeDrawers();
-                return false;
+                return true;
             }
         });
-
-        //Para que el navigation view se abra al pulsar el icono y al darle atras se cierre
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -211,16 +180,6 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        //Para cerrar el navigation view
-        if (elmenudesplegable.isDrawerOpen(GravityCompat.START)) {
-            elmenudesplegable.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     public void onSaveInstanceState(Bundle outState) {
