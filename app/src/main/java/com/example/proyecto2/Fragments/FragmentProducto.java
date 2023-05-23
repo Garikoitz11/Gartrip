@@ -26,16 +26,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class FragmentProducto extends Fragment {
-
     List<String[]> rows = new ArrayList<>();
-
-    static String nombreProducto;
-    String precioProducto;
-    String descripcionProducto;
-    static String fotoProducto;
+    static String nombreHotel;
+    String precioHotel;
+    String provincia;
+    static String imgHotel;
     Float estrellas;
 
     @Nullable
@@ -51,7 +48,7 @@ public class FragmentProducto extends Fragment {
         boolean enc = false;
         int i =0;
 
-        while (enc==false && i< rows.size() ){
+        while (enc == false && i < rows.size() ){
             Log.i("linea",rows.get(i)[0]);
             if(id_hotel.equals(rows.get(i)[0])){
                 descripcionProducto=rows.get(i)[1];
@@ -62,21 +59,18 @@ public class FragmentProducto extends Fragment {
                 enc =true;
             }
             i+=1;
-
         }
-        Log.i("HOTeL", nombreProducto);
+        Log.i("HOTeL", nombreHotel);
 
-        TextView idHotel = view.findViewById(R.id.idHotel);
-        idHotel.setText(id_hotel);
-        TextView textoNombre = view.findViewById(R.id.tituloProducto);
-        textoNombre.setText(nombreProducto);
-        TextView textoPrecio = view.findViewById(R.id.precioProducto);
-        textoPrecio.setText(precioProducto);
-        TextView textoDescripcion = view.findViewById(R.id.descripcionProducto);
-        textoDescripcion.setText(descripcionProducto);
-        Button pagar = view.findViewById(R.id.button2);
+        TextView textoNombre = view.findViewById(R.id.nombreHotel);
+        textoNombre.setText(nombreHotel);
+        TextView textoPrecio = view.findViewById(R.id.precioHotel);
+        textoPrecio.setText(precioHotel);
+        TextView textoDescripcion = view.findViewById(R.id.provincia);
+        textoDescripcion.setText(provincia);
+        Button completarReserva = view.findViewById(R.id.btnCompletarReserva);
 
-        pagar.setOnClickListener(new View.OnClickListener() {
+        completarReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i("ENTRA QUI", "siii");
@@ -88,8 +82,8 @@ public class FragmentProducto extends Fragment {
                 if(esMayorEdad){
                     //Abre el mapa para que el usuario seleccione una ubicacion donde recoger el pedido
                     Bundle bundle = new Bundle();
-                    bundle.putString("nombreProducto", nombreProducto);
-                    bundle.putString("precioProducto", precioProducto);
+                    bundle.putString("nombreProducto", nombreHotel);
+                    bundle.putString("precioProducto", precioHotel);
 
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentMapa, bundle);
                 }
@@ -104,7 +98,7 @@ public class FragmentProducto extends Fragment {
         //Añadimos la foto del producto
         ImageView foto = view.findViewById(R.id.imagenProducto);
         int drawableResourceId = this.getResources().getIdentifier(fotoProducto, "drawable", getContext().getPackageName());
-        Log.i("IMAGEN",fotoProducto);
+        
         foto.setImageResource(drawableResourceId);
 
         return view;
@@ -132,5 +126,4 @@ public class FragmentProducto extends Fragment {
             e.printStackTrace();
         }
     }
-
 }
