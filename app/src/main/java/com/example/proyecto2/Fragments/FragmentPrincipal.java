@@ -85,11 +85,12 @@ public class FragmentPrincipal extends Fragment {
             for (int i = 0; i < rows.size(); i++) {
                 Log.d("Prueba", String.format("row %s: %s, %s, %s, %s; img: %s", i,rows.get(i)[0], rows.get(i)[1], rows.get(i)[2],rows.get(i)[3],rows.get(i)[5],rows.get(i)[4]));
                 idHoteles.add(rows.get(i)[0]);
-                hotelesNombres.add(rows.get(i)[1]);
-                hotelesPrecios.add(rows.get(i)[2]);
-                hotelesDireccion.add(rows.get(i)[3]);
-                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[4], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
-                hotelesEstrella.add(Float.valueOf(rows.get(i)[5]));
+                hotelesDireccion.add(rows.get(i)[1]);
+                hotelesNombres.add(rows.get(i)[2]);
+                hotelesPrecios.add(rows.get(i)[3]);
+                hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
+                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[5], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
+
             }
             Log.i("lista", idHoteles.toString());
             String[] filteredListNombreArray = hotelesNombres.toArray(new String[hotelesNombres.size()]);
@@ -270,7 +271,7 @@ public class FragmentPrincipal extends Fragment {
     //Metodo de recoleccion del archivo de texto
     private void recogerInfo(){
         //Se obtiene el archivo
-        InputStream fich = getResources().openRawResource(R.raw.hoteles);
+        InputStream fich = getResources().openRawResource(R.raw.hotelinfo);
         BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
         String splitby = ";";
         String linea;
