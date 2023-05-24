@@ -43,6 +43,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -53,9 +60,10 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
     private LocationRequest peticion;
     private LocationCallback actualizador;
     private boolean recibirActualizaciones;
-    private static ArrayList<LatLng> ubicacionTiendas;
+    private static ArrayList<LatLng> ubicacionHoteles;
     private double latitud;
     private double longitud;
+    JSONArray hotelesArray;
 
 
     @Override
@@ -68,10 +76,10 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
         SupportMapFragment elfragmento = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         elfragmento.getMapAsync(this);
 
-        //Guardamos en un array la ubicacion de las tiendas para su posterior uso
-        ubicacionTiendas = new ArrayList<>();
-        LatLng[] coordenadas = { new LatLng(43.2966, -2.9888), new LatLng(43.3213, -1.9864), new LatLng(40.2655, -3.8405), new LatLng(25.7966, -80.1318)};
-        ubicacionTiendas.addAll(Arrays.asList(coordenadas));
+        //Cargamos la informacion de los hoteles
+        hotelesArray = new JSONArray();
+        ubicacionHoteles = new ArrayList<>();
+        cargarInfoHoteles();
 
         //Por defecto que el mapa se coloque en nuestra posicion
         recibirActualizaciones = true;
@@ -97,7 +105,7 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
                         longitud = longitudActual;
 
                         //Actualiza la posicion de la camara
-                        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(latitudActual, longitudActual), 10);
+                        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(latitudActual, longitudActual), 7);
                         elmapa.animateCamera(actualizar);
                     }
                 }
@@ -132,26 +140,25 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
         elmapa = googleMap;
         elmapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        //Añadimos los marcadores de las tiendas
-        elmapa.addMarker(new MarkerOptions()
-                        .position(ubicacionTiendas.get(0))
-                        .title("Tienda Bizkaia"))
-                .setSnippet("Situada en la localidad de Barakaldo");
+        //Añadimos los marcadores de los hoteles
+        for (int i = 0; i < hotelesArray.size(); i++) {
+            JSONObject hotel = (JSONObject) hotelesArray.get(i);
+            double latitud = (double) hotel.get("latitud");
+            double longitud = (double) hotel.get("longitud");
+            String titulo = (String) hotel.get("nombre");
+            String precio = (String) hotel.get("precio");
+            int id = (int) hotel.get("id");
 
-        elmapa.addMarker(new MarkerOptions()
-                        .position(ubicacionTiendas.get(1))
-                        .title("Tienda Gipuzkoa"))
-                .setSnippet("Situada junto a la playa de la Concha en Donostia");
+            LatLng coordenadas = new LatLng(latitud, longitud);
+            ubicacionHoteles.add(coordenadas);
 
-        elmapa.addMarker(new MarkerOptions()
-                        .position(ubicacionTiendas.get(2))
-                        .title("Tienda Madrid"))
-                .setSnippet("Situada en la capital española");
+            Marker marker = elmapa.addMarker(new MarkerOptions()
+                    .position(coordenadas)
+                    .title(titulo)
+                    .snippet(precio));
+            marker.setTag(id);
+        }
 
-        elmapa.addMarker(new MarkerOptions()
-                        .position(ubicacionTiendas.get(3))
-                        .title("Tienda Miami"))
-                .setSnippet("Situada en el extranjero");
 
         //Si el usuario desplaza un poco la camara deja de recibir actualizaciones de ubicacion para que este se pueda mover
         elmapa.setOnCameraMoveStartedListener(new GoogleMap.OnCameraMoveStartedListener() {
@@ -165,13 +172,13 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
         elmapa.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             public boolean onMarkerClick(Marker marker) {
                 //Obtiene el titulo del marcador para poder identificarlo
-                String marcador = marker.getTitle();
-                if (marcador != null) {
+                String id = marker.getTag().toString();
+                if (id != null & id != "") {
                     //LLevamos al usuario a la pantalla donde podra ver su factura
                     Bundle bundle = new Bundle();
-                    bundle.putString("lugar", marcador);
+                    bundle.putString("id_hotel", id);
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentMapa_to_fragmentFactura, bundle);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentMapa_to_fragmentProducto, bundle);
                 }
                 return false;
             }
@@ -206,15 +213,17 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
     public void onDestroy() {
         super.onDestroy();
 
-        //Si se destruye la actividad se deja de solicitar constantes actualizaciones de posicion
-        proveedordelocalizacion.removeLocationUpdates(actualizador);
+        if (proveedordelocalizacion != null) {
+            //Si se destruye la actividad se deja de solicitar constantes actualizaciones de posicion
+            proveedordelocalizacion.removeLocationUpdates(actualizador);
+        }
     }
 
     public void buscarHotelMasCercano (double lat1, double long1) {
-        //Calcula la distancia entre las coordenadas de la posicion del usuario y las tiendas y devuelve la mas cercana
+        //Calcula la distancia entre las coordenadas de la posicion del usuario y los hoteles y devuelve el mas cercano
         LatLng masCercana = null;
         double cercania = 0;
-        for (LatLng tienda: ubicacionTiendas) {
+        for (LatLng tienda: ubicacionHoteles) {
             double latTienda = tienda.latitude;
             double longTienda = tienda.longitude;
             double R = 6371000; // radio de la Tierra en metros
@@ -231,8 +240,42 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
             }
         }
         //Coloca la camara en la tienda mas cercana al usuario
-        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(masCercana.latitude, masCercana.longitude), 10);
+        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(masCercana.latitude, masCercana.longitude), 7);
         elmapa.animateCamera(actualizar);
         recibirActualizaciones = false;
+    }
+
+    private void cargarInfoHoteles() {
+        InputStream fich = getResources().openRawResource(R.raw.hotelinfo);
+        BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
+        String splitby = ";";
+        String linea;
+
+        try {
+            buff.readLine();
+            //Recogida de cada columna
+            while ((linea = buff.readLine()) != null) {
+                String[] row = linea.split(splitby);
+                int id = Integer.parseInt(row[0]);
+                String nombre = row[2];
+                String precio = row[3];
+                double latitudHotel = Double.parseDouble(row[6]);
+                double longitudHotel = Double.parseDouble(row[7]);
+
+                JSONObject hotelObj = new JSONObject();
+                hotelObj.put("id", id);
+                hotelObj.put("nombre", nombre);
+                hotelObj.put("precio", precio);
+                hotelObj.put("latitud", latitudHotel);
+                hotelObj.put("longitud", longitudHotel);
+
+                //Agregar el objeto del hotel array
+                hotelesArray.add(hotelObj);
+            }
+            //Cierre
+            fich.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
