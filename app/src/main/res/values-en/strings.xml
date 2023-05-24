@@ -81,4 +81,5 @@
     <string name="politica">Our policy does not accept any cancellation of any accommodation.</string>
     <string name="entrada">The entrance to the room of all our accommodations is from 15:00.</string>
     <string name="salida">The departure of the room must be before 11:00, in case you have your flight later than that time we will be willing to store the suitcase, while you continue enjoying your destination.</string>
+    <string name="eurosNoche">€/night</string>
 </resources>

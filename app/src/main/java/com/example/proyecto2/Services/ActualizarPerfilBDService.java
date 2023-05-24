@@ -70,7 +70,7 @@ public class ActualizarPerfilBDService extends Worker {
         }
 
         //Realizamos la conexion con el servidor (con el php a ejecutar)
-        String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/actualizarPerfil.php";
+        String direccion = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/gsalaberria004/WEB/gartrip/actualizarPerfil.php";
         HttpURLConnection urlConnection = null;
         URL destino = null;
         try {
