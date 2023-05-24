@@ -204,7 +204,8 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
         if (requestCode == 11) {
             if (!(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED)) {
                 //Si los permisos no son aceptados se envia un mensaje y se para
-                Toast.makeText(getContext(), "Se requieren permisos de ubicación para continuar.", Toast.LENGTH_SHORT).show();
+                String permisosMapa = getString(R.string.permisosMapa);
+                Toast.makeText(getContext(), permisosMapa, Toast.LENGTH_SHORT).show();
                 getActivity().finish();
             }
         }

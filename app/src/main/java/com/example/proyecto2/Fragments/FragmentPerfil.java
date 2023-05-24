@@ -107,7 +107,8 @@ public class FragmentPerfil extends Fragment {
                             else {
                                 //Sino lanza mensaje de aviso de error
                                 int tiempo= Toast.LENGTH_SHORT;
-                                Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
+                                String error = getString(R.string.error);
+                                Toast aviso = Toast.makeText(getContext(), error, tiempo);
                                 aviso.show();
                             }
                         }

@@ -14,7 +14,7 @@
         android:id="@+id/id_editTextBuscador"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Nombre del hotel o destino..."
+        android:hint="@string/text1"
         android:layout_margin="16dp"/>
 
 
@@ -39,7 +39,7 @@
             android:layout_width="107dp"
             android:layout_height="25dp"
             android:layout_marginStart="16dp"
-            android:text="Precio máximo:"
+            android:text="@string/PrecioMax"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

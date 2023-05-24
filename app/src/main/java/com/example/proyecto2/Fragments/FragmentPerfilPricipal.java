@@ -76,7 +76,8 @@ public class FragmentPerfilPricipal extends Fragment {
 
                             }else {
                                 int tiempo= Toast.LENGTH_SHORT;
-                                Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
+                                String error = getString(R.string.error);
+                                Toast aviso = Toast.makeText(getContext(), error, tiempo);
                                 aviso.show();
                             }
                         }
