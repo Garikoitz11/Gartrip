@@ -1,101 +1,101 @@
 ID;PROVINCIA;NOMBRE;PRECIO;ESTRELLAS;FOTO
-0;Alava;Apartahotel Jardines de Aristi;55€;2;aristi
-1;Alava;Hotel Arts;80€;2;arts
-2;Albacete;B&B HOTEL Albacete;62€;2;bybalbacete
-3;Albacete;Hotel Castilla;38€;2;castilla
-4;Alicante;Wayteko Boutique Hotel;88€;2;wayteko
-5;Alicante;Hotel Alamo;65€;2;alamo
-6;Almeria;AC Hotel Almería by Marriott;56€;4;marriott
-7;Almeria;Torreluz Centro;48€;3;torreluz
-8;Asturias;Hotel Vaqueros;27€;1;vaqueros
-9;Asturias;Silken Monumental Naranco;82€;4;monumentalnar
-10;Avila;Hotel II Castillas Ávila;57€;4;castillasav
-11;Avila;Hotel Las Moradas;80€;3;lasmoradas
-12;Badajoz;Sercotel Gran Hotel Zurbarán;85€;4;zurbaran
-13;Badajoz;Condedu;27€;2;condedu
-14;Barcelona;Hotel Medicis;86€;2;medicis
-15;Barcelona;Melia Barcelona Sarriá;200€;5;sarria
-16;Bizkaia;Radisson Collection Bilbao;200€;5;radisson
-17;Bizkaia;Hotel Balneario Orduña Plaza;65€;4;orduna
-18;Burgos;Hotel Cordón;61€;3;cordon
-19;Burgos;Hotel Maria Luisa;70€;3;marialuisa
-20;Caceres;Extremadura Hotel;77€;4;extremadura
-21;Caceres;Hotel Iberia Plaza Mayor;70€;1;iberiaplaza
-22;Cadiz;Plazuela del Carbón Suites;150€;4;carbonsuites
-23;Cadiz;Apodaca Rooms;33€;1;apodaca
-24;Cantabria;Hotel Spa Villa Pasiega;93€;4;villapasiega
-25;Cantabria;Hotel Arha Potes & Spa;53€;2;ahrapotes
-26;Castellon;Doña Lola;45€;3;donalola
-27;Castellon;Hotel El Rullo;40€;1;rullo
-28;Ciudad Real;Hotel Vila-real Palace;85€;4;vilareal
-29;Ciudad Real;Hotel Duc de Vendôme;75€;2;ducvendome
-30;Cordoba;Hotel Mezquita;47€;2;mezquita
-31;Cordoba;Crisol Jardines de Córdoba;83€;4;crisoljardines
-32;Cuenca;Exe Cuenca;115€;4;execuenca
-33;Cuenca;Hotel Plaza;82€;2;plazacuenca
-34;Gerona;Erba by Pillow;83€;3;erbapillow
-35;Gerona;Peninsular;170€;4;peninsular
-36;Gipuzkoa;Hotel Urdanibia Park;73€;3;urdanibia
-37;Gipuzkoa;Hotel Restaurante Zelaa;52€;1;zelaa
-38;Granada;La Casa de la Trinidad;60€;4;trinidad
-39;Granada;Hotel Reina Cristina;40€;3;reinacristina
-40;Guadalajara;Hotel España;40€;2;espanaguad
-41;Guadalajara;Hotel Pax Guadalajara;78€;4;pax
-42;Huelva;Hotel La Barca;59€;2;labarca
-43;Huelva;Senator Huelva;86€;3;huelva
-44;Huesca;Hostal Un Punto Chic-Joaquin Costa;57€;2;joaquincosta
-45;Huesca;Hotel Pedro I De Aragon;83€;4;pedroaragon
-46;Islas Baleares;Hotel Costa Mediterraneo;70€;2;costamediterraneo
-47;Islas Baleares;Bellavista Hotel & Spa;76€;3;bellavista
-48;Jaen;Infanta Cristina;98€;4;infantacristina
-49;Jaen;HO Ciudad de Jaén;62€;4;hojaen
-50;La Coruña;Hotel Lois;58€;2;lois
-51;La Coruña;Hotel Brisa;40€;1;brisa
-52;La Rioja;4US RIOJA WINE HOTEL;84€;4;riojawine
-53;La Rioja;Hotel Palacios;72€;3;palaciosrioja
-54;Las Palmas;Sercotel Puerto de la Luz;52€;3;puertodeluz
-55;Las Palmas;Sercotel Hotel Parque;60€;3;sercotelparque
-56;Leon;Occidental León Alfonso V;95€;4;leonalfonso
-57;Leon;ARVA Abad San Antonio;70€;4;arvasanantonio
-58;Lerida;Zenit Lleida;63€;4;zenitlleida
-59;Lerida; Ibis Budget Lleida;48€;2;ibislleida
-60;Lugo;Hotel Metropol by Carris;48€;1;metropolcarris
-61;Lugo;Hotel España;36€;1;espanalugo
-62;Madrid;Globales Acis y Galatea;66€;3;acisgalatea
-63;Madrid; Ayre Gran Hotel Colón;116€;4;ayregrancolon
-64;Malaga;Campanile Málaga Airport;76€;3;campanilemalaga
-65;Malaga;Zenit Málaga;100€;3;zenitmalaga
-66;Murcia;Hotel Spa Amaltea;66€;4;amaltea
-67;Murcia;Executive Sport;56€;3;executivesport
-68;Navarra;Hotel Andia;76€;4;andia
-69;Navarra;San Pedroko Bidea;45€;3;pedrobidea
-70;Ourense;Hotel Condado Ourense;56€;3;condadourense
-71;Ourense;Exe Auriense;72€;4;exeauriense
-72;Palencia;OK Estudios Plata;67€;3;estudiosplata
-73;Palencia;Hotel Camino Real;65€;3;caminoreal
-74;Pontevedra;Hotel Virgen del Camino Pontevedra;90€;3;virgencamino
-75;Pontevedra;Galicia Palace;115€;4;galiciapalace
-76;Salamanca;Gran Hotel Corona Sol;85€;4;coronasol
-77;Salamanca;Hotel San Polo;67€;3;sanpolo
-78;Santa Cruz de Tenerife;Hotel Blue Sea Lagos de Cesar;150€;4;bluesealagos
-79;Santa Cruz de Tenerife;Hotel Panoramica Garden;39€;3;panoramicagarden
-80;Segovia;Hotel Avenida del Sotillo;69€;2;avesotillo
-81;Segovia;Los Arcos;103€;4;arcosegovia
-82;Sevilla;Hotel Don Paco;90€;3;donpaco
-83;Sevilla;AACR Hotel Monteolivos;65€;3;monteolivosevilla
-84;Soria;Hotel Leonor Miron;57€;4;leonormiron
-85;Soria;Rincon de Gala;26€;2;rincongala
-86;Tarragona;Hotel Canada;65€;3;canadatarr
-87;Tarragona;Hotel Cosmos Tarragona;40€;1;cosmostarr
-88;Teruel;Hotel Isabel de Segura;72€;3;isabelsegurater
-89;Teruel;Hotel Civera;65€;3;civerater
-90;Toledo;Hotel Godofredo;86€;2;godofredo
-91;Toledo;Toledo Imperial;124€;3;tolimperial
-92;Valencia;Hotel Turia;93€;4;turiaval
-93;Valencia;Hi Valencia Canovas;65€;1;canovasval
-94;Valladolid;Hotel Imperial;100€;4;imperialvall
-95;Valladolid;San Cristobal;45€;2;cristobalvall
-96;Zamora;Hotel Trefacio;42€;1;trefacio
-97;Zamora;Hotel Doña Urraca;52€;3;donaurraca
-98;Zaragoza;Hotel Cogullada;50€;1;collugada
-99;Zaragoza;NH Sport;71€;3;sportzaragoza
+0;Alava;Apartahotel Jardines de Aristi;55€;2;aristi;42.8636;-2.6513
+1;Alava;Hotel Arts;80€;2;arts;42.8489;-2.6698
+2;Albacete;B&B HOTEL Albacete;62€;2;bybalbacete;39.0077;-1.8831
+3;Albacete;Hotel Castilla;38€;2;castilla;38.9971;-1.8526
+4;Alicante;Wayteko Boutique Hotel;88€;2;wayteko;38.3398;-0.4982
+5;Alicante;Hotel Alamo;65€;2;alamo;38.3423;-0.4871
+6;Almeria;AC Hotel Almería by Marriott;56€;4;marriott;36.8407;-2.4649
+7;Almeria;Torreluz Centro;48€;3;torreluz;36.8407;-2.4654
+8;Asturias;Hotel Vaqueros;27€;1;vaqueros;43.3029;-5.6901
+9;Asturias;Silken Monumental Naranco;82€;4;monumentalnar;43.3646;-5.8638
+10;Avila;Hotel II Castillas Ávila;57€;4;castillasav;40.6686;-4.6572
+11;Avila;Hotel Las Moradas;80€;3;lasmoradas;40.6552;-4.6982
+12;Badajoz;Sercotel Gran Hotel Zurbarán;85€;4;zurbaran;38.8797;-6.9766
+13;Badajoz;Condedu;27€;2;condedu;38.8792;-6.9725
+14;Barcelona;Hotel Medicis;86€;2;medicis;41.4106;2.173
+15;Barcelona;Melia Barcelona Sarriá;200€;5;sarria;41.3911;2.1417
+16;Bizkaia;Radisson Collection Bilbao;200€;5;radisson;43.2617;-2.9276
+17;Bizkaia;Hotel Balneario Orduña Plaza;65€;4;orduna;42.9947;-3.0103
+18;Burgos;Hotel Cordón;61€;3;cordon;42.3419;-3.6987
+19;Burgos;Hotel Maria Luisa;70€;3;marialuisa;42.3470;-3.6972
+20;Caceres;Extremadura Hotel;77€;4;extremadura;39.4695;-6.3847
+21;Caceres;Hotel Iberia Plaza Mayor;70€;1;iberiaplaza;39.4746;-6.3725
+22;Cadiz;Plazuela del Carbón Suites;150€;4;carbonsuites;36.5344;-6.2939
+23;Cadiz;Apodaca Rooms;33€;1;apodaca;36.5352;-6.2954
+24;Cantabria;Hotel Spa Villa Pasiega;93€;4;villapasiega;43.3886;-3.6909
+25;Cantabria;Hotel Arha Potes & Spa;53€;2;ahrapotes;43.1533;-4.6227
+26;Castellon;Doña Lola;45€;3;donalola;39.9867;-0.0474
+27;Castellon;Hotel El Rullo;40€;1;rullo;40.1140;-0.0536
+28;Ciudad Real;Hotel Vila-real Palace;85€;4;vilareal;39.9274;-0.1052
+29;Ciudad Real;Hotel Duc de Vendôme;75€;2;ducvendome;40.4860;0.4783
+30;Cordoba;Hotel Mezquita;47€;2;mezquita;37.8797;-4.7789
+31;Cordoba;Crisol Jardines de Córdoba;83€;4;crisoljardines;37.9158;-4.8029
+32;Cuenca;Exe Cuenca;115€;4;execuenca;40.0554;-2.1256
+33;Cuenca;Hotel Plaza;82€;2;plazacuenca;40.0636;-2.1319
+34;Gerona;Erba by Pillow;83€;3;erbapillow;41.9786;2.8234
+35;Gerona;Peninsular;170€;4;peninsular;41.9825;2.8224
+36;Gipuzkoa;Hotel Urdanibia Park;73€;3;urdanibia;43.3298;-1.8258
+37;Gipuzkoa;Hotel Restaurante Zelaa;52€;1;zelaa;43.0466;-2.1540
+38;Granada;La Casa de la Trinidad;60€;4;trinidad;37.1763;-3.6012
+39;Granada;Hotel Reina Cristina;40€;3;reinacristina;37.1762;-3.6026
+40;Guadalajara;Hotel España;40€;2;espanaguad;40.6354;-3.1670
+41;Guadalajara;Hotel Pax Guadalajara;78€;4;pax;40.6317;-3.1506
+42;Huelva;Hotel La Barca;59€;2;labarca;37.2838;-7.1786
+43;Huelva;Senator Huelva;86€;3;huelva;37.2597, -6.9477
+44;Huesca;Hostal Un Punto Chic-Joaquin Costa;57€;2;joaquincosta;42.1420;-0.4112
+45;Huesca;Hotel Pedro I De Aragon;83€;4;pedroaragon;42.1390;-0.4128
+46;Islas Baleares;Hotel Costa Mediterraneo;70€;2;costamediterraneo;39.4974;2.7559
+47;Islas Baleares;Bellavista Hotel & Spa;76€;3;bellavista;39.7130;3.4623
+48;Jaen;Infanta Cristina;98€;4;infantacristina;37.7813;-3.7838
+49;Jaen;HO Ciudad de Jaén;62€;4;hojaen;37.8172;-3.7687
+50;La Coruña;Hotel Lois;58€;2;lois;43.3683;-8.4037
+51;La Coruña;Hotel Brisa;40€;1;brisa;43.3700;-8.4162
+52;La Rioja;4US RIOJA WINE HOTEL;84€;4;riojawine;42.4806;-2.6405
+53;La Rioja;Hotel Palacios;72€;3;palaciosrioja;42.1777;-1.7562
+54;Las Palmas;Sercotel Puerto de la Luz;52€;3;puertodeluz;28.1488;-15.4269
+55;Las Palmas;Sercotel Hotel Parque;60€;3;sercotelparque;28.1095;-15.4170
+56;Leon;Occidental León Alfonso V;95€;4;leonalfonso;42.5986;-5.5723
+57;Leon;ARVA Abad San Antonio;70€;4;arvasanantonio;42.6179;-5.5742
+58;Lerida;Zenit Lleida;63€;4;zenitlleida;41.6179;0.6332
+59;Lerida; Ibis Budget Lleida;48€;2;ibislleida;41.6070;0.6335
+60;Lugo;Hotel Metropol by Carris;48€;1;metropolcarris;43.0149;-7.5539
+61;Lugo;Hotel España;36€;1;espanalugo;43.0082;-7.5573
+62;Madrid;Globales Acis y Galatea;66€;3;acisgalatea;40.4504;-3.6130
+63;Madrid; Ayre Gran Hotel Colón;116€;4;ayregrancolon;40.4133;-3.6680
+64;Malaga;Campanile Málaga Airport;76€;3;campanilemalaga;36.6824;-4.4688
+65;Malaga;Zenit Málaga;100€;3;zenitmalaga;36.7332;-4.4151
+66;Murcia;Hotel Spa Amaltea;66€;4;amaltea;37.6552;-1.7111
+67;Murcia;Executive Sport;56€;3;executivesport;37.7749;-1.4537
+68;Navarra;Hotel Andia;76€;4;andia;42.8219;-1.6945
+69;Navarra;San Pedroko Bidea;45€;3;pedrobidea;42.8971;-2.1660
+70;Ourense;Hotel Condado Ourense;56€;3;condadourense;42.2819;-7.8557
+71;Ourense;Exe Auriense;72€;4;exeauriense;42.2955;-7.8373
+72;Palencia;OK Estudios Plata;67€;3;estudiosplata;41.9264;-4.4908
+73;Palencia;Hotel Camino Real;65€;3;caminoreal;41.8611;-4.5509
+74;Pontevedra;Hotel Virgen del Camino Pontevedra;90€;3;virgencamino;42.4275;-8.6398
+75;Pontevedra;Galicia Palace;115€;4;galiciapalace;42.4273;-8.6411
+76;Salamanca;Gran Hotel Corona Sol;85€;4;coronasol;40.9691;-5.6698
+77;Salamanca;Hotel San Polo;67€;3;sanpolo;40.9591;-5.6642
+78;Santa Cruz de Tenerife;Hotel Blue Sea Lagos de Cesar;150€;4;bluesealagos;28.2344;-16.8404
+79;Santa Cruz de Tenerife;Hotel Panoramica Garden;39€;3;panoramicagarden;28.3975;-16.5815
+80;Segovia;Hotel Avenida del Sotillo;69€;2;avesotillo;40.9656;-4.0978
+81;Segovia;Los Arcos;103€;4;arcosegovia;40.9439;-4.1207
+82;Sevilla;Hotel Don Paco;90€;3;donpaco;37.3928;-5.9868
+83;Sevilla;AACR Hotel Monteolivos;65€;3;monteolivosevilla;37.3916;-5.9706
+84;Soria;Hotel Leonor Miron;57€;4;leonormiron;41.7694;-2.4597
+85;Soria;Rincon de Gala;26€;2;rincongala;41.7669;-2.4724
+86;Tarragona;Hotel Canada;65€;3;canadatarr;41.1893;1.5765
+87;Tarragona;Hotel Cosmos Tarragona;40€;1;cosmostarr;41.1188;1.2470
+88;Teruel;Hotel Isabel de Segura;72€;3;isabelsegurater;40.3338;-1.1081
+89;Teruel;Hotel Civera;65€;3;civerater;40.3341;-1.1019
+90;Toledo;Hotel Godofredo;86€;2;godofredo;39.8712;-4.0191
+91;Toledo;Toledo Imperial;124€;3;tolimperial;39.8577;-4.0213
+92;Valencia;Hotel Turia;93€;4;turiaval;39.4802;-0.3885
+93;Valencia;Hi Valencia Canovas;65€;1;canovasval;39.4694;-0.3663
+94;Valladolid;Hotel Imperial;100€;4;imperialvall;41.6526;-4.7296
+95;Valladolid;San Cristobal;45€;2;cristobalvall;41.6144;-4.6897
+96;Zamora;Hotel Trefacio;42€;1;trefacio;41.5069;-5.7431
+97;Zamora;Hotel Doña Urraca;52€;3;donaurraca;41.5059;-5.7496
+98;Zaragoza;Hotel Cogullada;50€;1;collugada;41.6705;-0.8620
+99;Zaragoza;NH Sport;71€;3;sportzaragoza;41.6498;-0.8954

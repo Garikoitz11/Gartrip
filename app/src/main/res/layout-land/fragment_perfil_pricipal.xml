@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textoMiPeerfil"
+        android:id="@+id/textoMiPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="MI PERFIL"
+        android:text="@string/miPerfil"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -48,45 +48,45 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginTop="30dp"
-        android:text="Mis datos Personales"
+        android:text="@string/datosPer"
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/boton1"
+        app:layout_constraintEnd_toStartOf="@+id/btnDatosPersonales"
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/textoMiPerfil" />
 
     <TextView
-        android:id="@+id/textoTarjetas"
+        android:id="@+id/textoSobreNosotros"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginTop="60dp"
-        android:text="Sobre nosotros"
+        android:text="@string/sobreNosotros"
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/boton2"
+        app:layout_constraintEnd_toStartOf="@+id/btnSobreNosotros"
         app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoDatosPersonales" />
 
     <TextView
-        android:id="@+id/sobre_nosotros"
+        android:id="@+id/ayuda"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="350dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="156dp"
-        android:text="Ayuda"
+        android:text="@string/Ayuda"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/boton3"
+        app:layout_constraintEnd_toStartOf="@+id/btnAyuda"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoTarjetas"
+        app:layout_constraintTop_toBottomOf="@+id/textoSobreNosotros"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/boton1"
+        android:id="@+id/btnDatosPersonales"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="30dp"
@@ -95,11 +95,11 @@
         android:contentDescription="boton1"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textoMiPerfil"
         app:srcCompat="@drawable/ic_action_name" />
 
     <ImageButton
-        android:id="@+id/boton2"
+        android:id="@+id/btnSobreNosotros"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="44dp"
@@ -109,10 +109,10 @@
         android:contentDescription="boton2"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton1"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnDatosPersonales"/>
 
     <ImageButton
-        android:id="@+id/boton3"
+        android:id="@+id/btnAyuda"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="36dp"
@@ -122,7 +122,7 @@
         android:contentDescription="boton3"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSobreNosotros" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
