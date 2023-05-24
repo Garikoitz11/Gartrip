@@ -5,9 +5,16 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,7 +34,14 @@ import android.widget.Toast;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.proyecto2.ActividadPrincipal;
+import com.example.proyecto2.Adapters.OpinionesAdaptador;
+import com.example.proyecto2.Dialogs.Idioma;
+import com.example.proyecto2.Dialogs.Opinion;
 import com.example.proyecto2.R;
+import com.example.proyecto2.Services.OpinionBDService;
+import com.example.proyecto2.Services.RecogerOpinionesBDService;
+import com.example.proyecto2.opinionListener;
 
 import org.w3c.dom.Text;
 
@@ -36,9 +51,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
-public class FragmentProducto extends Fragment {
+public class FragmentProducto extends Fragment{
     List<String[]> rows = new ArrayList<>();
     static String nombreHotel;
     String precioHotel;
@@ -73,13 +90,22 @@ public class FragmentProducto extends Fragment {
     ImageView icoParking;
     ImageView icoSilla;
 
+    String email;
+    String id_hotel;
+    ListView listView;
+
+    String[] usuarios;
+    String[] comentarios;
+    float[] puntuaciones;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_producto, container, false);
 
         Bundle extras = getArguments();
-        String id_hotel = extras.getString("id_hotel");
+        id_hotel = extras.getString("id_hotel");
+        email = extras.getString("email");
 
         //cogemos las vistas de iconos y sus textos
         //iconos
@@ -244,6 +270,45 @@ public class FragmentProducto extends Fragment {
 
             }
         });
+        Button enviarOpinion = view.findViewById(R.id.button5);
+
+        enviarOpinion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Data datos = new Data.Builder()
+                        .putString("email",email)
+                        .putString("id",id_hotel)
+                        .putString("accion","comprobar")
+                        .build();
+
+                OneTimeWorkRequest otwr = new OneTimeWorkRequest.Builder(OpinionBDService.class)
+                        .setInputData(datos)
+                        .build();
+
+                WorkManager.getInstance(getContext()).getWorkInfoByIdLiveData(otwr.getId())
+                        .observe(getActivity(), new Observer<WorkInfo>() {
+                            @Override
+                            public void onChanged(WorkInfo workInfo) {
+                                if(workInfo != null && workInfo.getState().isFinished()){
+                                    Log.i("BOTON", "Fin acceso");
+                                    Log.i("BOTON", "¿Correcto? " + workInfo.getOutputData().getBoolean("valor", false) + ", " + workInfo.getOutputData().getString("texto"));
+                                    Boolean resultado = workInfo.getOutputData().getBoolean("valor", false);
+                                    String codigo = workInfo.getOutputData().getString("texto");
+
+                                    if(resultado){
+                                        ActividadPrincipal actividad = (ActividadPrincipal) getActivity();
+                                        actividad.mostrarDialogoOpinion(id_hotel);
+                                    } else {
+                                        int tiempo= Toast.LENGTH_SHORT;
+                                        Toast aviso = Toast.makeText(getContext(), "Ya has mandado opinion", tiempo);
+                                        aviso.show();
+                                    }
+                                }
+                            }
+                        });
+                WorkManager.getInstance(getContext()).enqueue(otwr);
+            }
+        });
 
         Button completarReserva = view.findViewById(R.id.btnCompletarReserva);
 
@@ -298,6 +363,10 @@ public class FragmentProducto extends Fragment {
         foto.setImageResource(drawableResourceId);
         */
 
+        listView = view.findViewById(R.id.listaOpiniones);
+
+        rellenar();
+
         return view;
     }
 
@@ -322,5 +391,50 @@ public class FragmentProducto extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void rellenar(){
+        usuarios=null;
+        comentarios=null;
+        puntuaciones=null;
+
+        //Creamos un objeto de tipo data y le metemos el email
+        Data datos = new Data.Builder()
+                .putString("hotel_id", id_hotel)
+                .build();
+
+        //Creamos una solicitud de trabajo para la ejecucion de la llamada asincrona a la bd
+        OneTimeWorkRequest otwr = new OneTimeWorkRequest.Builder(RecogerOpinionesBDService.class)
+                .setInputData(datos)
+                .build();
+        //Le añadimos un observable para que actue una vez reciba de vuelta algo
+        WorkManager.getInstance(getContext()).getWorkInfoByIdLiveData(otwr.getId())
+                .observe(getActivity(), new Observer<WorkInfo>() {
+                    @Override
+                    public void onChanged(WorkInfo workInfo) {
+                        if(workInfo != null && workInfo.getState().isFinished()){
+                            //Obtenemos la respuesta del servidor en funcion de si es correcto o no
+                            boolean operacionCorrecta = workInfo.getOutputData().getBoolean("operacionCorrecta", false);
+                            if (operacionCorrecta) {
+                                usuarios = workInfo.getOutputData().getStringArray("nombres");
+                                Log.i("recogida", Arrays.toString(usuarios));
+                                comentarios = workInfo.getOutputData().getStringArray("comentarios");
+                                Log.i("recogida", Arrays.toString(comentarios));
+                                puntuaciones = workInfo.getOutputData().getFloatArray("puntuaciones");
+                                Log.i("recogida", Arrays.toString(puntuaciones));
+
+                                OpinionesAdaptador nuevoAdapter= new OpinionesAdaptador(getContext(),usuarios,comentarios,puntuaciones);
+                                listView.setAdapter(nuevoAdapter);
+                            }
+                            else {
+                                //Sino lanza mensaje de aviso de error
+                                int tiempo= Toast.LENGTH_SHORT;
+                                Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
+                                aviso.show();
+                            }
+                        }
+                    }
+                });
+        WorkManager.getInstance(getContext()).enqueue(otwr);
     }
 }

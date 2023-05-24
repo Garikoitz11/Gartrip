@@ -24,6 +24,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyecto2.ActividadPrincipal;
 import com.example.proyecto2.Adapters.HotelesAdaptador;
 import com.example.proyecto2.R;
 
@@ -77,7 +78,8 @@ public class FragmentPrincipal extends Fragment {
         barraPrecio = view.findViewById(R.id.barraPrecio);
         precioSeekBar=view.findViewById(R.id.id_textView_PrecioCambiante);
 
-
+        ActividadPrincipal actividad = (ActividadPrincipal) getActivity();
+        email = actividad.obtenerUsuario();
 
         Log.i("num elementos", String.valueOf(hotelesNombres.size()));
         if(hotelesNombres.size()==0){
@@ -241,7 +243,7 @@ public class FragmentPrincipal extends Fragment {
 
         //Crea el recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        hotelesAdaptador = new HotelesAdaptador(hotelesNombres, hotelesImagenes, hotelesPrecios, hotelesDireccion, estrellasHoteles, categoria, mostrarPrecio, idHoteles);
+        hotelesAdaptador = new HotelesAdaptador(hotelesNombres, hotelesImagenes, hotelesPrecios, hotelesDireccion, estrellasHoteles, categoria, mostrarPrecio, idHoteles, email);
         recyclerView.setAdapter(hotelesAdaptador);
 
         // GridLayoutManager rejilla= new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
@@ -266,7 +268,7 @@ public class FragmentPrincipal extends Fragment {
         Iterator<Float> iterator = integers.iterator();
         for (int i = 0; i < ret.length; i++)
         {
-            ret[i] = iterator.next().intValue();
+            ret[i] = iterator.next().floatValue();
         }
         return ret;
     }

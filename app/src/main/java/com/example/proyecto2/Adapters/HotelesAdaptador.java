@@ -25,9 +25,10 @@ public class HotelesAdaptador extends RecyclerView.Adapter<HotelesAdaptador.View
     private String tipo;
     private boolean mostrarTipo;
     private String[] idHoteles;
+    private static String email;
 
 
-    public HotelesAdaptador(String[] nombresHoteles, int[] imagenesHoteles, String[] preciosHoteles, String[] direccionHoteles, float[] puntuacionesHoteles, String tipo, boolean mostrarTipo,String[] idHoteles) {
+    public HotelesAdaptador(String[] nombresHoteles, int[] imagenesHoteles, String[] preciosHoteles, String[] direccionHoteles, float[] puntuacionesHoteles, String tipo, boolean mostrarTipo,String[] idHoteles, String pemail) {
         this.nombresHoteles = nombresHoteles;
         this.imagenesHoteles = imagenesHoteles;
         this.preciosHoteles = preciosHoteles;
@@ -36,6 +37,7 @@ public class HotelesAdaptador extends RecyclerView.Adapter<HotelesAdaptador.View
         this.tipo = tipo;
         this.mostrarTipo = mostrarTipo;
         this.idHoteles = idHoteles;
+        this.email=pemail;
     }
 
     @NonNull
@@ -96,6 +98,7 @@ public class HotelesAdaptador extends RecyclerView.Adapter<HotelesAdaptador.View
 
                     Log.i("ID", idHotel.getText().toString());
                     bundle.putString("id_hotel", idHotel.getText().toString());
+                    bundle.putString("email",email);
 
 
                     Navigation.findNavController(view).navigate(R.id.action_fragmentPrincipal_to_fragmentProducto, bundle);
