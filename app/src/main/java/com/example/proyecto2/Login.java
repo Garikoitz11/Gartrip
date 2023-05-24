@@ -21,6 +21,7 @@ import android.app.ActivityManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -120,7 +121,11 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
         //Obtenemos elementos del layout
         Button iniciarSesion = findViewById(R.id.iniciarSesionLogin);
         Button registro = findViewById(R.id.RegistroLogin);
+
         ImageButton twitter = findViewById(R.id.twitter);
+        ImageButton instagram = findViewById(R.id.insta);
+        ImageButton gmail = findViewById(R.id.gmail);
+
         email = findViewById(R.id.emailLogin);
         contraseña = findViewById(R.id.contraseñaLogin);
         ImageButton apagar = findViewById(R.id.apagar);
@@ -236,6 +241,38 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                     intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/gartxon"));
                 }
                 startActivity(intent);
+            }
+        });
+
+        instagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://instagram.com/_u/gartrip");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+                likeIng.setPackage("com.instagram.android");
+
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://instagram.com/gartrip")));
+                }
+            }
+        });
+
+        gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] email = {"gartrip@gmail.com"};
+                String subject = "";
+                String body = "";
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, email);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+                startActivity(Intent.createChooser(emailIntent, "Enviar e-mail"));
             }
         });
     }

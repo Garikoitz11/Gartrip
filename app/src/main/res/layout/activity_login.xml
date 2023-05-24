@@ -83,7 +83,7 @@
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gmail"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/insta"
         app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/twitter" />
@@ -95,7 +95,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="72dp"
-        android:background="@color/white"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
@@ -103,12 +103,12 @@
         app:srcCompat="@mipmap/gmail" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/insta"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="70dp"
         android:layout_marginBottom="70dp"
-        android:background="@color/white"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/instagram" />
