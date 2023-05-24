@@ -89,7 +89,7 @@ public class FragmentPrincipal extends Fragment {
                 hotelesNombres.add(rows.get(i)[2]);
                 hotelesPrecios.add(rows.get(i)[3]);
                 hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
-                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[5], "drawable", Objects.requireNonNull(getContext()).getPackageName()));
+                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[5] + "1", "drawable", Objects.requireNonNull(getContext()).getPackageName()));
                 Log.i("NombreHotel",hotelesNombres.get(i));
                 Log.i("imagenhotel",Integer.toString(hotelesImagenes.get(i)));
             }

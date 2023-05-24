@@ -49,4 +49,5 @@
     <string name="apellido">Abizena</string>
     <string name="completarReserva">Erreserba Bete</string>
     <string name="hoteles">Hotelak</string>
+    <string name="eurosNoche">€/gaua</string>
 </resources>
