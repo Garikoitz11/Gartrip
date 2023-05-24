@@ -55,6 +55,17 @@
             app:layout_constraintStart_toEndOf="@+id/barraPrecio"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/location"
+            android:layout_width="51dp"
+            android:layout_height="45dp"
+            android:background="#00FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/id_textView_PrecioCambiante"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/location" />
+
 
         <!--
             <com.google.android.material.slider.RangeSlider
