@@ -52,8 +52,6 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
     private FusedLocationProviderClient proveedordelocalizacion;
     private LocationRequest peticion;
     private LocationCallback actualizador;
-    private String nombreProducto;
-    private String precioProducto;
     private boolean recibirActualizaciones;
     private static ArrayList<LatLng> ubicacionTiendas;
     private double latitud;
@@ -62,10 +60,6 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        Bundle extras = getArguments();
-        nombreProducto = extras.getString("nombreProducto");
-        precioProducto = extras.getString("precioProducto");
 
         //Inflamos el fragmento con el layaout del mapa
         View view = inflater.inflate(R.layout.fragment_mapa, container, false);
@@ -121,11 +115,11 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        //Busca la tienda mas cercana utilizando las coordenadas
+        //Busca el hotel mas cercano utilizando las coordenadas
         botonBuscarCercania.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buscarTiendaMasCercana(latitud, longitud);
+                buscarHotelMasCercano(latitud, longitud);
             }
         });
 
@@ -175,8 +169,6 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
                 if (marcador != null) {
                     //LLevamos al usuario a la pantalla donde podra ver su factura
                     Bundle bundle = new Bundle();
-                    bundle.putString("nombreProducto", nombreProducto);
-                    bundle.putString("precioProducto", precioProducto);
                     bundle.putString("lugar", marcador);
 
                     Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentMapa_to_fragmentFactura, bundle);
@@ -218,7 +210,7 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
         proveedordelocalizacion.removeLocationUpdates(actualizador);
     }
 
-    public void buscarTiendaMasCercana (double lat1, double long1) {
+    public void buscarHotelMasCercano (double lat1, double long1) {
         //Calcula la distancia entre las coordenadas de la posicion del usuario y las tiendas y devuelve la mas cercana
         LatLng masCercana = null;
         double cercania = 0;
