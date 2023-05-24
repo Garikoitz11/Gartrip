@@ -62,8 +62,7 @@
     <string name="noResultado">Ez da emaitzarik aurkitu</string>
     <string name="modoBack">Aktibatu modu background ondo funtzionatzeko</string>
     <string name="atencionCliente">BEZEROETZAKO ARRETA</string>
-    <string name="atencion1">Hemen gaude momentu guztietan laguntzeko eta gure zerbitzuekin ahalik eta ezperientzia onena izan dezazun ziurtatzeko. Galderarik, kezkarik edo laguntza behar baduzu, ez izan zalantzarik eta jar zaitez gurekin harremanetan. Gure taldea handiko prestakuntza du gure bezeroentzako kezkak konpontzeko eta behar duzun lagunrza emateko. Edozein zalantzarik baduzu, beheko telefono zenbakira deitu.</string>
-    <string name="atencion1">"    Hemen gaude momentu guztietan zuri laguntzeko eta gure zerbitzuarekin ahalik eta esperientzia onena izan dezazun ziurtatzeko. Galderarik, kezkarik edo laguntza behar baduzu, ez izan zalantzarik eta jar zaitez gurekin harremanetan. Gure bezeroarentzako arreta-taldea prest dago zure kezkak konpontzeko eta behar duzuna laguntza emateko. Edozein zalantza argitzeko, ez izan zalantzarik beheko telefono zenbakira deitu. "</string>
+    <string name="atencion11">Hemen gaude momentu guztietan laguntzeko eta gure zerbitzuekin ahalik eta ezperientzia onena izan dezazun ziurtatzeko. Galderarik, kezkarik edo laguntza behar baduzu, ez izan zalantzarik eta jar zaitez gurekin harremanetan. Gure taldea handiko prestakuntza du gure bezeroentzako kezkak konpontzeko eta behar duzun lagunrza emateko. Edozein zalantzarik baduzu, beheko telefono zenbakira deitu.</string>
     <string name="bienvenidoAten">Ongi etorri gure hoteleko aplikazioaren Bezeroarentzako Arreta!</string>
     <string name="hacerFoto">Argazkia egin</string>
     <string name="lugarRecogida">Leku-bilketa</string>
