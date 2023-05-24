@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_fragmentPrincipal_to_fragmentProducto"
             app:destination="@id/fragmentProducto" />
+        <action
+            android:id="@+id/action_fragmentPrincipal_to_fragmentMapa"
+            app:destination="@id/fragmentMapa" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPerfil"
@@ -28,9 +31,6 @@
         android:id="@+id/fragmentProducto"
         android:name="com.example.proyecto2.Fragments.FragmentProducto"
         android:label="FragmentProducto" >
-        <action
-            android:id="@+id/action_fragmentProducto_to_fragmentMapa"
-            app:destination="@id/fragmentMapa" />
         <argument
             android:name="codigo"
             app:argType="string" />
@@ -65,15 +65,15 @@
         android:id="@+id/fragmentMapa"
         android:name="com.example.proyecto2.Fragments.FragmentMapa"
         android:label="FragmentMapa" >
-        <action
-            android:id="@+id/action_fragmentMapa_to_fragmentFactura"
-            app:destination="@id/fragmentFactura" />
         <argument
             android:name="nombreProducto"
             app:argType="string" />
         <argument
             android:name="precioProducto"
             app:argType="string" />
+        <action
+            android:id="@+id/action_fragmentMapa_to_fragmentProducto"
+            app:destination="@id/fragmentProducto" />
     </fragment>
     <fragment
         android:id="@+id/fragmentFactura"

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,6 +79,13 @@ public class FragmentPrincipal extends Fragment {
         barraPrecio = view.findViewById(R.id.barraPrecio);
         precioSeekBar=view.findViewById(R.id.id_textView_PrecioCambiante);
 
+        ImageView localizacion =view.findViewById(R.id.location);
+        localizacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentPrincipal_to_fragmentMapa);
+            }
+        });
 
 
         Log.i("num elementos", String.valueOf(hotelesNombres.size()));

@@ -13,10 +13,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,12 +73,6 @@ public class FragmentProducto extends Fragment {
     ImageView icoParking;
     ImageView icoSilla;
 
-
-
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -93,8 +91,6 @@ public class FragmentProducto extends Fragment {
         icoParking = view.findViewById(R.id.icoParking);
         icoSilla= view.findViewById(R.id.icoSilla);
 
-
-
         //textos
         textoWifi = view.findViewById(R.id.text_wifi);
         textoDesayuno = view.findViewById(R.id.text_desayuno);
@@ -102,8 +98,6 @@ public class FragmentProducto extends Fragment {
         textoPiscina = view.findViewById(R.id.text_piscina);
         textoParking =view.findViewById(R.id.text_parking);
         textoSilla = view.findViewById(R.id.text_Silla);
-
-
 
         //cogemos la info del fichero para mostrar los datos
         recogerInfo();
@@ -225,6 +219,32 @@ public class FragmentProducto extends Fragment {
         RatingBar rtngEstrellas = view.findViewById(R.id.ratingBar);
         rtngEstrellas.setRating(estrellas);
 
+        // Spinner para seleccionar las personas y calcular entorno a las personas
+        Spinner spinner = view.findViewById(R.id.spinner);
+        String[] opciones = {"1","2","3","4"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, opciones);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedItem = adapterView.getItemAtPosition(i).toString();
+                int numeroPersonas = Integer.parseInt(selectedItem);
+                String[] strPrecioSinEuro = precioHotel.split("€");
+                int numPrecioSinEuro = Integer.parseInt(strPrecioSinEuro[0]);
+                int resultado = numeroPersonas * numPrecioSinEuro;
+                String strResultado = Integer.toString(resultado);
+                txtVprecioNoche.setText(strResultado + euros);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         Button completarReserva = view.findViewById(R.id.btnCompletarReserva);
 
         completarReserva.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +262,7 @@ public class FragmentProducto extends Fragment {
                     bundle.putString("nombreProducto", nombreHotel);
                     bundle.putString("precioProducto", precioHotel);
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentMapa, bundle);
+                    //Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentMapa, bundle);
                 }
                 else {
                     int tiempo= Toast.LENGTH_SHORT;

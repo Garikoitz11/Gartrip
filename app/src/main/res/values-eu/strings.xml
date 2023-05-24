@@ -81,7 +81,7 @@
     <string name="politica">Gure politikak ez du onartzen edozein ostaturen baliogabetzerik.</string>
     <string name="entrada">Gure ostatu guztien logelarako sarrera 15:00etatik aurrera da.</string>
     <string name="salida">Gelaren irteera 11:00ak baino lehen izan behar da, zure hegaldia ordu hori baino beranduago izanez gero maleta gordetzeko prest egongo gara, helmuga gozatzen jarraitzen duzun bitartean.</string>
-    <string name="eurosNoche">/gaua</string>
+    <string name="eurosNoche">€/gaua</string>
     <string name="Serviciosdestacados">Zerbitzu nabarmendatuak</string>
     <string name="Opciondesayuno">Gosari aukera</string>
     <string name="Aireacondicionado">Aire girotua</string>

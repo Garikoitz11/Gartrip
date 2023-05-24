@@ -34,7 +34,7 @@
         android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Tienda más cercana"
+        android:text="Hotel más cercano"
         android:background="@drawable/boton_redondeado"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
