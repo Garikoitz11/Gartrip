@@ -118,7 +118,8 @@ public class FragmentEditarPerfil extends Fragment {
                         }
                     } else {
                         int tiempo= Toast.LENGTH_SHORT;
-                        Toast aviso = Toast.makeText(getContext(), "No selecciono ninguna imagen", tiempo);
+                        String imagenSeleccionada = getString(R.string.imagenSeleccionada);
+                        Toast aviso = Toast.makeText(getContext(), imagenSeleccionada, tiempo);
                         aviso.show();
                     }
                 });
@@ -145,7 +146,8 @@ public class FragmentEditarPerfil extends Fragment {
                         }
                     } else {
                         int tiempo= Toast.LENGTH_SHORT;
-                        Toast aviso = Toast.makeText(getContext(), "No hizo ninguna foto", tiempo);
+                        String imagenSacada = getString(R.string.imagenSacada);
+                        Toast aviso = Toast.makeText(getContext(), imagenSacada, tiempo);
                         aviso.show();                    }
                 });
 
@@ -216,7 +218,8 @@ public class FragmentEditarPerfil extends Fragment {
                                     else {
                                         //Sino lanza mensaje de aviso de error
                                         int tiempo= Toast.LENGTH_SHORT;
-                                        Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
+                                        String error = getString(R.string.error);
+                                        Toast aviso = Toast.makeText(getContext(), error, tiempo);
                                         aviso.show();
                                     }
                                 }

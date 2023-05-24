@@ -110,13 +110,15 @@ public class Registro extends AppCompatActivity {
                     EditText email = findViewById(R.id.emailRegistro);
                     emailIntroducido = email.getText().toString();
                     if (nombreIntroducido.isEmpty() || apellidoIntroducido.isEmpty() || emailIntroducido.isEmpty() || contraseñaIntroducida.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Todos los campos son obligatorios!", Toast.LENGTH_SHORT).show();
+                        String campos = getString(R.string.camposObligatorios);
+                        Toast.makeText(getApplicationContext(), campos, Toast.LENGTH_SHORT).show();
                         return;
                     }
 
                     // Validar restricción de dominio
                     if (!emailIntroducido.endsWith("gmail.com")) {
-                        Toast.makeText(getApplicationContext(), "El gmail introducido no tiene la estuctura correcta!", Toast.LENGTH_SHORT).show();
+                        String gmail = getString(R.string.gmail);
+                        Toast.makeText(getApplicationContext(), gmail, Toast.LENGTH_SHORT).show();
                         return;
                     }
                     Data datos = new Data.Builder()
@@ -153,11 +155,13 @@ public class Registro extends AppCompatActivity {
                                             // Aviso de error
                                             if (emailExistente) {
                                                 int tiempo = Toast.LENGTH_SHORT;
-                                                Toast aviso = Toast.makeText(getApplicationContext(), "El correo ya existe en esta aplicación", tiempo);
+                                                String correoExistente = getString(R.string.correoExistente);
+                                                Toast aviso = Toast.makeText(getApplicationContext(), correoExistente, tiempo);
                                                 aviso.show();
                                             } else {
                                                 int tiempo = Toast.LENGTH_SHORT;
-                                                Toast aviso = Toast.makeText(getApplicationContext(), "¡El correo ya existe en esta aplicación!", tiempo);
+                                                String correoExistente = getString(R.string.correoExistente);
+                                                Toast aviso = Toast.makeText(getApplicationContext(), correoExistente, tiempo);
                                                 aviso.show();
                                             }
                                         }
@@ -170,7 +174,8 @@ public class Registro extends AppCompatActivity {
                 else {
                     //Aviso error contras
                     int tiempo= Toast.LENGTH_SHORT;
-                    Toast aviso = Toast.makeText(getApplicationContext(), "¡CUIDADO! Las contraseñas no coinciden", tiempo);
+                    String cuidado = getString(R.string.contrasenasNoCoin);
+                    Toast aviso = Toast.makeText(getApplicationContext(), cuidado, tiempo);
                     aviso.show();
                 }
             }

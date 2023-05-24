@@ -112,7 +112,8 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             if (am.isBackgroundRestricted()==true){
                 int tiempo= Toast.LENGTH_LONG;
-                Toast aviso = Toast.makeText(getApplicationContext(), "Activa el modo background para un correcto funcionamiento", tiempo);
+                String modoBack = getString(R.string.modoBack);
+                Toast aviso = Toast.makeText(getApplicationContext(), modoBack, tiempo);
                 aviso.show();
             }
         }

@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/email"
+        android:backgroundTint="@color/naranjaPrincipal"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/imagenPerfil"
         app:layout_constraintTop_toBottomOf="@+id/imagenPerfil" />
@@ -30,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:backgroundTint="@color/naranjaPrincipal"
         app:layout_constraintStart_toStartOf="@+id/textoMiPeerfil"
         app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil" />
 
@@ -38,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:backgroundTint="@color/naranjaPrincipal"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -47,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/nombre"
+        android:backgroundTint="@color/naranjaPrincipal"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/emailPerfil"
         app:layout_constraintTop_toBottomOf="@+id/emailPerfil" />
@@ -56,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:backgroundTint="@color/naranjaPrincipal"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

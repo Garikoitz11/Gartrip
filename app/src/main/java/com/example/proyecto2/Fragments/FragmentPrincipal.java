@@ -216,7 +216,8 @@ public class FragmentPrincipal extends Fragment {
 
         if(filteredListNombre.size()==0){
             Log.i("entraaaa", "siii");
-            Toast.makeText(getContext(),"No se ha encontrado ningun resultado", Toast.LENGTH_SHORT);//No se por que no lo hace no pilla el contexto¿?
+            String noResultado = getString(R.string.noResultado);
+            Toast.makeText(getContext(),noResultado, Toast.LENGTH_SHORT);//No se por que no lo hace no pilla el contexto¿?
         }
 
         //Pasamos de arrayList a array para adaptarse al formato del mostrarData()
