@@ -76,15 +76,43 @@
 
     <ImageButton
         android:id="@+id/twitter"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/boton_social"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gmail"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
+        app:layout_constraintVertical_bias="0.973"
+        app:srcCompat="@drawable/twitter" />
+
+    <ImageButton
+        android:id="@+id/gmail"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/boton_social"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
+        app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/gmail" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="388dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
-        app:srcCompat="@drawable/twitter" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/instagram" />
 
     <ImageButton
         android:id="@+id/apagar"
