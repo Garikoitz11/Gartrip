@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -41,6 +42,39 @@ public class FragmentProducto extends Fragment {
     static String imgHotel;
     Float estrellas;
 
+    String piscina ="piscina";
+    String wf = "Wifi";
+    String adaptadoSillaDeRuedas="adaptado";
+    String desayuno ="desayuno incluido";
+    String jardin = "jardin";
+    String terraza = "terraza";
+    String aten24 = "atencion24h";
+    String gimnasio = "gym";
+    String parking="parking";
+    String aire = "aire acondicionado";
+
+    List<String> caracteristicasHoteles = new ArrayList<>();
+
+    TextView textoWifi;
+    TextView textoDesayuno;
+    TextView textoAire;
+    TextView textoPiscina;
+    TextView textoParking;
+    TextView textoSilla;
+
+    ImageView icoWifi;
+    ImageView icoDesayuno;
+    ImageView icoAire;
+    ImageView icoPiscina;
+    ImageView icoParking;
+    ImageView icoSilla;
+
+
+
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,6 +82,28 @@ public class FragmentProducto extends Fragment {
 
         Bundle extras = getArguments();
         String id_hotel = extras.getString("id_hotel");
+
+        //cogemos las vistas de iconos y sus textos
+        //iconos
+
+        icoWifi= view.findViewById(R.id.icoWifi);
+        icoDesayuno= view.findViewById(R.id.desayuno);
+        icoAire = view.findViewById(R.id.icoAire);
+        icoPiscina = view.findViewById(R.id.icoPiscina);
+        icoParking = view.findViewById(R.id.icoParking);
+        icoSilla= view.findViewById(R.id.icoSilla);
+
+
+
+        //textos
+        textoWifi = view.findViewById(R.id.text_wifi);
+        textoDesayuno = view.findViewById(R.id.text_desayuno);
+        textoAire = view.findViewById(R.id.text_aire);
+        textoPiscina = view.findViewById(R.id.text_piscina);
+        textoParking =view.findViewById(R.id.text_parking);
+        textoSilla = view.findViewById(R.id.text_Silla);
+
+
 
         //cogemos la info del fichero para mostrar los datos
         recogerInfo();
@@ -62,6 +118,85 @@ public class FragmentProducto extends Fragment {
                 precioHotel = rows.get(i)[3];
                 estrellas = Float.valueOf(rows.get(i)[4]);
                 imgHotel = rows.get(i)[5];
+                if(estrellas==1){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    icoWifi.setVisibility(View.VISIBLE);
+                    textoWifi.setVisibility(View.VISIBLE);
+                    icoDesayuno.setVisibility(View.VISIBLE);
+                    textoDesayuno.setVisibility(View.VISIBLE);
+                }
+                if(estrellas==2){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+
+                    icoWifi.setVisibility(View.VISIBLE);
+                    textoWifi.setVisibility(View.VISIBLE);
+                    icoDesayuno.setVisibility(View.VISIBLE);
+                    textoDesayuno.setVisibility(View.VISIBLE);
+                    icoAire.setVisibility(View.VISIBLE);
+                    textoAire.setVisibility(View.VISIBLE);
+                }
+                if(estrellas==3){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                    caracteristicasHoteles.add(piscina);
+
+                    icoWifi.setVisibility(View.VISIBLE);
+                    textoWifi.setVisibility(View.VISIBLE);
+                    icoDesayuno.setVisibility(View.VISIBLE);
+                    textoDesayuno.setVisibility(View.VISIBLE);
+                    icoAire.setVisibility(View.VISIBLE);
+                    textoAire.setVisibility(View.VISIBLE);
+                    icoPiscina.setVisibility(View.VISIBLE);
+                    textoPiscina.setVisibility(View.VISIBLE);
+                }
+                if(estrellas==4){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                    caracteristicasHoteles.add(jardin);
+                    caracteristicasHoteles.add(piscina);
+                    caracteristicasHoteles.add(parking);
+
+                    icoWifi.setVisibility(View.VISIBLE);
+                    textoWifi.setVisibility(View.VISIBLE);
+                    icoDesayuno.setVisibility(View.VISIBLE);
+                    textoDesayuno.setVisibility(View.VISIBLE);
+                    icoAire.setVisibility(View.VISIBLE);
+                    textoAire.setVisibility(View.VISIBLE);
+                    icoPiscina.setVisibility(View.VISIBLE);
+                    textoPiscina.setVisibility(View.VISIBLE);
+                    icoParking.setVisibility(View.VISIBLE);
+                    textoParking.setVisibility(View.VISIBLE);
+                }
+                if(estrellas==5){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                    caracteristicasHoteles.add(jardin);
+                    caracteristicasHoteles.add(piscina);
+                    caracteristicasHoteles.add(terraza);
+                    caracteristicasHoteles.add(parking);
+                    caracteristicasHoteles.add(aten24);
+                    caracteristicasHoteles.add(adaptadoSillaDeRuedas);
+
+
+                    icoWifi.setVisibility(View.VISIBLE);
+                    textoWifi.setVisibility(View.VISIBLE);
+                    icoDesayuno.setVisibility(View.VISIBLE);
+                    textoDesayuno.setVisibility(View.VISIBLE);
+                    icoAire.setVisibility(View.VISIBLE);
+                    textoAire.setVisibility(View.VISIBLE);
+                    icoPiscina.setVisibility(View.VISIBLE);
+                    textoPiscina.setVisibility(View.VISIBLE);
+                    icoParking.setVisibility(View.VISIBLE);
+                    textoParking.setVisibility(View.VISIBLE);
+                    icoSilla.setVisibility(View.VISIBLE);
+                    textoSilla.setVisibility(View.VISIBLE);
+                }
                 enc =true;
             }
             i+=1;
