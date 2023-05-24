@@ -82,4 +82,10 @@
     <string name="entrada">The entrance to the room of all our accommodations is from 15:00.</string>
     <string name="salida">The departure of the room must be before 11:00, in case you have your flight later than that time we will be willing to store the suitcase, while you continue enjoying your destination.</string>
     <string name="eurosNoche">/night</string>
+    <string name="Serviciosdestacados">Featured services</string>
+    <string name="Opciondesayuno">Breakfast option</string>
+    <string name="Aireacondicionado">Aire acondicionado</string>
+    <string name="Piscina">Pool</string>
+    <string name="Parking">Parking</string>
+    <string name="Servicioespecial">Special service</string>
 </resources>

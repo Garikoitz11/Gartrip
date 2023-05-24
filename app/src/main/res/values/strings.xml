@@ -82,4 +82,10 @@
     <string name="entrada">La entrada a la habitacien de todos nuestros alojamientos es a partir de las 15:00.</string>
     <string name="salida">La salida de la habitacion debe se antes de las 11:00, en caso de tener tu vuelo mas tarde de esa hora estaremos dispuesto a guardar la maleta, mientras sigues disfrutando de tu destino.</string>
     <string name="eurosNoche">/noche</string>
+    <string name="Serviciosdestacados">Servicios destacados</string>
+    <string name="Opciondesayuno">Opcion desayuno</string>
+    <string name="Aireacondicionado">Aire acondicionado</string>
+    <string name="Piscina">Piscina</string>
+    <string name="Parking">Parking</string>
+    <string name="Servicioespecial">Servicio especial</string>
 </resources>
