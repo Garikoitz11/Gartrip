@@ -9,208 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="390dp"
-            android:layout_height="135dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-
-            <Button
-                android:id="@+id/btnCompletarReserva"
-                android:layout_width="150dp"
-                android:layout_height="55dp"
-                android:layout_marginBottom="4dp"
-                android:background="@drawable/boton_redondeado"
-                android:padding="10dp"
-                android:text="@string/completarReserva"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent" />
-
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/boton_redondeado"
-                android:text="@string/opinar"
-                app:layout_constraintBottom_toTopOf="@+id/btnCompletarReserva"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="391dp"
-            android:layout_height="191dp"
-            android:layout_marginTop="116dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txtProvincia">
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="245dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="4dp"
-                android:text="Servicios destacados"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/icoWifi"
-                android:layout_width="17dp"
-                android:layout_height="11dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:srcCompat="@drawable/wifi" />
-
-            <TextView
-                android:id="@+id/text_wifi"
-                android:layout_width="66dp"
-                android:layout_height="17dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
-                android:text="WIFI"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/icoWifi"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-            <ImageView
-                android:id="@+id/desayuno"
-                android:layout_width="19dp"
-                android:layout_height="14dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/icoWifi"
-                app:srcCompat="@drawable/desayuno" />
-
-            <TextView
-                android:id="@+id/text_desayuno"
-                android:layout_width="118dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
-                android:text="Opcion desayuno"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/desayuno"
-                app:layout_constraintTop_toBottomOf="@+id/text_wifi" />
-
-            <ImageView
-                android:id="@+id/icoAire"
-                android:layout_width="33dp"
-                android:layout_height="29dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="28dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/desayuno"
-                app:srcCompat="@drawable/aire" />
-
-            <TextView
-                android:id="@+id/text_aire"
-                android:layout_width="135dp"
-                android:layout_height="26dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="28dp"
-                android:text="Aire acondicionado"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/icoAire"
-                app:layout_constraintTop_toBottomOf="@+id/text_desayuno" />
-
-            <ImageView
-                android:id="@+id/icoPiscina"
-                android:layout_width="33dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="76dp"
-                android:layout_marginTop="24dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/text_wifi"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:srcCompat="@drawable/piscina" />
-
-            <TextView
-                android:id="@+id/text_piscina"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="20dp"
-                android:text="Piscina"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/icoPiscina"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-            <ImageView
-                android:id="@+id/icoParking"
-                android:layout_width="27dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="8dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/text_desayuno"
-                app:layout_constraintTop_toBottomOf="@+id/icoPiscina"
-                app:srcCompat="@drawable/parking" />
-
-            <TextView
-                android:id="@+id/text_parking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="8dp"
-                android:text="Parking"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/icoParking"
-                app:layout_constraintTop_toBottomOf="@+id/text_piscina" />
-
-            <ImageView
-                android:id="@+id/icoSilla"
-                android:layout_width="20dp"
-                android:layout_height="23dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="28dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/text_aire"
-                app:layout_constraintTop_toBottomOf="@+id/icoParking"
-                app:srcCompat="@drawable/sillaruedas" />
-
-            <TextView
-                android:id="@+id/text_Silla"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="Servicio especial"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.521"
-                app:layout_constraintStart_toEndOf="@+id/icoSilla"
-                app:layout_constraintTop_toBottomOf="@+id/text_parking" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_margin="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="150dp"
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -230,23 +35,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="619dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#FFCC01"
             android:numStars="5"
             android:progressTint="#FFCC01"
             android:secondaryProgressTint="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHotel" />
-
+            app:layout_constraintTop_toBottomOf="@+id/txtProvincia" />
 
         <TextView
             android:id="@+id/txtHotel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="26dp"
-            android:textSize="30sp"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
@@ -254,24 +57,245 @@
 
         <TextView
             android:id="@+id/txtProvincia"
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:inputType="textMultiLine"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/imgLocation"
+            app:layout_constraintTop_toBottomOf="@+id/txtHotel"
+            tools:text="Calle Landeta numero 2, Alava, Europa" />
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginStart="30dp"
-            android:textSize="24sp"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            tools:text="Provincia" />
+            app:layout_constraintTop_toBottomOf="@+id/txtHotel"
+            app:srcCompat="@drawable/location" />
 
         <TextView
             android:id="@+id/txtPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="40dp"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.887"
             app:layout_constraintStart_toEndOf="@+id/ratingBar"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@+id/txtHotel"
             tools:text="@string/eurosNoche" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Serviciosdestacados"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/icoWifi"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19"
+                app:srcCompat="@drawable/wifi" />
+
+            <TextView
+                android:id="@+id/text_wifi"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="WIFI"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/icoWifi"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <ImageView
+                android:id="@+id/desayuno"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/icoWifi"
+                app:srcCompat="@drawable/desayuno" />
+
+            <TextView
+                android:id="@+id/text_desayuno"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/Opciondesayuno"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/desayuno"
+                app:layout_constraintTop_toBottomOf="@+id/text_wifi" />
+
+            <ImageView
+                android:id="@+id/icoAire"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desayuno"
+                app:srcCompat="@drawable/aire" />
+
+            <TextView
+                android:id="@+id/text_aire"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/Aireacondicionado"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/icoAire"
+                app:layout_constraintTop_toBottomOf="@+id/text_desayuno" />
+
+            <ImageView
+                android:id="@+id/icoPiscina"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/textView19"
+                app:srcCompat="@drawable/piscina" />
+
+            <TextView
+                android:id="@+id/text_piscina"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/Piscina"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/icoPiscina"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <ImageView
+                android:id="@+id/icoParking"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/icoPiscina"
+                app:srcCompat="@drawable/parking" />
+
+            <TextView
+                android:id="@+id/text_parking"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/Parking"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/icoParking"
+                app:layout_constraintTop_toBottomOf="@+id/text_piscina" />
+
+            <ImageView
+                android:id="@+id/icoSilla"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/icoParking"
+                app:srcCompat="@drawable/sillaruedas" />
+
+            <TextView
+                android:id="@+id/text_Silla"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/Servicioespecial"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/icoSilla"
+                app:layout_constraintTop_toBottomOf="@+id/text_parking" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="176dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+
+            <Button
+                android:id="@+id/btnCompletarReserva"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/boton_redondeado"
+                android:padding="10dp"
+                android:text="@string/completarReserva"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/boton_redondeado"
+                android:text="@string/opinar"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/btnCompletarReserva"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.863"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,67 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <Button
         android:id="@+id/botonHacerFoto"
-        android:layout_width="321dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="370dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/boton_redondeado_borde"
         android:padding="10dp"
-        android:text="@string/hacerFoto"
+        android:text="Hacer foto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenEditarPerfil" />
 
     <ImageView
         android:id="@+id/imagenEditarPerfil"
-        android:layout_width="61dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textoMiPerfil"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/email"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/botonSeleccionarFoto"
         app:layout_constraintTop_toBottomOf="@+id/botonSeleccionarFoto" />
 
-    <Button
-        android:id="@+id/botonGuardarPerfil"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/boton_redondeado"
-        android:text="@string/guardar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextApellidos" />
+        <Button
+            android:id="@+id/botonGuardarPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/boton_redondeado"
+            android:text="@string/guardar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextApellidos" />
 
     <Button
         android:id="@+id/botonSeleccionarFoto"
-        android:layout_width="321dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="370dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="210dp"
         android:background="@drawable/boton_redondeado_borde"
-        android:padding="0dp"
+        android:padding="10dp"
         android:text="@string/seleccionarfoto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenEditarPerfil" />
 
@@ -69,6 +80,7 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/perfil"
         android:textColor="#000000"
         android:textSize="34sp"
@@ -79,11 +91,11 @@
 
     <EditText
         android:id="@+id/editTextContraseña"
-        android:layout_width="155dp"
-        android:layout_height="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Inserte para cambiar"
         android:inputType="textPersonName"
-        android:text="@string/contraseña"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -91,57 +103,61 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/nombre"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/editTextContraseña"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/editTextContraseña"
+        app:layout_constraintTop_toBottomOf="@+id/editTextContraseña" />
 
     <EditText
         android:id="@+id/editTextApellidos"
-        android:layout_width="155dp"
-        android:layout_height="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/apellidos"
         android:inputType="textPersonName"
-        android:text="@string/apellidos"
-        app:layout_constraintStart_toEndOf="@+id/editTextNombre"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:layout_marginTop="16dp"
         android:text="@string/apellidos"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/editTextNombre"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintStart_toStartOf="@+id/editTextNombre"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNombre" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:layout_marginTop="16dp"
         android:text="@string/contraseña"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/textoEmail"
-        app:layout_constraintTop_toTopOf="@+id/textoMiPerfil" />
+        app:layout_constraintStart_toStartOf="@+id/textoEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textoEmail" />
 
     <EditText
         android:id="@+id/editTextNombre"
-        android:layout_width="155dp"
-        android:layout_height="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/nombre"
         android:inputType="textPersonName"
-        android:text="@string/nombre"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textoEmail"
-        android:layout_width="155dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textoMiPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/textoMiPerfil" />
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
