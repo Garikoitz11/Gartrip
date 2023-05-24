@@ -1,8 +1,6 @@
 package com.example.proyecto2.Fragments;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,16 +14,12 @@ import androidx.work.WorkManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyecto2.R;
 import com.example.proyecto2.Services.ObtenerPerfilBDService;
-
-import java.io.File;
 
 
 public class FragmentPerfilPricipal extends Fragment {
@@ -76,7 +70,8 @@ public class FragmentPerfilPricipal extends Fragment {
 
                             }else {
                                 int tiempo= Toast.LENGTH_SHORT;
-                                Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
+                                String error = getString(R.string.error);
+                                Toast aviso = Toast.makeText(getContext(), error, tiempo);
                                 aviso.show();
                             }
                         }
@@ -85,9 +80,9 @@ public class FragmentPerfilPricipal extends Fragment {
         WorkManager.getInstance(getContext()).enqueue(otwr);
 
 
-        boton1 = view.findViewById(R.id.boton1);
-        boton2 = view.findViewById(R.id.boton2);
-        boton3 = view.findViewById(R.id.boton3);
+        boton1 = view.findViewById(R.id.btnDatosPersonales);
+        boton2 = view.findViewById(R.id.btnSobreNosotros);
+        boton3 = view.findViewById(R.id.btnAyuda);
 
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override

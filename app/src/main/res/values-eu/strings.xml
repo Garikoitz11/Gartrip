@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gartxon</string>
+    <string name="app_name">Gartrip</string>
     <string name="email">Posta</string>
     <string name="contraseña">Pasahitza</string>
     <string name="iniciarSesion">SAIOA HASI</string>
@@ -49,5 +49,37 @@
     <string name="apellido">Abizena</string>
     <string name="completarReserva">Erreserba Bete</string>
     <string name="hoteles">Hotelak</string>
-    <string name="eurosNoche">€/gaua</string>
+    <string name="sobreNosotros">Guri buruz</string>
+    <string name="opinar">Iritzia eman</string>
+    <string name="contrasenasNoCoin">KONTUZ! Pasahitzak ez dira berdinak</string>
+    <string name="camposObligatorios">Eremu guztiak beharrezkoak dira!</string>
+    <string name="correoExistente">Posta hau badago aplikazioan erregistratuta!</string>
+    <string name="gmail">Sartutako Gmail-ek ez du egitura zuzena!</string>
+    <string name="error">Errorea!</string>
+    <string name="imagenSeleccionada">"Ez duzu irudirik aukeratu "</string>
+    <string name="imagenSacada">Ez duzu irudirik egin</string>
+    <string name="permisosMapa">Kokapen baimenak beharrezkoak dira jarraitzeko.</string>
+    <string name="noResultado">Ez da emaitzarik aurkitu</string>
+    <string name="modoBack">Aktibatu modu background ondo funtzionatzeko</string>
+    <string name="atencionCliente">BEZEROETZAKO ARRETA</string>
+    <string name="atencion11">Hemen gaude momentu guztietan laguntzeko eta gure zerbitzuekin ahalik eta ezperientzia onena izan dezazun ziurtatzeko. Galderarik, kezkarik edo laguntza behar baduzu, ez izan zalantzarik eta jar zaitez gurekin harremanetan. Gure taldea handiko prestakuntza du gure bezeroentzako kezkak konpontzeko eta behar duzun lagunrza emateko. Edozein zalantzarik baduzu, beheko telefono zenbakira deitu.</string>
+    <string name="bienvenidoAten">Ongi etorri gure hoteleko aplikazioaren Bezeroarentzako Arreta!</string>
+    <string name="hacerFoto">Argazkia egin</string>
+    <string name="lugarRecogida">Leku-bilketa</string>
+    <string name="Volver">Itzuli</string>
+    <string name="Producto">Productu</string>
+    <string name="Precio">Balioa</string>
+    <string name="Notificar">Jakinarazi</string>
+    <string name="Factura">Faktura</string>
+    <string name="miPerfil">NIRE PROFILA</string>
+    <string name="datosPer">Nire informazio pertsonala</string>
+    <string name="Ayuda">Laguntza</string>
+    <string name="text1">Hotelaren edo helmugaren izena...</string>
+    <string name="PrecioMax">Gehieneko prezioa:</string>
+    <string name="nosotros1">Gartrip hotelak bilatzeko balio duen aplikazio bat da.Gartripen gure experientzia eskaintzen dizugu zure bidaietarako ostatu perfektua bilatuz.Partekatu dezagun gure buruari buruz apur bat gehiago.</string>
+    <string name="cancelacion">OSTATUA EZEZTATZEA</string>
+    <string name="politica">Gure politikak ez du onartzen edozein ostaturen baliogabetzerik.</string>
+    <string name="entrada">Gure ostatu guztien logelarako sarrera 15:00etatik aurrera da.</string>
+    <string name="salida">Gelaren irteera 11:00ak baino lehen izan behar da, zure hegaldia ordu hori baino beranduago izanez gero maleta gordetzeko prest egongo gara, helmuga gozatzen jarraitzen duzun bitartean.</string>
+    <string name="eurosNoche">/gaua</string>
 </resources>
