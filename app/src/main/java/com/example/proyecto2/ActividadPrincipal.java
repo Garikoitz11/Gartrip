@@ -131,6 +131,7 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
 
         //Obtenemos el navigation bottom y le decimos que hacer en funcion del item seleccionado
         BottomNavigationView elnavigation = findViewById(R.id.elnavigationview);
+
         elnavigation.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -142,6 +143,7 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
 
                         Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundle);
                         break;
+
                     case R.id.perfil:
                         Bundle bundlePerfil = new Bundle();
                         bundlePerfil.putString("email", email);
@@ -156,6 +158,8 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                 return true;
             }
         });
+
+
 
     }
 

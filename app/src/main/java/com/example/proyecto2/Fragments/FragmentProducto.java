@@ -41,6 +41,22 @@ public class FragmentProducto extends Fragment {
     static String imgHotel;
     Float estrellas;
 
+    String piscina ="piscina";
+    String wf = "Wifi";
+    String adaptadoSillaDeRuedas="adaptado";
+    String desayuno ="desayuno incluido";
+    String jardin = "jardin";
+    String terraza = "terraza";
+    String aten24 = "atencion24h";
+    String gimnasio = "gym";
+    String parking="parking";
+    String aire = "aire acondicionado";
+
+    List<String> caracteristicasHoteles = new ArrayList<>();
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +78,41 @@ public class FragmentProducto extends Fragment {
                 precioHotel = rows.get(i)[3];
                 estrellas = Float.valueOf(rows.get(i)[4]);
                 imgHotel = rows.get(i)[5];
+                if(estrellas==1){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                }
+                if(estrellas==2){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                }
+                if(estrellas==3){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                    caracteristicasHoteles.add(piscina);
+                }
+                if(estrellas==4){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                    caracteristicasHoteles.add(jardin);
+                    caracteristicasHoteles.add(piscina);
+                    caracteristicasHoteles.add(parking);
+                }
+                if(estrellas==5){
+                    caracteristicasHoteles.add(wf);
+                    caracteristicasHoteles.add(desayuno);
+                    caracteristicasHoteles.add(aire);
+                    caracteristicasHoteles.add(jardin);
+                    caracteristicasHoteles.add(piscina);
+                    caracteristicasHoteles.add(terraza);
+                    caracteristicasHoteles.add(parking);
+                    caracteristicasHoteles.add(aten24);
+                    caracteristicasHoteles.add(adaptadoSillaDeRuedas);
+
+                }
                 enc =true;
             }
             i+=1;

@@ -50,8 +50,7 @@ public class HotelesAdaptador extends RecyclerView.Adapter<HotelesAdaptador.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
        holder.idHotel.setText(idHoteles[position]);
        holder.titulo.setText(nombresHoteles[position]);
-       Log.i("imagennn",String.valueOf(imagenesHoteles[position]));
-       holder.foto.setImageResource(imagenesHoteles[position]);
+       holder.foto.setImageResource(imagenesHoteles[position] );
        holder.direccion.setText(direccionHoteles[position]);
        holder.estrellas.setRating(puntuacionesHoteles[position]);
 
@@ -81,26 +80,23 @@ public class HotelesAdaptador extends RecyclerView.Adapter<HotelesAdaptador.View
             //Carga la info y si pulsas en la imagen te lleva al fragment de mas detalle
             idHotel = itemView.findViewById(R.id.idHotel);
             foto = itemView.findViewById(R.id.foto);
-            Log.i("joderrr","dfon");
             precio = itemView.findViewById(R.id.precio);
             titulo = itemView.findViewById(R.id.texto);
             direccion = itemView.findViewById(R.id.direccion);
             estrellas= (RatingBar) itemView.findViewById(R.id.ratingBar);
 
-            foto.setOnClickListener(new View.OnClickListener() {
+            //Clicke donde clicke va a la informacion del hotel
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Bundle bundle = new Bundle();
-                    String cod = getAdapterPosition()+"";
-
-                    Log.i("ID", idHotel.getText().toString());
                     bundle.putString("id_hotel", idHotel.getText().toString());
 
 
                     Navigation.findNavController(view).navigate(R.id.action_fragmentPrincipal_to_fragmentProducto, bundle);
                 }
             });
+
         }
     }
 }
