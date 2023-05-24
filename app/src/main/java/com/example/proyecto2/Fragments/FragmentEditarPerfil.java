@@ -93,61 +93,63 @@ public class FragmentEditarPerfil extends Fragment {
         textoApellidos.setText(apellidos);
 
         pickMedia  = registerForActivityResult(new
-                        ActivityResultContracts.PickVisualMedia(), uri -> {
-                    if (uri != null) {
-                        imagen = view.findViewById(R.id.imagenEditarPerfil);
-                        imagen.setImageURI(uri);
-                        try {
-                            InputStream inputStream = getContext().getContentResolver().openInputStream(uri);
-                            foto = BitmapFactory.decodeStream(inputStream);
-                        } catch (FileNotFoundException e) {
-                        }
+                ActivityResultContracts.PickVisualMedia(), uri -> {
+            if (uri != null) {
+                imagen = view.findViewById(R.id.imagenEditarPerfil);
+                imagen.setImageURI(uri);
+                try {
+                    InputStream inputStream = getContext().getContentResolver().openInputStream(uri);
+                    foto = BitmapFactory.decodeStream(inputStream);
+                } catch (FileNotFoundException e) {
+                }
 
-                        File eldirectorio = getActivity().getFilesDir();
-                        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-                        String nombrefichero = "IMG_" + timeStamp + "_";
-                        imagenFich = new File(eldirectorio, nombrefichero + ".jpg");
-                        OutputStream os;
-                        try {
-                            os = new FileOutputStream(imagenFich);
-                            foto.compress(Bitmap.CompressFormat.JPEG, 100, os);
-                            os.flush();
-                            os.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        int tiempo= Toast.LENGTH_SHORT;
-                        Toast aviso = Toast.makeText(getContext(), "No selecciono ninguna imagen", tiempo);
-                        aviso.show();
-                    }
-                });
+                File eldirectorio = getActivity().getFilesDir();
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+                String nombrefichero = "IMG_" + timeStamp + "_";
+                imagenFich = new File(eldirectorio, nombrefichero + ".jpg");
+                OutputStream os;
+                try {
+                    os = new FileOutputStream(imagenFich);
+                    foto.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                    os.flush();
+                    os.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                int tiempo= Toast.LENGTH_SHORT;
+                String imagenSeleccionada = getString(R.string.imagenSeleccionada);
+                Toast aviso = Toast.makeText(getContext(), imagenSeleccionada, tiempo);
+                aviso.show();
+            }
+        });
 
         takePictureLauncher = registerForActivityResult(new
-                        ActivityResultContracts.StartActivityForResult(), result -> {
-                    if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
-                        Bundle bundle = result.getData().getExtras();
-                        foto = (Bitmap) bundle.get("data");
-                        imagen.setImageBitmap(foto);
+                ActivityResultContracts.StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
+                Bundle bundle = result.getData().getExtras();
+                foto = (Bitmap) bundle.get("data");
+                imagen.setImageBitmap(foto);
 
-                        File eldirectorio = getActivity().getFilesDir();
-                        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-                        String nombrefichero = "IMG_" + timeStamp + "_";
-                        imagenFich = new File(eldirectorio, nombrefichero + ".jpg");
-                        OutputStream os;
-                        try {
-                            os = new FileOutputStream(imagenFich);
-                            foto.compress(Bitmap.CompressFormat.JPEG, 100, os);
-                            os.flush();
-                            os.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        int tiempo= Toast.LENGTH_SHORT;
-                        Toast aviso = Toast.makeText(getContext(), "No hizo ninguna foto", tiempo);
-                        aviso.show();                    }
-                });
+                File eldirectorio = getActivity().getFilesDir();
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+                String nombrefichero = "IMG_" + timeStamp + "_";
+                imagenFich = new File(eldirectorio, nombrefichero + ".jpg");
+                OutputStream os;
+                try {
+                    os = new FileOutputStream(imagenFich);
+                    foto.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                    os.flush();
+                    os.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                int tiempo= Toast.LENGTH_SHORT;
+                String imagenSacada = getString(R.string.imagenSacada);
+                Toast aviso = Toast.makeText(getContext(), imagenSacada, tiempo);
+                aviso.show();                    }
+        });
 
         Button botonEditarPerfil = view.findViewById(R.id.botonSeleccionarFoto);
         botonEditarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -216,7 +218,8 @@ public class FragmentEditarPerfil extends Fragment {
                                     else {
                                         //Sino lanza mensaje de aviso de error
                                         int tiempo= Toast.LENGTH_SHORT;
-                                        Toast aviso = Toast.makeText(getContext(), "¡Error!", tiempo);
+                                        String error = getString(R.string.error);
+                                        Toast aviso = Toast.makeText(getContext(), error, tiempo);
                                         aviso.show();
                                     }
                                 }

@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="ATENCIÓN AL CLIENTE"
+            android:text="@string/atencionCliente"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -33,55 +33,55 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="20dp"
-        android:text="¡Bienvenido al servicio de Atención al Cliente de nuestra aplicación de hoteles!"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:justificationMode="inter_word"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atencion_cliente" />
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/bienvenidoAten"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:justificationMode="inter_word"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atencion_cliente" />
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="20dp"
-        android:text="Estamos aquí para ayudarte en todo momento y asegurarnos de que tengas la mejor experiencia posible con nuestros servicios. Si tienes alguna pregunta, consulta o necesitas asistencia, no dudes en comunicarte con nosotros. Nuestro equipo de atención al cliente altamente capacitado está listo para atender tus inquietudes y brindarte el apoyo que necesitas. Para cualquier duda no dude en llamar al telefono que aparece abajo."
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:justificationMode="inter_word"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/atencion11"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:justificationMode="inter_word"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text2" />
 
-    <TextView
-        android:id="@+id/fab"
-        android:layout_width="72dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="300dp"
-        android:text="688801411"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
+        <TextView
+            android:id="@+id/fab"
+            android:layout_width="72dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="300dp"
+            android:text="688801411"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="316dp"
-        android:layout_marginTop="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:srcCompat="@drawable/baseline_local_phone_24" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="316dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1"
+            app:srcCompat="@drawable/baseline_local_phone_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
 
     <TextView
-        android:id="@+id/textoMiPeerfil"
+        android:id="@+id/textoMiPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="MI PERFIL"
+        android:text="@string/miPerfil"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,9 +27,9 @@
         android:layout_marginTop="16dp"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoMiPeerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textoMiPerfil"
         app:srcCompat="@drawable/iconomobile" />
 
     <TextView
@@ -37,92 +38,113 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenPerfilPrincipal" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenPerfilPrincipal"
+        tools:text="NombrePerfil" />
 
     <TextView
         android:id="@+id/textoDatosPersonales"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="52dp"
-        android:text="Mis datos Personales"
+        android:layout_height="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="@string/datosPer"
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/boton1"
-        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombrePerfil" />
 
-    <TextView
-        android:id="@+id/textoTarjetas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="60dp"
-        android:text="Sobre nosotros"
+    <ImageButton
+        android:id="@+id/btnDatosPersonales"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="80dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="flechaDatosPersonales"
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/boton2"
-        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombrePerfil"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <TextView
+        android:id="@+id/textoSobreNosotros"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/sobreNosotros"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoDatosPersonales" />
 
+    <ImageButton
+        android:id="@+id/btnSobreNosotros"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="80dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="flechaSobreNosotros"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDatosPersonales"
+        app:srcCompat="@drawable/ic_action_name" />
+
     <TextView
-        android:id="@+id/sobre_nosotros"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="156dp"
-        android:text="Ayuda"
+        android:id="@+id/ayuda"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/Ayuda"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/boton3"
-        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoTarjetas"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textoSobreNosotros" />
 
     <ImageButton
-        android:id="@+id/boton1"
+        android:id="@+id/btnAyuda"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="80dp"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/ic_action_name"
-        android:contentDescription="boton1"
+        android:contentDescription="flechaAyuda"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombrePerfil"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnSobreNosotros"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <TextView
+        android:id="@+id/preferencias"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/preferencias"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ayuda" />
 
     <ImageButton
-        android:id="@+id/boton2"
+        android:id="@+id/btnPreferencias"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="80dp"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/ic_action_name"
-        android:contentDescription="boton2"
+        android:contentDescription="flechaPreferencias"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton1"/>
-
-    <ImageButton
-        android:id="@+id/boton3"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="48dp"
-        android:background="#00FFFFFF"
-        app:srcCompat="@drawable/ic_action_name"
-        android:contentDescription="boton3"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAyuda"
+        app:srcCompat="@drawable/ic_action_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -73,7 +73,7 @@ public class FragmentFactura extends Fragment {
 
         Button botonFactura = view.findViewById(R.id.botonFactura);
         Button botonVolver = view.findViewById(R.id.botonVolver);
-        ImageButton contacto = view.findViewById(R.id.boton1);
+        ImageButton contacto = view.findViewById(R.id.btnDatosPersonales);
 
         //Genera la factura en modo notificacion
         botonFactura.setOnClickListener(new View.OnClickListener() {
