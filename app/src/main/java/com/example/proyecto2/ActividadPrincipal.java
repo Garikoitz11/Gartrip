@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -26,6 +27,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.work.Data;
@@ -35,8 +37,11 @@ import androidx.work.WorkManager;
 
 import com.example.proyecto2.Broadcasts.ElReceiver;
 import com.example.proyecto2.Dialogs.Idioma;
+import com.example.proyecto2.Dialogs.Opinion;
+import com.example.proyecto2.Fragments.FragmentProducto;
 import com.example.proyecto2.Services.ActualizarTokenBDService;
 import com.example.proyecto2.Services.ObtenerPerfilBDService;
+import com.example.proyecto2.Services.OpinionBDService;
 import com.example.proyecto2.Services.ServicioFirebase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -50,12 +55,13 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class ActividadPrincipal extends AppCompatActivity implements InterfaceIdioma{
+public class ActividadPrincipal extends AppCompatActivity implements InterfaceIdioma,opinionListener{
 
     private static ActividadPrincipal instancia;
     DrawerLayout elmenudesplegable;
     String email;
     String idiomaApp;
+    String id_hotel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +145,7 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
                         //Navegamos utilizando el nav_graph. Por defecto tal y como lo tenemos definido al abrir la aplicacion sale este
                         Bundle bundle = new Bundle();
                         bundle.putString("tipo", "todos");
+                        bundle.putString("email", email);
 
                         Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentPrincipal, bundle);
                         break;
@@ -206,5 +213,50 @@ public class ActividadPrincipal extends AppCompatActivity implements InterfaceId
         return instancia;
     }
 
+    public void mostrarDialogoOpinion(String id_hotel){
+        this.id_hotel=id_hotel;
+        DialogFragment newFragment = new Opinion();
+        newFragment.show(getSupportFragmentManager(), "opinion");
+    }
 
+
+    @Override
+    public void enviarOpinion(String texto, float puntos) {
+        Data datos = new Data.Builder()
+                .putString("email",email)
+                .putString("id",id_hotel)
+                .putString("comentario","'" + texto + "'")
+                .putString("puntos", String.valueOf(puntos))
+                .putString("accion","crear")
+                .build();
+
+        OneTimeWorkRequest otwr = new OneTimeWorkRequest.Builder(OpinionBDService.class)
+                .setInputData(datos)
+                .build();
+
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(otwr.getId())
+                .observe(this, new Observer<WorkInfo>() {
+                    @Override
+                    public void onChanged(WorkInfo workInfo) {
+                        if(workInfo != null && workInfo.getState().isFinished()){
+                            Log.i("REGISTRO JSON", "Fin crear");
+                            Log.i("REGISTRO JSON", "¿Correcto? " + workInfo.getOutputData().getBoolean("valor", false) + ", " + workInfo.getOutputData().getString("texto"));
+                            Boolean resultado = workInfo.getOutputData().getBoolean("valor", false);
+                            String codigo = workInfo.getOutputData().getString("texto");
+
+                            if(resultado){
+                                Toast.makeText(ActividadPrincipal.this,"GRACIAS, por opinar." + codigo,Toast.LENGTH_LONG).show();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("id_hotel", id_hotel);
+                                bundle.putString("email", email);
+
+                                Navigation.findNavController(ActividadPrincipal.this, R.id.nav_host_fragment).navigate(R.id.fragmentProducto, bundle);
+                            } else {
+                                Toast.makeText(ActividadPrincipal.this,codigo,Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                });
+        WorkManager.getInstance(this).enqueue(otwr);
+    }
 }
