@@ -89,7 +89,7 @@ public class FragmentPrincipal extends Fragment {
                 hotelesNombres.add(rows.get(i)[2]);
                 hotelesPrecios.add(rows.get(i)[3]);
                 hotelesEstrella.add(Float.valueOf(rows.get(i)[4]));
-                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[5] + "1", "drawable", Objects.requireNonNull(getContext()).getPackageName()));
+                hotelesImagenes.add(getResources().getIdentifier(rows.get(i)[5] +"1", "drawable", Objects.requireNonNull(getContext()).getPackageName()));
                 Log.i("NombreHotel",hotelesNombres.get(i));
                 Log.i("imagenhotel",Integer.toString(hotelesImagenes.get(i)));
             }
@@ -213,12 +213,13 @@ public class FragmentPrincipal extends Fragment {
             idDireccion += 1;
         }
 
-
+/*
         if(filteredListNombre.size()==0){
             Log.i("entraaaa", "siii");
-            Toast.makeText(getContext(),"No se ha encontrado ningun resultado", Toast.LENGTH_SHORT);//No se por que no lo hace no pilla el contexto¿?
+        //    String noResultado = getString(R.string.noResultado);
+          //  Toast.makeText(getContext(),noResultado, Toast.LENGTH_SHORT);//No se por que no lo hace no pilla el contexto¿?
         }
-
+*/
         //Pasamos de arrayList a array para adaptarse al formato del mostrarData()
         String[] filtroBuscadorListIdHotel = filteredListIdHotel.toArray(new String[filteredListIdHotel.size()]);
         String[] filtroBuscadorListNombreArray = filteredListNombre.toArray(new String[filteredListNombre.size()]);
@@ -243,8 +244,8 @@ public class FragmentPrincipal extends Fragment {
         hotelesAdaptador = new HotelesAdaptador(hotelesNombres, hotelesImagenes, hotelesPrecios, hotelesDireccion, estrellasHoteles, categoria, mostrarPrecio, idHoteles);
         recyclerView.setAdapter(hotelesAdaptador);
 
-       // GridLayoutManager rejilla= new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
-      //  recyclerView.setLayoutManager(rejilla);
+        // GridLayoutManager rejilla= new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
+        //  recyclerView.setLayoutManager(rejilla);
     }
 
     public static int[] convertIntegers(ArrayList<Integer> integers)

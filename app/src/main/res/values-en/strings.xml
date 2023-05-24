@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gartxon</string>
+    <string name="app_name">Gartrip</string>
     <string name="iniciarSesion">LOG IN</string>
     <string name="email">Email</string>
     <string name="contraseña">Password</string>
@@ -49,5 +49,37 @@
     <string name="apellido">Last name</string>
     <string name="completarReserva">Complete Reservation</string>
     <string name="hoteles">Hotels</string>
-    <string name="eurosNoche">€/night</string>
+    <string name="sobreNosotros">About Us</string>
+    <string name="opinar">Give your opinion</string>
+    <string name="contrasenasNoCoin">CAUTION! The passwords are not the same</string>
+    <string name="camposObligatorios">All fields are required!</string>
+    <string name="correoExistente">This gmail already exists in this app!</string>
+    <string name="gmail">The entered gmail does not have the correct structure!</string>
+    <string name="error">Error!</string>
+    <string name="imagenSeleccionada">You don´t select any image</string>
+    <string name="imagenSacada">You don´t do any photo</string>
+    <string name="permisosMapa">Location permissions are required to continue.</string>
+    <string name="noResultado">No results found</string>
+    <string name="modoBack">Activate background mode for correct operation</string>
+    <string name="atencionCliente">CUSTOMER SERVICE</string>
+    <string name="atencion11">We are here to help you at all times and make sure you have the best possible experience with our services. If you have any questions, concerns or need assistance, please do not hesitate to contact us. Our highly trained customer support team is ready to address your concerns and provide you with the support you need. For any questions, do not hesitate to call the phone number below.</string>
+    <string name="bienvenidoAten">Welcome to the Customer Service of our hotel application!</string>
+    <string name="hacerFoto">Do the photo</string>
+    <string name="lugarRecogida">Pickup location</string>
+    <string name="Volver">Return</string>
+    <string name="Producto">Product</string>
+    <string name="Precio">Price</string>
+    <string name="Notificar">Norify</string>
+    <string name="Factura">Bill</string>
+    <string name="miPerfil">MY PROFILE</string>
+    <string name="datosPer">My personal information</string>
+    <string name="Ayuda">Help</string>
+    <string name="text1">Name of hotel or destination...</string>
+    <string name="PrecioMax">Maximum price:</string>
+    <string name="nosotros1">Gartrip is a hotel search application. At Gartrip we are dedicated to providing you with an exceptional experience by finding the perfect accommodation for your travels. Let us share a little more about ourselves:</string>
+    <string name="cancelacion">ACCOMMODATION CANCELLATION</string>
+    <string name="politica">Our policy does not accept any cancellation of any accommodation.</string>
+    <string name="entrada">The entrance to the room of all our accommodations is from 15:00.</string>
+    <string name="salida">The departure of the room must be before 11:00, in case you have your flight later than that time we will be willing to store the suitcase, while you continue enjoying your destination.</string>
+    <string name="eurosNoche">/night</string>
 </resources>
