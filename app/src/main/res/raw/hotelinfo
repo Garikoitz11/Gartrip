@@ -42,7 +42,7 @@ ID;PROVINCIA;NOMBRE;PRECIO;ESTRELLAS;FOTO
 40;Guadalajara;Hotel España;40€;2;espanaguad;40.6354;-3.1670
 41;Guadalajara;Hotel Pax Guadalajara;78€;4;pax;40.6317;-3.1506
 42;Huelva;Hotel La Barca;59€;2;labarca;37.2838;-7.1786
-43;Huelva;Senator Huelva;86€;3;huelva;37.2597, -6.9477
+43;Huelva;Senator Huelva;86€;3;huelva;37.2597;-6.9477
 44;Huesca;Hostal Un Punto Chic-Joaquin Costa;57€;2;joaquincosta;42.1420;-0.4112
 45;Huesca;Hotel Pedro I De Aragon;83€;4;pedroaragon;42.1390;-0.4128
 46;Islas Baleares;Hotel Costa Mediterraneo;70€;2;costamediterraneo;39.4974;2.7559

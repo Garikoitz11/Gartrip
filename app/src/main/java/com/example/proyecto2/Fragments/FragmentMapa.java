@@ -78,6 +78,7 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
 
         //Cargamos la informacion de los hoteles
         hotelesArray = new JSONArray();
+        ubicacionHoteles = new ArrayList<>();
         cargarInfoHoteles();
 
         //Por defecto que el mapa se coloque en nuestra posicion
@@ -104,7 +105,7 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
                         longitud = longitudActual;
 
                         //Actualiza la posicion de la camara
-                        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(latitudActual, longitudActual), 10);
+                        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(latitudActual, longitudActual), 7);
                         elmapa.animateCamera(actualizar);
                     }
                 }
@@ -177,7 +178,7 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
                     Bundle bundle = new Bundle();
                     bundle.putString("id_hotel", id);
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentMapa_to_fragmentFactura, bundle);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentMapa_to_fragmentProducto, bundle);
                 }
                 return false;
             }
@@ -239,7 +240,7 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
             }
         }
         //Coloca la camara en la tienda mas cercana al usuario
-        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(masCercana.latitude, masCercana.longitude), 10);
+        CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(new LatLng(masCercana.latitude, masCercana.longitude), 7);
         elmapa.animateCamera(actualizar);
         recibirActualizaciones = false;
     }
