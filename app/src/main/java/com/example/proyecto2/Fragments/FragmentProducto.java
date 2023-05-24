@@ -262,7 +262,7 @@ public class FragmentProducto extends Fragment {
                     bundle.putString("nombreProducto", nombreHotel);
                     bundle.putString("precioProducto", precioHotel);
 
-                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentMapa, bundle);
+                    //Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentMapa, bundle);
                 }
                 else {
                     int tiempo= Toast.LENGTH_SHORT;
