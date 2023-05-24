@@ -234,11 +234,11 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                 try{
                     //Si el usuario tiene twitter instalado lo abre en la app
                     getBaseContext().getPackageManager().getPackageInfo("com.twitter.android", 0);
-                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/gartxon"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/gartriphoteles"));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 } catch (Exception e) {
                     //Sino lo abre en chrome o donde sea
-                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/gartxon"));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/gartriphoteles"));
                 }
                 startActivity(intent);
             }
@@ -247,7 +247,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
         instagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://instagram.com/_u/gartrip");
+                Uri uri = Uri.parse("http://instagram.com/_u/gartriphoteles");
                 Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
 
                 likeIng.setPackage("com.instagram.android");
@@ -256,7 +256,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                     startActivity(likeIng);
                 } catch (ActivityNotFoundException e) {
                     startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://instagram.com/gartrip")));
+                            Uri.parse("http://instagram.com/gartriphoteles")));
                 }
             }
         });
@@ -264,7 +264,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
         gmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] email = {"gartrip@gmail.com"};
+                String[] email = {"gartriphoteles@gmail.com"};
                 String subject = "";
                 String body = "";
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
