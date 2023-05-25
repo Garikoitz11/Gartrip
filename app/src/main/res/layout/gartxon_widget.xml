@@ -16,12 +16,13 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/logoWidget"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:baselineAlignBottom="false"
-                android:src="@drawable/logo_gartxon"
-                android:textAlignment="center" />
+                android:src="@drawable/gartrip_horizontal"
+                android:textAlignment="center"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/textView5"
@@ -29,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:autoSizeTextType="uniform"
                 android:fontFamily="sans-serif-condensed"
-                android:text="OFERTAS"
+                android:text="@string/descubre"
+                android:textAllCaps="true"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -40,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoSizeTextType="uniform"
-                android:text="Hoy tenemos en Gartxon..."
+                android:text="@string/hoyEn"
                 android:textAlignment="center" />
         </LinearLayout>
 
