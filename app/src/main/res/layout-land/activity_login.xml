@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imagenLogin"
-        android:layout_width="241dp"
-        android:layout_height="249dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
@@ -78,40 +78,33 @@
         android:id="@+id/twitter"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/boton_social"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/gmail"
         app:layout_constraintStart_toEndOf="@+id/insta"
-        app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
-        app:layout_constraintVertical_bias="0.973"
+        app:layout_constraintTop_toBottomOf="@+id/imagenLogin"
         app:srcCompat="@drawable/twitter" />
 
     <ImageButton
         android:id="@+id/gmail"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/twitter"
+        app:layout_constraintTop_toBottomOf="@+id/imagenLogin"
         app:srcCompat="@mipmap/gmail" />
 
     <ImageButton
         android:id="@+id/insta"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="388dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="12dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegistroLogin"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/imagenLogin"
         app:srcCompat="@mipmap/instagram" />
 
     <ImageButton
