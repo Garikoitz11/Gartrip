@@ -42,6 +42,8 @@ import com.example.proyecto2.R;
 import com.example.proyecto2.Services.OpinionBDService;
 import com.example.proyecto2.Services.RecogerOpinionesBDService;
 import com.example.proyecto2.opinionListener;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 
 import org.w3c.dom.Text;
 
@@ -55,7 +57,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class FragmentProducto extends Fragment{
+public class FragmentProducto extends Fragment implements OnMapReadyCallback {
     List<String[]> rows = new ArrayList<>();
     static String nombreHotel;
     String precioHotel;
@@ -432,5 +434,11 @@ public class FragmentProducto extends Fragment{
                     }
                 });
         WorkManager.getInstance(getContext()).enqueue(otwr);
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        GoogleMap elmapa = googleMap;
+        elmapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }
 }
