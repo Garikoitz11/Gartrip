@@ -13,57 +13,61 @@
     <EditText
         android:id="@+id/id_editTextBuscador"
         android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:hint="@string/text1"
-        android:layout_margin="16dp"/>
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:hint="@string/text1" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp">
+        android:layout_height="wrap_content">
+
         <SeekBar
             android:id="@+id/barraPrecio"
             android:layout_width="144dp"
             android:layout_height="23dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="44dp"
             android:max="300"
             android:progress="250"
+            android:progressTint="@color/naranjaPrincipal"
             android:textAlignment="center"
+            android:thumbTint="@color/naranjaSecundario"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="107dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="16dp"
             android:text="@string/PrecioMax"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/id_textView_PrecioCambiante"
-            android:layout_width="74dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="40dp"
-            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="8dp"
             android:text="250"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barraPrecio"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/location"
-            android:layout_width="51dp"
-            android:layout_height="45dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="#00FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.795"
             app:layout_constraintStart_toEndOf="@+id/id_textView_PrecioCambiante"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.509"
             app:srcCompat="@drawable/location" />
 
 
