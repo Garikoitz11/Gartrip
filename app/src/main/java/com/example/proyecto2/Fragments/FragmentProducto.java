@@ -1,10 +1,13 @@
 package com.example.proyecto2.Fragments;
 
+import android.Manifest;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
@@ -42,9 +45,16 @@ import com.example.proyecto2.R;
 import com.example.proyecto2.Services.OpinionBDService;
 import com.example.proyecto2.Services.RecogerOpinionesBDService;
 import com.example.proyecto2.opinionListener;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.simple.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
@@ -126,6 +136,9 @@ public class FragmentProducto extends Fragment implements OnMapReadyCallback {
         textoPiscina = view.findViewById(R.id.text_piscina);
         textoParking =view.findViewById(R.id.text_parking);
         textoSilla = view.findViewById(R.id.text_Silla);
+
+        SupportMapFragment elfragmento = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        elfragmento.getMapAsync(this);
 
         //cogemos la info del fichero para mostrar los datos
         recogerInfo();
@@ -440,5 +453,36 @@ public class FragmentProducto extends Fragment implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         GoogleMap elmapa = googleMap;
         elmapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        InputStream fich = getResources().openRawResource(R.raw.hotelinfo);
+        BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
+        String splitby = ";";
+        String linea;
+
+        try {
+            boolean encontrado = false;
+            buff.readLine();
+            //Recogida de cada columna
+            while ((linea = buff.readLine()) != null && !encontrado) {
+                String[] row = linea.split(splitby);
+                String id = row[0];
+                if (id.equals(id_hotel)) {
+                    double latitudHotel = Double.parseDouble(row[6]);
+                    double longitudHotel = Double.parseDouble(row[7]);
+                    LatLng coordenadasHotel = new LatLng(latitudHotel, longitudHotel);
+
+                    elmapa.addMarker(new MarkerOptions()
+                            .position(coordenadasHotel));
+
+                    CameraUpdate actualizar = CameraUpdateFactory.newLatLngZoom(coordenadasHotel, 10);
+                    elmapa.animateCamera(actualizar);
+                    encontrado = true;
+                }
+            }
+            //Cierre
+            fich.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
