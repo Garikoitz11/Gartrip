@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Actualizar"
+        android:background="@drawable/boton_redondeado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Tienda más cercana"
+        android:background="@drawable/boton_redondeado"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
