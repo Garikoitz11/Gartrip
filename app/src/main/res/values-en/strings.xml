@@ -90,4 +90,6 @@
     <string name="Servicioespecial">Special service</string>
     <string name="descubre">Discover your hotel</string>
     <string name="hoyEn">Today in Gartrip Hotels...</string>
+    <string name="Actualizar">Update</string>
+    <string name="Hotelmáscercano">Nearest hotel</string>
 </resources>
