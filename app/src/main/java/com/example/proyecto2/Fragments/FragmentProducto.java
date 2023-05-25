@@ -315,7 +315,6 @@ public class FragmentProducto extends Fragment{
         completarReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("ENTRA QUI", "siii");
                 //Si decide comprar
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 Boolean esMayorEdad = prefs.getBoolean("mayorEdad", false);
@@ -417,11 +416,8 @@ public class FragmentProducto extends Fragment{
                             boolean operacionCorrecta = workInfo.getOutputData().getBoolean("operacionCorrecta", false);
                             if (operacionCorrecta) {
                                 usuarios = workInfo.getOutputData().getStringArray("nombres");
-                                Log.i("recogida", Arrays.toString(usuarios));
                                 comentarios = workInfo.getOutputData().getStringArray("comentarios");
-                                Log.i("recogida", Arrays.toString(comentarios));
                                 puntuaciones = workInfo.getOutputData().getFloatArray("puntuaciones");
-                                Log.i("recogida", Arrays.toString(puntuaciones));
 
                                 OpinionesAdaptador nuevoAdapter= new OpinionesAdaptador(getContext(),usuarios,comentarios,puntuaciones);
                                 listView.setAdapter(nuevoAdapter);

@@ -4,12 +4,6 @@
         app:key="dat_usuario"
         app:title="@string/datosUsuario">
 
-        <EditTextPreference
-            app:key="nombreFactura"
-            app:title="@string/nombre"
-            app:summary="@string/introduceNombreFactura"
-            app:dialogTitle="@string/introduceNombre" />
-
         <CheckBoxPreference
             app:key="mayorEdad"
             app:title="@string/MayorDeEdad"
@@ -20,11 +14,6 @@
     <PreferenceCategory
         app:key="pref_usuario"
         app:title="@string/preferenciasUsuario">
-
-        <SwitchPreferenceCompat
-            app:key="mostrarPrecio"
-            app:title="@string/mostrarPrecios"
-            app:summary="@string/mostrarPreciosProductos"/>
 
         <ListPreference
             app:dialogTitle="@string/seleccioneIdioma"

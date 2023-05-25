@@ -132,6 +132,11 @@ public class FragmentEditarPerfil extends Fragment {
                 if (foto != null) {
                     imagen.setImageBitmap(foto);
                 }
+                else {
+                    int tiempo= Toast.LENGTH_SHORT;
+                    Toast aviso = Toast.makeText(getContext(), "Error", tiempo);
+                    aviso.show();
+                }
 
                 File eldirectorio = getActivity().getFilesDir();
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
@@ -139,10 +144,12 @@ public class FragmentEditarPerfil extends Fragment {
                 imagenFich = new File(eldirectorio, nombrefichero + ".jpg");
                 OutputStream os;
                 try {
-                    os = new FileOutputStream(imagenFich);
-                    foto.compress(Bitmap.CompressFormat.JPEG, 100, os);
-                    os.flush();
-                    os.close();
+                    if (foto != null) {
+                        os = new FileOutputStream(imagenFich);
+                        foto.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                        os.flush();
+                        os.close();
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

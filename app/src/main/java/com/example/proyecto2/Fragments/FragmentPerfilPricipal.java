@@ -24,7 +24,7 @@ import com.example.proyecto2.Services.ObtenerPerfilBDService;
 
 public class FragmentPerfilPricipal extends Fragment {
 
-    ImageButton boton1, boton2, boton3;
+    ImageButton boton1, boton2, boton3, boton4;
     private String email;
     private String nombre;
     private String apellidos;
@@ -83,6 +83,7 @@ public class FragmentPerfilPricipal extends Fragment {
         boton1 = view.findViewById(R.id.btnDatosPersonales);
         boton2 = view.findViewById(R.id.btnSobreNosotros);
         boton3 = view.findViewById(R.id.btnAyuda);
+        boton4 = view.findViewById(R.id.btnPreferencias);
 
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +108,13 @@ public class FragmentPerfilPricipal extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentAtencionCliente);
+            }
+        });
+
+        boton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.fragmentPreferencias);
             }
         });
         return view;
