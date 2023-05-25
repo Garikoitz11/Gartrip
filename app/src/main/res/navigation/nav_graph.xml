@@ -37,6 +37,9 @@
         <argument
             android:name="tipo"
             app:argType="string" />
+        <action
+            android:id="@+id/action_fragmentProducto_to_fragmentFactura"
+            app:destination="@id/fragmentFactura" />
     </fragment>
     <fragment
         android:id="@+id/fragmentPreferencias"

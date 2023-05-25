@@ -326,9 +326,9 @@ public class FragmentProducto extends Fragment implements OnMapReadyCallback {
                     //Abre el mapa para que el usuario seleccione una ubicacion donde recoger el pedido
                     Bundle bundle = new Bundle();
                     bundle.putString("nombreProducto", nombreHotel);
-                    bundle.putString("precioProducto", precioHotel);
+                    bundle.putString("precioProducto", txtVprecioNoche.getText().toString());
 
-                    //Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentMapa, bundle);
+                    Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_fragmentProducto_to_fragmentFactura, bundle);
                 }
                 else {
                     int tiempo= Toast.LENGTH_SHORT;

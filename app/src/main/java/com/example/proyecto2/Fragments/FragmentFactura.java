@@ -64,8 +64,8 @@ public class FragmentFactura extends Fragment {
         //LLenamos de los datos de la compra los textviews
         TextView email = view.findViewById(R.id.email);
         email.setText(usuario);
-        TextView producto = view.findViewById(R.id.producto);
-        producto.setText(nombreProducto);
+        TextView hotel = view.findViewById(R.id.producto);
+        hotel.setText(nombreProducto);
         TextView precio = view.findViewById(R.id.precio);
         precio.setText(precioProducto);
         TextView ubicacion = view.findViewById(R.id.lugar);
@@ -91,7 +91,7 @@ public class FragmentFactura extends Fragment {
                     NotificationChannel elCanal = new NotificationChannel("IdCanal", "NombreCanal",
                             NotificationManager.IMPORTANCE_DEFAULT);
 
-                    elBuilder.setSmallIcon(R.drawable.ic_gartxon);
+                    elBuilder.setSmallIcon(R.drawable.gartrip_logo);
                     elBuilder.setContentTitle(getResources().getString(R.string.factura));
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -173,7 +173,7 @@ public class FragmentFactura extends Fragment {
                     ContentValues nameValues = new ContentValues();
                     nameValues.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
                     nameValues.put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
-                    nameValues.put(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, "Gartxon");
+                    nameValues.put(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, "Gartrip Hoteles");
                     contentResolver.insert(ContactsContract.Data.CONTENT_URI, nameValues);
 
                     // Insertar el número de teléfono del contacto en la tabla de datos
