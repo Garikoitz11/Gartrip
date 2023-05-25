@@ -95,13 +95,8 @@ public class FragmentFactura extends Fragment {
                     elBuilder.setContentTitle(getResources().getString(R.string.factura));
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    String nombreFactura = prefs.getString("nombreFactura", getResources().getString(R.string.anonimo));
 
-                    if (nombreFactura.equals("")) {
-                        nombreFactura = getResources().getString(R.string.anonimo);
-                    }
-
-                    elBuilder.setContentText(nombreFactura + " " + getResources().getString(R.string.compra) + " " + nombreProducto + getResources().getString(R.string.precioCompra) + " " + precioProducto + ". Lugar de recogida:" + lugar);
+                    elBuilder.setContentText(getResources().getString(R.string.compra) + " " + nombreProducto + getResources().getString(R.string.precioCompra) + " " + precioProducto + ". Lugar de recogida:" + lugar);
                     elBuilder.setVibrate(new long[]{0, 1000, 500, 1000});
                     elBuilder.setAutoCancel(true);
 

@@ -39,7 +39,7 @@
     <string name="facturaEnviada">La factura ha sido enviada a su telefono vía notificaciones</string>
     <string name="factura">Factura</string>
     <string name="anonimo">Anónimo</string>
-    <string name="compra"> ha comprado </string>
+    <string name="compra">"Ha reservado "</string>
     <string name="precioCompra">. Precio: </string>
     <string name="mayorEdadCompra">¡Tienes que ser mayor de edad para comprar!</string>
     <string name="comprar">Comprar</string>

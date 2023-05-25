@@ -39,7 +39,7 @@
     <string name="facturaEnviada">The invoice has been sent to your phone via notifications</string>
     <string name="factura">Invoice</string>
     <string name="anonimo">Anonimous</string>
-    <string name="compra">" has bought "</string>
+    <string name="compra">Has reserved</string>
     <string name="precioCompra">. Price: </string>
     <string name="mayorEdadCompra">You have to be of legal age to buy!</string>
     <string name="comprar">Buy</string>
