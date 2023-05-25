@@ -202,6 +202,7 @@ public class Login extends AppCompatActivity implements InterfaceIdioma {
                                         //para que si le da a volver atras no vaya aqui y salga de la app
                                         Intent i = new Intent (Login.this, ActividadPrincipal.class);
                                         i.putExtra("email", email.getText().toString());
+                                        i.putExtra("idioma", idiomaApp);
                                         startActivity(i);
                                         finish();
                                     }

@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -83,7 +84,7 @@ public class FragmentPrincipal extends Fragment {
         ActividadPrincipal actividad = (ActividadPrincipal) getActivity();
         email = actividad.obtenerUsuario();
 
-        ImageView localizacion =view.findViewById(R.id.location);
+        ImageButton localizacion =view.findViewById(R.id.location);
         localizacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

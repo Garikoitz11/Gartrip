@@ -129,7 +129,9 @@ public class FragmentEditarPerfil extends Fragment {
             if (result.getResultCode() == RESULT_OK && result.getData()!= null) {
                 Bundle bundle = result.getData().getExtras();
                 foto = (Bitmap) bundle.get("data");
-                imagen.setImageBitmap(foto);
+                if (foto != null) {
+                    imagen.setImageBitmap(foto);
+                }
 
                 File eldirectorio = getActivity().getFilesDir();
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
